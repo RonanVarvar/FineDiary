@@ -1,9 +1,7 @@
 <template>
   <div id="EnterUser" v-show="show">
-    <div class="logo">
-    <!--  <img src="../assets/logo.png" alt="Файний щоденник">-->
+    <img src="../../assets/logo.png" alt="Файний щоденник">
     <h1 class="header">Файний щоденник</h1>
-    </div>
       <form>
         <div class="row">
           <div class="col-sm-6 col-md-4 col-lg-3">

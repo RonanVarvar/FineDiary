@@ -1,7 +1,6 @@
 <template>
-
-  <!--  <img src="../assets/logo.png" alt="Файний щоденник">-->
-  <div id="passwordRemind">
+    <div id="passwordRemind">
+      <img src="../../assets/logo.png" alt="Файний щоденник">
       <h1>Файний щоденник</h1>
       <input
             type="text"
@@ -18,7 +17,6 @@
       </button>
     </div>
   </div>
-
 </template>
 
 <script>
