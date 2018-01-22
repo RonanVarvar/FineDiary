@@ -62,10 +62,14 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
-
+.header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20pt;
+}
 .passwordRemind {
   text-decoration: none;
   color: #86e6b1;
+  cursor: pointer;
 }
 
 .logo {
@@ -97,6 +101,7 @@
   padding: 10px;
   background-color: white;
   color: #49da8a;
+  cursor: pointer;
 }
 
 .registration-link {
@@ -104,8 +109,4 @@
  color: #49da8a;
 }
 
-.header {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20pt;
-}
 </style>
