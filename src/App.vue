@@ -9,9 +9,9 @@
 </template>
 
 <script>
-    import EnterUser from './components/Users/EnterUser.vue';
-    import PasswordRemind from './components/Users/PasswordRemind.vue';
-    import UserFirstRegForm from './components/Users/UserFirstRegForm.vue';
+    import EnterUser from './components/Home/EnterUser.vue';
+    import PasswordRemind from './components/Home/PasswordRemind.vue';
+    import UserFirstRegForm from './components/Home/UserFirstRegForm.vue';
     export default {
       name: 'app',
       data () {

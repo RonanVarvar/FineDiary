@@ -12,8 +12,8 @@
             placeholder="Введіть Вашу e-mail адресу"
             >
       <div class="nav-button">
-        <button>
-        <router-link to="/">Назад</router-link>
+        <button @click="navigateToBack">
+          Назад
       </button>
       <button type="submit">
         Відправити
@@ -26,9 +26,13 @@
 <script>
 export default {
   name: 'PasswordRemind',
-  data () {
-    return {
+  methods: {
+    navigateToBack() {
+      this.$router.push('/');
     }
+  /*data () {
+    return {
+    }*/
   }
 }
 </script>
