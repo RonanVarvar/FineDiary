@@ -1,7 +1,9 @@
-import EnterUser from './components/Users/EnterUser.vue'
-import PasswordRemind from './components/Users/PasswordRemind.vue'
+import EnterUser from './components/Users/EnterUser.vue';
+import PasswordRemind from './components/Users/PasswordRemind.vue';
+import UserFirstRegForm from './components/Users/UserFirstRegForm.vue';
 
 export const routes = [
-  { path: '/EnterUser', component: EnterUser},
-  { path: '/PasswordRemind', component: PasswordRemind}
+  { path: '', component: EnterUser},
+  { path: '/PasswordRemind', component: PasswordRemind},
+  { path: '/UserFirstRegForm', component: UserFirstRegForm}
 ];

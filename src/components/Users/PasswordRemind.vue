@@ -1,22 +1,26 @@
 <template>
+<div>
+  <div class="logo">
+    <img src="../../assets/logo.png" alt="Файний щоденник" width="80px">
+    <h1 class="header">ФАЙНИЙ ЩОДЕННИК</h1>
+  </div>
     <div id="passwordRemind">
-      <img src="../../assets/logo.png" alt="Файний щоденник">
-      <h1>Файний щоденник</h1>
       <input
             type="text"
             id="emailRemind"
             class="form-control"
-            placeholder="E-mail"
+            placeholder="Введіть Вашу e-mail адресу"
             >
       <div class="nav-button">
-        <button @click="show = !show">
-        <router-link to="/EnterUser">Назад</router-link>
+        <button>
+        <router-link to="/">Назад</router-link>
       </button>
       <button type="submit">
         Відправити
       </button>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -24,11 +28,16 @@ export default {
   name: 'PasswordRemind',
   data () {
     return {
-      show: false
     }
   }
 }
 </script>
 
 <style>
+.logo {
+   font-family: Arimo;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
 </style>

@@ -1,7 +1,10 @@
 <template>
-  <div id="EnterUser" v-show="show">
-    <img src="../../assets/logo.png" alt="Файний щоденник">
-    <h1 class="header">Файний щоденник</h1>
+  <div>
+  <div class="logo">
+    <img src="../../assets/logo.png" alt="Файний щоденник" width="110px">
+    <h1 class="header">ФАЙНИЙ ЩОДЕННИК</h1>
+  </div>
+  <div id="EnterUser">
       <form>
         <div class="row">
           <div class="col-sm-6 col-md-4 col-lg-3">
@@ -21,18 +24,22 @@
                   >
           </div>
     		  <div class="col-sm-6 col-md-4 col-lg-3">
-      			<button @click=''>Вхід</button>
-      			<button @click=''>Зареєструватися</button>
+      			<button @click='' class='button'>Вхід</button>
+      			<button @click='' class='button'>
+              <router-link to="/UserFirstRegForm"
+              class="registration-link">Зареєструватися</router-link>
+            </button>
           </div>
-        <div>
-            <button @click="show = !show"><router-link class="passwordRemind"
-            to="/PasswordRemind">
+        <div @click="" class="linkPasswordRemind">
+            <router-link to="/PasswordRemind"
+            class="passwordRemind">
               Не пам'ятаю пароль
-            </router-link></button>
+            </router-link>
 		    </div>
 		  </div>
 		</form>
 		</div>
+  </div>
 </template>
 
 <script>
@@ -40,23 +47,65 @@
     name: 'EnterUser',
     data () {
       return {
-        show: true
       }
     }
   }
 </script>
 
 <style lang="scss" scoped>
-#enterUser {
-  font-family:  Helvetica, Arial, sans-serif;
+/*.body {
+  background-image: url(../assets/background.jpg);
+}*/
+#enterUser{
+  font-family: Arimo;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
+
 .passwordRemind {
   text-decoration: none;
+  color: #86e6b1;
 }
+
 .logo {
-	width: 70px;
+	  text-align: center;
+}
+
+.form-control {
+  width: 400px;
+  height: 55px;
+  margin-bottom: 28px;
+  padding-left: 15px;
+  font-size: 16pt;
+  font-family: Arimo;
+  border: 2px solid #29c770;
+  border-radius: 20px;
+}
+
+.linkPasswordRemind {
+  margin-top: 20px;
+}
+
+.button {
+  font-size: 16pt;
+  font-family: Arimo;
+  border: 2px solid #29c770;
+  border-radius: 15px;
+  width: 200px;
+  height: 55px;
+  padding: 10px;
+  background-color: white;
+  color: #49da8a;
+}
+
+.registration-link {
+ text-decoration: none;
+ color: #49da8a;
+}
+
+.header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20pt;
 }
 </style>
