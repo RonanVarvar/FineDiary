@@ -1,9 +1,4 @@
 <template>
-<div>
-  <div class="logo">
-    <img src="../../assets/logo.png" alt="Файний щоденник" width="110px">
-    <h1 class="header">ФАЙНИЙ ЩОДЕННИК</h1>
-  </div>
     <div id="passwordRemind">
       <input
             type="text"
@@ -15,12 +10,11 @@
         <button class="button" @click="navigateToBack">
           Назад
       </button>
-      <button class="button" type="submit">
-        Відправити
+      <button class="button" @click="massageSend" type="submit">
+          Відправити
       </button>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -29,10 +23,10 @@ export default {
   methods: {
     navigateToBack() {
       this.$router.push('/');
+    },
+    massageSend () {
+      this.$router.push('/MassagePassRemind');
     }
-  /*data () {
-    return {
-    }*/
   }
 }
 </script>
@@ -62,5 +56,6 @@ export default {
   padding: 10px;
   background-color: white;
   color: #49da8a;
+  cursor: pointer;
 }
 </style>

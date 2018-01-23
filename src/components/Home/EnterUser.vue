@@ -1,9 +1,4 @@
 <template>
-  <div>
-  <div class="logo">
-    <img src="../../assets/logo.png" alt="Файний щоденник" width="110px">
-    <h1 class="header">ФАЙНИЙ ЩОДЕННИК</h1>
-  </div>
   <div id="EnterUser">
       <form>
         <div class="row">
@@ -25,10 +20,7 @@
           </div>
     		  <div class="col-sm-6 col-md-4 col-lg-3">
       			<button @click='' class='button'>Вхід</button>
-      			<button @click='' class='button'>
-              <router-link to="/UserFirstRegForm"
-              class="registration-link">Зареєструватися</router-link>
-            </button>
+      			<button @click='navigateToReg' class='button'>Зареєструватися</button>
           </div>
         <div @click="" class="linkPasswordRemind">
             <router-link to="/PasswordRemind"
@@ -39,7 +31,6 @@
 		  </div>
 		</form>
 		</div>
-  </div>
 </template>
 
 <script>
@@ -48,24 +39,23 @@
     data () {
       return {
       }
-    }
+    },
+    methods: {
+        navigateToReg() {
+          this.$router.push('/UserFirstRegForm');
+        }
+      }
   }
 </script>
 
 <style lang="scss" scoped>
-/*.body {
-  background-image: url(../assets/background.jpg);
-}*/
 #enterUser{
   font-family: Arimo;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
-.header {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20pt;
-}
+
 .passwordRemind {
   text-decoration: none;
   color: #86e6b1;
@@ -102,11 +92,6 @@
   background-color: white;
   color: #49da8a;
   cursor: pointer;
-}
-
-.registration-link {
- text-decoration: none;
- color: #49da8a;
 }
 
 </style>

@@ -1,9 +1,4 @@
 <template>
-  <div>
-  <div class="logo">
-    <img src="../../assets/logo.png" alt="Файний щоденник" width="110px">
-    <h1 class="header">ФАЙНИЙ ЩОДЕННИК</h1>
-  </div>
   <div id="UserFirstRegForm">
       <form>
         <div class="row">
@@ -35,7 +30,6 @@
 		  </div>
 		</form>
 		</div>
-  </div>
 </template>
 
 <script>
