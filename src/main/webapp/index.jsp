@@ -37,7 +37,7 @@
             <div class="form-group form-group-lg">
                 <label class="col-sm-2 control-label">Username</label>
                 <div class="col-sm-10">
-                    <input type=text class="form-control" id="name">
+                    <input type=text class="form-control" id="role">
                 </div>
             </div>
             <div class="form-group form-group-lg">
@@ -87,7 +87,7 @@
     function searchViaAjax() {
 
         var search = {}
-        search["name"] = $("#name").val();
+        search["role"] = $("#role").val();
         search["email"] = $("#email").val();
 
         $.ajax({

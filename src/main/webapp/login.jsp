@@ -7,9 +7,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta role="viewport" content="width=device-width, initial-scale=1.0">
+    <meta role="description" content="">
+    <meta role="author" content="">
     <title>ComPay</title>
     <link href="/pages/css/bootstrap.css " rel="stylesheet">
     <link href="/pages/css/jumbotron-narrow.css " rel="stylesheet">
@@ -23,8 +23,8 @@
     <c:url value="/j_spring_security_check" var="loginUrl" />
     <form action="<c:url value="/j_spring_security_check"></c:url>" method="post" role="form">
         <h1 class="form-signin-heading">Авторизация</h1>
-        <input type="text" class="form-control" name="j_username" placeholder="Email address" required autofocus value="">
-        <input type="password" class="form-control" name="j_password" placeholder="Password" required value="">
+        <input type="text" class="form-control" role="j_username" placeholder="Email address" required autofocus value="">
+        <input type="password" class="form-control" role="j_password" placeholder="Password" required value="">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
 
      </form>

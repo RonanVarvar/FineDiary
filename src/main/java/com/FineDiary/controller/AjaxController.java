@@ -1,6 +1,6 @@
 package com.FineDiary.controller;
 
-import com.FineDiary.entity.User;
+import com.FineDiary.entity.Users;
 import com.FineDiary.json.AjaxResponseBody;
 import com.FineDiary.json.SearchCriteria;
 import com.FineDiary.json.UserJSON;
@@ -70,7 +70,7 @@ public class AjaxController {
 
 //        Random random = new Random();
 //        int rand=random.nextInt();
-//        user.setName("romka");
+//        user.setRole("romka");
 //        user.setPassword("040593");
 //        user.setEmail("test"+rand+"@test.test");
 //        user.setLastName("Kosiy");
@@ -85,7 +85,7 @@ public class AjaxController {
 //        User firstUserWithMail = (User) testList.get(0);//Возвращает первую запись
 //
 //        String email = firstUserWithMail.getEmail();
-//        String name = firstUserWithMail.getName();
+//        String name = firstUserWithMail.getRole();
 //        String password = firstUserWithMail.getPassword();
 //        //--- скорее всего сюда сетаить то, что будем брать с базы , чтобы потом оно шло на json
 //        UserJSON userJSONS1 = new UserJSON(password, email, name);

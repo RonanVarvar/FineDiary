@@ -17,22 +17,22 @@
 
     <div class=''>
         <label for='form_fname'>First Name: </label>
-        <input type='text' id='form_fname' name='first_name'>
+        <input type='text' id='form_fname' role='first_name'>
     </div>
 
     <div class=''>
         <label for='form_sname'>Second Name: </label>
-        <input type='text' id='form_sname' name='second_name'>
+        <input type='text' id='form_sname' role='second_name'>
     </div>
 
     <div class=''>
         <label for='form_email'>Email: </label>
-        <input type='email' id='form_email' name='email'>
+        <input type='email' id='form_email' role='email'>
     </div>
 
     <div class=''>
         <label for='form_phone'>Phone: </label>
-        <input type='text' id='form_phone' name='phone'>
+        <input type='text' id='form_phone' role='phone'>
     </div>
 
     <div class="">

@@ -1,6 +1,6 @@
 package com.FineDiary.controller;
 
-import com.FineDiary.entity.User;
+import com.FineDiary.entity.Users;
 import com.FineDiary.service.UserService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +16,14 @@ import java.util.Random;
 
 @Controller
 public class TestController{
-    @Autowired
+    /*@Autowired
     UserService svc;
 
 
     @RequestMapping(value = "/save",method = RequestMethod.GET)
     @ResponseBody
     public String saveTest(){
-        User user = new User();
+        Users user = new Users();
 
         Random random = new Random();
         int rand=random.nextInt();
@@ -81,5 +81,5 @@ public class TestController{
         Gson gs = new Gson();
         String str = gs.toJson(firstUserWIthName);
         return "status 200"+str;
-    }
+    }*/
 }
