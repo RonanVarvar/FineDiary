@@ -38,7 +38,7 @@ public class MarkLog {
     }
 
     public MarkLog(Long markId, String note) {
-        setMarkId(markId);
-        setNote(note);
+        this.markId = markId;
+        this.note = note;
     }
 }

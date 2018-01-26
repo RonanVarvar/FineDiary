@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>war</packaging>
 
-    <role>FineDiary</role>
+    <name>FineDiary</name>
     <groupId>com.FineDiary</groupId>
     <artifactId>FineDiary</artifactId>
     <version>FineDiary</version>

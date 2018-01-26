@@ -14,7 +14,7 @@
 
 <h1 class="form-signin-heading">Восстановление пароля</h1>
 <p>Input your Email</p>
-<input type="password" class="form-control" role="j_username" placeholder="Email address" required autofocus value="">
+<input type="password" class="form-control" name="j_username" placeholder="Email address" required autofocus value="">
 <button class="btn btn-lg btn-primary btn-block" type="submit">Подтвердить</button>
 <form>
 
