@@ -3,7 +3,9 @@
 	<div class="container">
 		<div class="row">
       <header-home></header-home>
-      <router-view></router-view>
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
 		</div>
 	</div>
   </div>
@@ -34,13 +36,19 @@
         newPasswordForm: NewPasswordForm
     }
 }
+
 </script>
 
 <style lang="scss">
+body {
+  background: url('./assets/background.jpg') no-repeat center center fixed;
+}
+
 #app {
   font-family:  Arimo;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
+
 </style>

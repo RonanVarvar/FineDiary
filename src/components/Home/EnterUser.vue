@@ -8,6 +8,7 @@
                   id="email"
                   class="form-control"
                   placeholder="E-mail"
+                  v-model="user.email"
                   >
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3">
@@ -16,11 +17,12 @@
                   id="password"
                   class="form-control"
                   placeholder="Пароль"
+                  v-model="user.pasword"
                   >
           </div>
     		  <div class="col-sm-6 col-md-4 col-lg-3">
-      			<button @click='' class='button'>Вхід</button>
-      			<button @click='navigateToReg' class='button'>Зареєструватися</button>
+      			<button @click='login()' class='button'>Вхід</button>
+      			<button @click='navigateToReg()' class='button'>Зареєструватися</button>
           </div>
         <div @click="" class="linkPasswordRemind">
             <router-link to="/PasswordRemind"
@@ -38,14 +40,23 @@
     name: 'EnterUser',
     data () {
       return {
+        user: {
+          email: '',
+          pasword: ''
+        }
       }
     },
     methods: {
-        navigateToReg() {
+       navigateToReg() {
           this.$router.push('/UserFirstRegForm');
-        }
-      }
-  }
+        },
+        login: function () {
+         this.$auth.login({ email, password }).then(function () {
+         // Execute application logic after successful login
+       })
+     }
+ }
+}
 </script>
 
 <style lang="scss" scoped>
