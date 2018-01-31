@@ -2,17 +2,13 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './App.vue';
 import axios from 'axios';
-import VueAxios from 'vue-axios'
-import VueAuthenticate from 'vue-authenticate'
+import VueAxios from 'vue-axios';
+import VueAuthenticate from 'vue-authenticate';
 import { routes } from './routes';
 import Datepicker from 'vuejs-datepicker';
+import BootstrapVue from 'bootstrap-vue'
 
-Vue.component('my-component', {
-    components: {
-        Datepicker
-    }
-});
-
+Vue.use(BootstrapVue);
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
 Vue.use(VueAuthenticate, {

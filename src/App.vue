@@ -16,10 +16,9 @@
     import HeaderHome from './components/Home/HeaderHome.vue';
     import EnterUser from './components/Home/EnterUser.vue';
     import PasswordRemind from './components/Home/PasswordRemind.vue';
-    import UserFirstRegForm from './components/Home/UserFirstRegForm.vue';
+    import Registration  from './components/Home/Registration.vue';
     import MassagePassRemind from './components/Home/MassagePassRemind.vue';
     import NewPasswordForm from './components/Home/NewPasswordForm.vue';
-    import TeacherRegForm from './components/Home/TeacherRegForm.vue'
 
     export default {
       name: 'app',
@@ -32,10 +31,9 @@
         headerHome: HeaderHome,
         enterUser: EnterUser,
         passwordRemind: PasswordRemind,
-        userFirstRegForm: UserFirstRegForm,
+        registration: Registration,
         massagePassPemind: MassagePassRemind,
         newPasswordForm: NewPasswordForm,
-        teacherRegForm: TeacherRegForm
     }
 }
 
