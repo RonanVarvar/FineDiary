@@ -6,6 +6,7 @@ import Home from './components/Home/Home.vue';
 import Header from './components/Home/HeaderHome.vue';
 import MassagePassRemind from './components/Home/MassagePassRemind.vue';
 import NewPasswordForm from './components/Home/NewPasswordForm.vue';
+import TeacherRegForm from './components/Home/TeacherRegForm.vue';
 
 export const routes = [
     { path: '', name: 'home', components: {
@@ -17,5 +18,6 @@ export const routes = [
         { path: '/UserFirstRegForm', component: UserFirstRegForm },
         { path: '/MassagePassRemind', component: MassagePassRemind },
         { path: '/NewPasswordForm', component: NewPasswordForm }
-    ] }
+    ] },
+    { path: '/TeacherRegForm',  component: TeacherRegForm }
 ];

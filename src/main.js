@@ -5,6 +5,13 @@ import axios from 'axios';
 import VueAxios from 'vue-axios'
 import VueAuthenticate from 'vue-authenticate'
 import { routes } from './routes';
+import Datepicker from 'vuejs-datepicker';
+
+Vue.component('my-component', {
+    components: {
+        Datepicker
+    }
+});
 
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
