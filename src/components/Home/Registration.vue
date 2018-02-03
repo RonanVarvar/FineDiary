@@ -202,13 +202,24 @@ export default {
 }
 .TeacherRegForm {
   background-color: rgba(105,220,156,.9);
+  width: 100%;
 }
 .header {
   font-family: 'Montserrat', sans-serif;
   font-size: 20pt;
 }
-.form-control {
+.form-control, .name {
   width: 400px;
+  height: 55px;
+  margin-bottom: 28px;
+  padding-left: 15px;
+  font-size: 16pt;
+  font-family: Arimo;
+  border: 2px solid #29c770;
+  border-radius: 20px;
+}
+.info {
+  width: 300px;
   height: 55px;
   margin-bottom: 28px;
   padding-left: 15px;
@@ -238,6 +249,18 @@ export default {
   border: 2px ridge #29c770;
   border-radius: 20px;
   background-color: white;
+  cursor: pointer;
+}
+.buttonAdd {
+  font-size: 16pt;
+  font-family: Arimo;
+  border: 2px solid #29c770;
+  border-radius: 15px;
+  width: 100px;
+  height: 55px;
+  padding: 10px;
+  background-color: white;
+  color: #49da8a;
   cursor: pointer;
 }
 
