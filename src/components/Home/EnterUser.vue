@@ -1,6 +1,6 @@
 <template>
   <div id="EnterUser">
-      <form>
+      <form class="login" @submit.prevent="login">
         <div class="row">
           <div class="col-sm-6 col-md-4 col-lg-3">
             <input
@@ -8,7 +8,8 @@
                   id="email"
                   class="form-control"
                   placeholder="E-mail"
-                  v-model="userData.email"
+                  v-model="useremail"
+                  required
                   >
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3">
@@ -17,11 +18,12 @@
                   id="password"
                   class="form-control"
                   placeholder="Пароль"
-                  v-model="userData.password"
+                  v-model="password"
+                  required
                   >
           </div>
     		  <div class="col-sm-6 col-md-4 col-lg-3">
-      			<button @click.prevent='login' class='button'>Вхід</button>
+      			<button @click.prevent='login' class='button' type="submit">Вхід</button>
       			<button @click='navigateToReg' class='button'>Зареєструватися</button>
           </div>
         <div @click="" class="linkPasswordRemind">
@@ -51,12 +53,11 @@
        navigateToReg() {
           this.$router.push('/registration');
         },
-        login () {
-          this.users.push({
-            'email': this.userData.email,
-            'password': this.userData.password,
-          });
-        console.log (this.users)
+        login: function () {
+          const { username, password } = this
+          myLoginRoutine({ username, password }).then(() => {
+            this.$router.push('/')
+          })
         }
 }
 }

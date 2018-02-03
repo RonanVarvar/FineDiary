@@ -32,7 +32,7 @@
 		  </div>
 		</form>
 
-    <b-modal id="teacherModal">
+    <b-modal  centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
       <div id="TeacherRegForm">
           <div class="row">
               <div class="wrap">
@@ -143,7 +143,13 @@ export default {
     addSubject() {},
     addClasses() {},
     addMobileNomber() {}
-  }
+  },
+  showModal () {
+  this.$refs.myModalRef.show()
+},
+hideModal () {
+  this.$refs.myModalRef.hide()
+}
   }
 </script>
 

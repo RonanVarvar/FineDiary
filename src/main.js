@@ -6,21 +6,13 @@ import VueAxios from 'vue-axios';
 import VueAuthenticate from 'vue-authenticate';
 import { routes } from './routes';
 import Datepicker from 'vuejs-datepicker';
-import BootstrapVue from 'bootstrap-vue'
+import BootstrapVue from 'bootstrap-vue';
+import Vuex from 'vuex';
 
 Vue.use(BootstrapVue);
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
-Vue.use(VueAuthenticate, {
-  baseUrl: 'http://localhost:3000', // Your API domain
-
-  providers: {
-    github: {
-      clientId: '',
-      redirectUri: 'http://localhost:8080/auth/callback' // Your client app URL
-    }
-  }
-})
+Vue.use(Vuex);
 
 const router = new VueRouter({
   routes,
