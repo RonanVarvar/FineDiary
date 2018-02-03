@@ -5,7 +5,6 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import VueAuthenticate from 'vue-authenticate';
 import { routes } from './routes';
-import Datepicker from 'vuejs-datepicker';
 import BootstrapVue from 'bootstrap-vue';
 import Vuex from 'vuex';
 

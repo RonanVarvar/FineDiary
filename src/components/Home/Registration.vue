@@ -8,7 +8,7 @@
                   id="email-reg"
                   class="form-control"
                   placeholder="Введіть Ваш E-mail"
-                  v-model="userReg.email"
+                  v-model="email"
                   >
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3">
@@ -17,7 +17,7 @@
                   id="password-reg"
                   class="form-control"
                   placeholder="Придумайте пароль"
-                  v-model="userReg.password"
+                  v-model="password"
                   >
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3">
@@ -52,7 +52,7 @@
                   <input type="checkbox" id="man" value="Man" v-model="checkedSex">
                   <label for="man">Чоловіча</label>
                   <p class="sub-header">Дата народження</p>
-                  <datepicker language="uk" format="dd.MM.yyyy"></datepicker>
+                  <date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
               </div>
               <div class="wrap">
                   <p class="header">Шкільні дані</p>
@@ -108,29 +108,78 @@
 </template>
 
 <script>
-import Datepicker from 'vuejs-datepicker'
+import myDatepicker from 'vue-datepicker'
+
 export default {
-  name: 'Registration',
-  components: {
-    Datepicker
-  },
-  data() {
+  data () {
     return {
-      userReg: {
-        email: '',
-        password: ''
+      startTime: {
+          time: ''
+        },
+        endtime: {
+          time: ''
+        },
+        option: {
+          type: 'day',
+          week: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Суб', 'Нд'],
+          month: ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'],
+          format: 'DD.MM.YYYY',
+          placeholder: '',
+          inputStyle: {
+            'display': 'inline-block',
+            'padding': '6px',
+            'line-height': '22px',
+            'font-size': '16px',
+            'border': '2px solid #fff',
+            'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 0.2)',
+            'border-radius': '2px',
+            'color': '#5F5F5F'
+          },
+          color: {
+            header: '#ccc',
+            headerText: '#f00'
+          },
+          buttons: {
+            ok: 'Ok',
+            cancel: 'Скасувати'
+          },
+          overlayOpacity: 0.5, // 0.5 as default
+          dismissible: true // as true as default
+        },
+        timeoption: {
+          type: 'min',
+          week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
+          month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          format: 'YYYY-MM-DD HH:mm'
+        },
+        multiOption: {
+          type: 'multi-day',
+          week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
+          month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          format:"YYYY-MM-DD HH:mm"
+        },
+        limit: [{
+          type: 'weekday',
+          available: [0, 1, 2, 3, 4, 5, 6]
+        },
+        {
+          type: 'fromto',
+          from: '',
+          to: ''
+        }]
+      }
     },
-      regUsers: [  ],
-  }
-},
+    components: {
+      'date-picker': myDatepicker
+    },
   methods: {
     navigateToBack() {
       this.$router.push('/');
     },
     Registration(event) {
       this.regUsers.push({
-        'email': this.userReg.email,
-        'password': this.userReg.password,
+        'email': this.email,
+        'password': this.password,
       });
     },
     back() {
@@ -143,13 +192,7 @@ export default {
     addSubject() {},
     addClasses() {},
     addMobileNomber() {}
-  },
-  showModal () {
-  this.$refs.myModalRef.show()
-},
-hideModal () {
-  this.$refs.myModalRef.hide()
-}
+  }
   }
 </script>
 
