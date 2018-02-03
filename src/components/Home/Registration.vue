@@ -1,9 +1,9 @@
 <template>
   <div>
   <b-modal  centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
-    <div id="TeacherRegForm">
-        <div class="row">
-            <div class="wrap">
+    <div class="TeacherRegForm">
+        <div class="row ">
+            <div class="wrap col-sm-6 col-md-4 col-lg-3">
                 <p class="header">Персональні дані</p>
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <input type="text" class="name" placeholder="Ім'я" v-model="teacher.name">
@@ -22,7 +22,7 @@
                 <p class="sub-header">Дата народження</p>
                 <date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
             </div>
-            <div class="wrap">
+            <div class="wrap col-sm-6 col-md-4 col-lg-3">
                 <p class="header">Шкільні дані</p>
                 <div class="col-sm-8 col-md-6 col-lg-4">
                     <input type="text" class="info" placeholder="Школа в якій ви викладаєте"
@@ -49,7 +49,7 @@
                     <button @click='regTeacher()' class='button'>Зберегти</button>
                 </div>
             </div>
-            <div class="wrap">
+            <div class="wrap col-sm-6 col-md-4 col-lg-3">
                 <div class="col-sm-6 col-md-4 col-lg-3">
                     <input type="text" class="name" placeholder="Ваш клас" v-model="teacher.grade">
                 </div>
@@ -191,11 +191,17 @@ export default {
 #Registration {
   position: relative;
   z-index: 0;
-  width: 100%;
 }
 #teacherModal {
   position: absolute;
+  margin-top: -270px;
   z-index: 20;
+}
+.wrap {
+  display: inline-block;
+}
+.TeacherRegForm {
+  background-color: rgba(105,220,156,.9);
 }
 .header {
   font-family: 'Montserrat', sans-serif;
