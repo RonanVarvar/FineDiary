@@ -66,7 +66,7 @@
   </b-modal>
 
   //Student modal window
-  <b-modal centered ref="myModalRef" id="studentModal" ok-only hide-header-close>
+  <b-modal centered ref="studentModalRef" id="studentModal" ok-only hide-header-close>
     <div class="StudentRegForm">
       <div class="container ">
         <div class="row col-lg-12">
@@ -248,7 +248,7 @@ export default {
   z-index: 0;
 }
 
-#teacherModal {
+#teacherModal #studentModal {
   position: absolute;
   margin-top: -270px;
   z-index: 20;
@@ -258,7 +258,7 @@ export default {
   display: inline-flex;
 }
 
-.TeacherRegForm {
+.TeacherRegForm .StudentRegForm {
   background-color: rgba(105, 220, 156, .9);
   width: 100%;
 }
