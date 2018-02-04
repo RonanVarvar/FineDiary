@@ -1,7 +1,7 @@
 <template>
 <div>
 
-  //Teacher modal window
+  <!-- Teacher modal window -->
   <b-modal centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
     <div class="TeacherRegForm">
       <div class="container ">
@@ -65,15 +65,15 @@
     </div>
   </b-modal>
 
-  //Student modal window
-  <b-modal centered ref="studentModalRef" id="studentModal" ok-only hide-header-close>
-    <div class="StudentRegForm">
+  <!--Student modal window -->
+ <b-modal centered ref="studentModalRef" id="studentModal" ok-only hide-header-close>
+    <div class="TeacherRegForm">
       <div class="container ">
         <div class="row col-lg-12">
-          <div class="col-lg-4">
+        <!--<div class="col-lg-4">
             <p class="header">Данні учня/учениці</p>
             <div>
-              <input type="text" class="name" placeholder="Код отріманій від вчителя" v-model="student.code">
+              <input type="text" class="name" placeholder="Код отріманий від вчителя" v-model="student.code">
             </div>
             <div>
               <input type="text" class="name" placeholder="Ім'я" v-model="student.name">
@@ -132,13 +132,13 @@
               <input type="text" class="info" placeholder="Номер мобільного телефону" v-model="teacher.subject">
               <button class="buttonAdd" @click='addMobileNumber()'>Додати</button>
             </div>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
   </b-modal>
 
-  //First form for registration
+  <!--First form for registration -->
   <div id="Registration">
     <form>
       <div class="container">
@@ -248,7 +248,13 @@ export default {
   z-index: 0;
 }
 
-#teacherModal #studentModal {
+#teacherModal  {
+  position: absolute;
+  margin-top: -270px;
+  z-index: 20;
+}
+
+#studentModal {
   position: absolute;
   margin-top: -270px;
   z-index: 20;
@@ -258,7 +264,12 @@ export default {
   display: inline-flex;
 }
 
-.TeacherRegForm .StudentRegForm {
+.TeacherRegForm {
+  background-color: rgba(105, 220, 156, .9);
+  width: 100%;
+}
+
+.StudentRegFor {
   background-color: rgba(105, 220, 156, .9);
   width: 100%;
 }
