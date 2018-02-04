@@ -2,16 +2,17 @@
   <div>
   <b-modal  centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
     <div class="TeacherRegForm">
-        <div class="row ">
-            <div class="wrap col-sm-6 col-md-4 col-lg-3">
+        <div class="container ">
+          <div class="row col-lg-12">
+            <div class="col-lg-4">
                 <p class="header">Персональні дані</p>
-                <div class="col-sm-6 col-md-4 col-lg-3">
+                <div>
                     <input type="text" class="name" placeholder="Ім'я" v-model="teacher.name">
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
+                <div>
                     <input type="text" class="name" placeholder="По-батькові" v-model="teacher.middleName">
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
+                <div>
                     <input type="text" class="name" placeholder="Прізвище" v-model="teacher.lastName">
                 </div>
                 <p class="sub-header">Cтать</p>
@@ -22,58 +23,52 @@
                 <p class="sub-header">Дата народження</p>
                 <date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
             </div>
-            <div class="wrap col-sm-6 col-md-4 col-lg-3">
+            <div class="col-lg-4">
                 <p class="header">Шкільні дані</p>
-                <div class="col-sm-8 col-md-6 col-lg-4">
+                <div>
                     <input type="text" class="info" placeholder="Школа в якій ви викладаєте"
                         v-model="teacher.school">
+                   <button class="buttonAdd" @click='addSchool()'>Додати</button>
                 </div>
-                <div class="col-sm-8 col-md-6 col-lg-4">
-                    <button class="buttonAdd" @click='addSchool()'>Додати</button>
-                </div>
-                <div class="col-sm-8 col-md-6 col-lg-4">
+                <div>
                     <input type="text" class="info" placeholder="Предмет який ви викладаєте"
                         v-model="teacher.subject">
-                </div>
-                <div class="col-sm-8 col-md-6 col-lg-4">
                     <button class="buttonAdd" @click='addSubject()'>Додати</button>
                 </div>
-                <div class="col-sm-8 col-md-6 col-lg-4">
+                <div>
                     <input type="checkbox" id="form-master" value="formMaster" v-model="checkedFM">
                     <label for="man">У Вас є класне керівництво</label>
                     <input type="checkbox" id="Admin" value="Admin" v-model="checkedAdmin">
                     <label for="man">Адміністратор школи</label>
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <button @click='back()' class='button'>Назад</button>
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+                <div>
                     <button @click='regTeacher()' class='button'>Зберегти</button>
                 </div>
             </div>
-            <div class="wrap col-sm-6 col-md-4 col-lg-3">
-                <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="col-lg-4">
+              <br><br><br><br><br>
+                <div>
                     <input type="text" class="name" placeholder="Ваш клас" v-model="teacher.grade">
                 </div>
-            </div>
-            <div class="col-sm-8 col-md-6 col-lg-4">
-                <input type="text" class="info" placeholder="Класи, в яких ви викладаєте"
-                    v-model="teacher.subject">
-            </div>
-            <div class="col-sm-8 col-md-6 col-lg-4">
-                <button class="buttonAdd" @click='addClasses()'>Додати</button>
-            </div>
-            <div class="col-sm-8 col-md-6 col-lg-4">
-                <input type="text" class="info" placeholder="Номер мобільного телефону"
-                    v-model="teacher.subject">
-            </div>
-            <div class="col-sm-8 col-md-6 col-lg-4">
-                <button class="buttonAdd" @click='addMobileNomber()'>Додати</button>
+                <div>
+                    <input type="text" class="info" placeholder="Класи, в яких ви викладаєте"
+                        v-model="teacher.subject">
+                    <button class="buttonAdd" @click='addClasses()'>Додати</button>
+                </div>
+                <div>
+                    <input type="text" class="info" placeholder="Номер мобільного телефону"
+                        v-model="teacher.subject">
+                    <button class="buttonAdd" @click='addMobileNumber()'>Додати</button>
+                </div>
             </div>
         </div>
+        </div>
     </div>
-</b-modal>
+  </b-modal>
   <div id="Registration">
       <form>
-        <div class="row">
+        <div class="container">
           <div class="col-sm-6 col-md-4 col-lg-3">
             <input
                   type="text"
@@ -103,8 +98,6 @@
           </div>
 		  </div>
 		</form>
-
-
     </div>
 </div>
 </template>
@@ -182,7 +175,7 @@ export default {
     addSchool() {},
     addSubject() {},
     addClasses() {},
-    addMobileNomber() {}
+    addMobileNumber() {}
   }
   }
 </script>
@@ -197,8 +190,8 @@ export default {
   margin-top: -270px;
   z-index: 20;
 }
-.wrap {
-  display: inline-block;
+.col-lg-12 {
+  display: inline-flex;
 }
 .TeacherRegForm {
   background-color: rgba(105,220,156,.9);
@@ -220,10 +213,10 @@ export default {
 }
 .info {
   width: 300px;
-  height: 55px;
+  height: 50px;
   margin-bottom: 28px;
   padding-left: 15px;
-  font-size: 16pt;
+  font-size: 14pt;
   font-family: Arimo;
   border: 2px solid #29c770;
   border-radius: 20px;
