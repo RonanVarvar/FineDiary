@@ -1,104 +1,165 @@
 <template>
-  <div>
-  <b-modal  centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
+<div>
+
+  //Teacher modal window
+  <b-modal centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
     <div class="TeacherRegForm">
-        <div class="container ">
-          <div class="row col-lg-12">
-            <div class="col-lg-4">
-                <p class="header">Персональні дані</p>
-                <div>
-                    <input type="text" class="name" placeholder="Ім'я" v-model="teacher.name">
-                </div>
-                <div>
-                    <input type="text" class="name" placeholder="По-батькові" v-model="teacher.middleName">
-                </div>
-                <div>
-                    <input type="text" class="name" placeholder="Прізвище" v-model="teacher.lastName">
-                </div>
-                <p class="sub-header">Cтать</p>
-                <input type="checkbox" id="woman" value="Woman" v-model="checkedSex">
-                <label for="woman">Жіноча</label>
-                <input type="checkbox" id="man" value="Man" v-model="checkedSex">
-                <label for="man">Чоловіча</label>
-                <p class="sub-header">Дата народження</p>
-                <date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
+      <div class="container ">
+        <div class="row col-lg-12">
+          <div class="col-lg-4">
+            <p class="header">Персональні дані</p>
+            <div>
+              <input type="text" class="name" placeholder="Ім'я" v-model="teacher.name">
             </div>
-            <div class="col-lg-4">
-                <p class="header">Шкільні дані</p>
-                <div>
-                    <input type="text" class="info" placeholder="Школа в якій ви викладаєте"
-                        v-model="teacher.school">
-                   <button class="buttonAdd" @click='addSchool()'>Додати</button>
-                </div>
-                <div>
-                    <input type="text" class="info" placeholder="Предмет який ви викладаєте"
-                        v-model="teacher.subject">
-                    <button class="buttonAdd" @click='addSubject()'>Додати</button>
-                </div>
-                <div>
-                    <input type="checkbox" id="form-master" value="formMaster" v-model="checkedFM">
-                    <label for="man">У Вас є класне керівництво</label>
-                    <input type="checkbox" id="Admin" value="Admin" v-model="checkedAdmin">
-                    <label for="man">Адміністратор школи</label>
-                </div>
-                <br><br><br><br><br><br><br><br><br><br><br><br>
-                <div>
-                    <button @click='regTeacher()' class='button'>Зберегти</button>
-                </div>
+            <div>
+              <input type="text" class="name" placeholder="По-батькові" v-model="teacher.middleName">
             </div>
-            <div class="col-lg-4">
-              <br><br><br><br><br>
-                <div>
-                    <input type="text" class="name" placeholder="Ваш клас" v-model="teacher.grade">
-                </div>
-                <div>
-                    <input type="text" class="info" placeholder="Класи, в яких ви викладаєте"
-                        v-model="teacher.subject">
-                    <button class="buttonAdd" @click='addClasses()'>Додати</button>
-                </div>
-                <div>
-                    <input type="text" class="info" placeholder="Номер мобільного телефону"
-                        v-model="teacher.subject">
-                    <button class="buttonAdd" @click='addMobileNumber()'>Додати</button>
-                </div>
+            <div>
+              <input type="text" class="name" placeholder="Прізвище" v-model="teacher.lastName">
             </div>
+            <p class="sub-header">Cтать</p>
+            <input type="checkbox" id="woman" value="Woman" v-model="checkedSex">
+            <label for="woman">Жіноча</label>
+            <input type="checkbox" id="man" value="Man" v-model="checkedSex">
+            <label for="man">Чоловіча</label>
+            <p class="sub-header">Дата народження</p>
+            <date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
+          </div>
+          <div class="col-lg-4">
+            <p class="header">Шкільні дані</p>
+            <div>
+              <input type="text" class="info" placeholder="Школа в якій ви викладаєте" v-model="teacher.school">
+              <button class="buttonAdd" @click='addSchool()'>Додати</button>
+            </div>
+            <div>
+              <input type="text" class="info" placeholder="Предмет який ви викладаєте" v-model="teacher.subject">
+              <button class="buttonAdd" @click='addSubject()'>Додати</button>
+            </div>
+            <div>
+              <input type="checkbox" id="form-master" value="formMaster" v-model="checkedFM">
+              <label for="man">У Вас є класне керівництво</label>
+              <input type="checkbox" id="Admin" value="Admin" v-model="checkedAdmin">
+              <label for="man">Адміністратор школи</label>
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <div>
+              <button @click='regTeacher()' class='button'>Зберегти</button>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <br><br><br><br><br>
+            <div>
+              <input type="text" class="name" placeholder="Ваш клас" v-model="teacher.grade">
+            </div>
+            <div>
+              <input type="text" class="info" placeholder="Класи, в яких ви викладаєте" v-model="teacher.subject">
+              <button class="buttonAdd" @click='addClasses()'>Додати</button>
+            </div>
+            <div>
+              <input type="text" class="info" placeholder="Номер мобільного телефону" v-model="teacher.subject">
+              <button class="buttonAdd" @click='addMobileNumber()'>Додати</button>
+            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
   </b-modal>
-  <div id="Registration">
-      <form>
-        <div class="container">
-          <div class="col-sm-6 col-md-4 col-lg-3">
-            <input
-                  type="text"
-                  id="email-reg"
-                  class="form-control"
-                  placeholder="Введіть Ваш E-mail"
-                  v-model="email"
-                  >
+
+  //Student modal window
+  <b-modal centered ref="myModalRef" id="studentModal" ok-only hide-header-close>
+    <div class="StudentRegForm">
+      <div class="container ">
+        <div class="row col-lg-12">
+          <div class="col-lg-4">
+            <p class="header">Данні учня/учениці</p>
+            <div>
+              <input type="text" class="name" placeholder="Код отріманій від вчителя" v-model="student.code">
+            </div>
+            <div>
+              <input type="text" class="name" placeholder="Ім'я" v-model="student.name">
+            </div>
+            <div>
+              <input type="text" class="name" placeholder="По-батькові" v-model="student.middleName">
+            </div>
+            <div>
+              <input type="text" class="name" placeholder="Прізвище" v-model="student.lastName">
+            </div>
+            <p class="sub-header">Cтать</p>
+            <input type="checkbox" id="woman" value="Woman" v-model="checkedSex">
+            <label for="woman">Жіноча</label>
+            <input type="checkbox" id="man" value="Man" v-model="checkedSex">
+            <label for="man">Чоловіча</label>
+            <p class="sub-header">Дата народження</p>
+            <date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
+            <div>
+              <input type="text" class="name" placeholder="Мобільній телефон" v-model="student.phone">
+            </div>
+            <div>
+              <input type="text" class="name" placeholder="Домашня адреса" v-model="student.adress">
+            </div>
           </div>
-          <div class="col-sm-6 col-md-4 col-lg-3">
-            <input
-                  type="password"
-                  id="password-reg"
-                  class="form-control"
-                  placeholder="Придумайте пароль"
-                  v-model="password"
-                  >
+          <div class="col-lg-4">
+            <p class="header">Шкільні дані</p>
+            <div>
+              <input type="text" class="info" placeholder="Школа в якій ви викладаєте" v-model="teacher.school">
+              <button class="buttonAdd" @click='addSchool()'>Додати</button>
+            </div>
+            <div>
+              <input type="text" class="info" placeholder="Предмет який ви викладаєте" v-model="teacher.subject">
+              <button class="buttonAdd" @click='addSubject()'>Додати</button>
+            </div>
+            <div>
+              <input type="checkbox" id="form-master" value="formMaster" v-model="checkedFM">
+              <label for="man">У Вас є класне керівництво</label>
+              <input type="checkbox" id="Admin" value="Admin" v-model="checkedAdmin">
+              <label for="man">Адміністратор школи</label>
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <div>
+              <button @click='regTeacher()' class='button'>Зберегти</button>
+            </div>
           </div>
-          <div class="col-sm-6 col-md-4 col-lg-3">
-            <b-btn v-b-modal.teacherModal class="button-typeUser" >Я вчитель</b-btn>
-          </br>
-            <b-btn v-b-modal.student Modal class="button-typeUser" >Учень/батьки</b-btn>
+          <div class="col-lg-4">
+            <br><br><br><br><br>
+            <div>
+              <input type="text" class="name" placeholder="Ваш клас" v-model="teacher.grade">
+            </div>
+            <div>
+              <input type="text" class="info" placeholder="Класи, в яких ви викладаєте" v-model="teacher.subject">
+              <button class="buttonAdd" @click='addClasses()'>Додати</button>
+            </div>
+            <div>
+              <input type="text" class="info" placeholder="Номер мобільного телефону" v-model="teacher.subject">
+              <button class="buttonAdd" @click='addMobileNumber()'>Додати</button>
+            </div>
           </div>
-    		  <div class="col-sm-6 col-md-4 col-lg-3">
-            <button  class="button" @click="navigateToBack">Назад</button>
-      			<button class="button" @click.prevent='Registration'>Зареєструватися</button>
-          </div>
-		  </div>
-		</form>
+        </div>
+      </div>
     </div>
+  </b-modal>
+
+  //First form for registration
+  <div id="Registration">
+    <form>
+      <div class="container">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <input type="text" id="email-reg" class="form-control" placeholder="Введіть Ваш E-mail" v-model="email">
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <input type="password" id="password-reg" class="form-control" placeholder="Придумайте пароль" v-model="password">
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <b-btn v-b-modal.teacherModal class="button-typeUser">Я вчитель</b-btn>
+          </br>
+          <b-btn v-b-modal.studentModal class="button-typeUser">Учень/батьки</b-btn>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <button class="button" @click="navigateToBack">Назад</button>
+          <button class="button" @click.prevent='Registration'>Зареєструватися</button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 </template>
 
@@ -106,43 +167,43 @@
 import myDatepicker from 'vue-datepicker'
 
 export default {
-  data () {
+  data() {
     return {
       startTime: {
-          time: ''
+        time: ''
+      },
+      endtime: {
+        time: ''
+      },
+      option: {
+        type: 'day',
+        week: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Суб', 'Нд'],
+        month: ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'],
+        format: 'DD.MM.YYYY',
+        placeholder: '',
+        inputStyle: {
+          'display': 'inline-block',
+          'padding': '10px',
+          'line-height': '16px',
+          'font-size': '18px',
+          'border': '2px solid #29c770',
+          'border-radius': '15px',
+          'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 0.2)',
+          'color': 'black',
+          'font-family': 'Arimo'
         },
-        endtime: {
-          time: ''
+        color: {
+          header: '#29c770',
+          headerText: 'white'
         },
-        option: {
-          type: 'day',
-          week: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Суб', 'Нд'],
-          month: ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'],
-          format: 'DD.MM.YYYY',
-          placeholder: '',
-          inputStyle: {
-            'display': 'inline-block',
-            'padding': '10px',
-            'line-height': '16px',
-            'font-size': '18px',
-            'border': '2px solid #29c770',
-            'border-radius': '15px',
-            'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 0.2)',
-            'color': 'black',
-            'font-family' : 'Arimo'
-          },
-          color: {
-            header: '#29c770',
-            headerText: 'white'
-          },
-          buttons: {
-            ok: 'ОК',
-            cancel: 'Скасувати'
-          },
-          overlayOpacity: 0.5, // 0.5 as default
-          dismissible: true // as true as default
+        buttons: {
+          ok: 'ОК',
+          cancel: 'Скасувати'
         },
-        limit: [{
+        overlayOpacity: 0.5, // 0.5 as default
+        dismissible: true // as true as default
+      },
+      limit: [{
           type: 'weekday',
           available: [0, 1, 2, 3, 4, 5, 6]
         },
@@ -150,12 +211,13 @@ export default {
           type: 'fromto',
           from: '',
           to: ''
-        }]
-      }
-    },
-    components: {
-      'date-picker': myDatepicker
-    },
+        }
+      ]
+    }
+  },
+  components: {
+    'date-picker': myDatepicker
+  },
   methods: {
     navigateToBack() {
       this.$router.push('/');
@@ -177,7 +239,7 @@ export default {
     addClasses() {},
     addMobileNumber() {}
   }
-  }
+}
 </script>
 
 <style>
@@ -185,23 +247,29 @@ export default {
   position: relative;
   z-index: 0;
 }
+
 #teacherModal {
   position: absolute;
   margin-top: -270px;
   z-index: 20;
 }
+
 .col-lg-12 {
   display: inline-flex;
 }
+
 .TeacherRegForm {
-  background-color: rgba(105,220,156,.9);
+  background-color: rgba(105, 220, 156, .9);
   width: 100%;
 }
+
 .header {
   font-family: 'Montserrat', sans-serif;
   font-size: 20pt;
 }
-.form-control, .name {
+
+.form-control,
+.name {
   width: 400px;
   height: 55px;
   margin-bottom: 28px;
@@ -211,6 +279,7 @@ export default {
   border: 2px solid #29c770;
   border-radius: 20px;
 }
+
 .info {
   width: 300px;
   height: 50px;
@@ -221,6 +290,7 @@ export default {
   border: 2px solid #29c770;
   border-radius: 20px;
 }
+
 .button {
   font-size: 16pt;
   font-family: Arimo;
@@ -233,6 +303,7 @@ export default {
   color: #49da8a;
   cursor: pointer;
 }
+
 .button-typeUser {
   font-size: 16pt;
   width: 400px;
@@ -244,6 +315,7 @@ export default {
   background-color: white;
   cursor: pointer;
 }
+
 .buttonAdd {
   font-size: 16pt;
   font-family: Arimo;
@@ -256,5 +328,4 @@ export default {
   color: #49da8a;
   cursor: pointer;
 }
-
 </style>
