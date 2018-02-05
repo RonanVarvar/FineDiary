@@ -1,8 +1,6 @@
 package com.FineDiary.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "teacher2school")
@@ -20,6 +18,10 @@ public class Teacher2School {
     }
 
     /* Getters */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
     @Column(name = "teacherId")
     public Long getTeacherId() {
         return teacherId;

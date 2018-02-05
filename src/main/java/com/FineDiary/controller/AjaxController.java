@@ -1,6 +1,6 @@
 package com.FineDiary.controller;
 
-import com.FineDiary.entity.Users;
+
 import com.FineDiary.json.AjaxResponseBody;
 import com.FineDiary.json.SearchCriteria;
 import com.FineDiary.json.UserJSON;

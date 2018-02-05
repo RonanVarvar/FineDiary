@@ -1,6 +1,6 @@
 package com.FineDiary.controller;
 
-import com.FineDiary.entity.Users;
+
 import com.FineDiary.service.UserService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,6 @@
 package com.FineDiary.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 //CREATE TABLE info (userId INTEGER NOT NULL, name VARCHAR(15), surname VARCHAR(15) NOT NULL, patronymic VARCHAR(15), gender CHAR(1) NOT NULL, birthday VARCHAR(11) NOT NULL, phoneNumber VARCHAR(13) NOT NULL);
 
@@ -47,6 +45,11 @@ public class Info {
     }
 
     /* Getters */
+    //need to add id for correct db's work
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
     @Column(name = "userId")
     public Long getUserId() {
         return userId;

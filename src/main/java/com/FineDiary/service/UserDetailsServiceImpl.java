@@ -1,7 +1,8 @@
 package com.FineDiary.service;
 
+import com.FineDiary.entity.Authorization.Enums.UserRoleEnum;
 import com.FineDiary.entity.User;
-import com.FineDiary.entity.autorization.enums.UserRoleEnum;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -23,11 +24,10 @@ public class UserDetailsServiceImpl implements UserDetailsService{
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        List testList = userService.findByEmail(email);//сетаем то, что мы будем искать
-        User user = (User) testList.get(0);//Возвращает первую запись
+       User user = userService.findByEmail(email);//сетаем то, что мы будем искать
 
 
-        Set<GrantedAuthority> roles = new HashSet();
+        Set <GrantedAuthority> roles = new HashSet();
         roles.add(new SimpleGrantedAuthority(UserRoleEnum.USER.name()));
         UserDetails userDetails =
                 new org.springframework.security.core.userdetails.User(user.getEmail(),
@@ -35,5 +35,6 @@ public class UserDetailsServiceImpl implements UserDetailsService{
                         roles);
         return userDetails;
     }
+
 
 }

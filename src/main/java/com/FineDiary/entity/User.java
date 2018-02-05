@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class Users {
+public class User {
     private Long id;
     private String email;
     private String password;
@@ -59,11 +59,11 @@ public class Users {
     }
 
     /* Constructor */
-    public Users() {
+    public User() {
 
     }
 
-    public Users(String email, String password, Byte role) {
+    public User(String email, String password, Byte role) {
         this.email = email;
         this.password = password;
         this.role = role;

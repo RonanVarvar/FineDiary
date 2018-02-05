@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 import java.util.List;
 
 @Service
@@ -33,10 +35,20 @@ public class UserServiceImpl implements UserService{
     @Transactional
     public User create(User user) {
         //sha-1 encoding before saving to the database
-        String shaPasswordEncoded = DigestUtils.sha1Hex(user.getPassword());
-        user.setPassword(shaPasswordEncoded);
+//        String shaPasswordEncoded = DigestUtils.sha1Hex(user.getPassword());
+//        user.setPassword(shaPasswordEncoded);
+//        return userRepository.save(user);
+        byte[] bytes = new byte[0];
+        try {
+            bytes = user.getPassword().getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        String encoded = Base64.getEncoder().encodeToString(bytes);
+        user.setPassword(encoded);
         return userRepository.save(user);
     }
+
 
     @Override
     @Transactional
@@ -46,8 +58,30 @@ public class UserServiceImpl implements UserService{
 
     @Override
     @Transactional
-    public List<String> findByEmail(String email) {
-        return userRepository.findByEmail(email);
+    public User findByEmail(String email) {
+        return (User) userRepository.findByEmail(email);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public void updateUser(String password, String email) {
+        byte[] bytes = new byte[0];
+        try {
+            bytes = password.getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        String encoded = Base64.getEncoder().encodeToString(bytes);
+        userRepository.updateUser(encoded,email);
+    }
+
+    @Override
+    public void deleteUser(int id) {
+
     }
 
 

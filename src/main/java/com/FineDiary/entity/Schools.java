@@ -11,6 +11,9 @@ public class Schools {
     private String name;
     private String address;
 
+    public Schools() {
+    }
+
     /* Setters */
     public void setId(Long id) {
         this.id = id;
