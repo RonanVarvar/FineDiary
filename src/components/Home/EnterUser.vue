@@ -22,7 +22,7 @@
                   required
                   >
           </div>
-    		  <div class="col-sm-6 col-md-4 col-lg-3">
+    		  <div class="EnterRegistrate">
       			<button @click.prevent='login' class='button' type="submit">Вхід</button>
       			<button @click='navigateToReg' class='button'>Зареєструватися</button>
           </div>
@@ -64,11 +64,15 @@
 </script>
 
 <style lang="scss" scoped>
-#enterUser{
+#EnterUser{
   font-family: Arimo;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+}
+.EnterRegistrate{
+    margin:0 auto;
+    display: inline-block;
+    width:50%;
 }
 
 .passwordRemind {
@@ -76,7 +80,9 @@
   color: #86e6b1;
   cursor: pointer;
 }
-
+.button:first-child{
+    margin-bottom: 25px;
+}
 .logo {
 	  text-align: center;
 }
