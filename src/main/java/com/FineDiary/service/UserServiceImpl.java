@@ -50,11 +50,11 @@ public class UserServiceImpl implements UserService{
     }
 
 
-    @Override
-    @Transactional
-    public List<String> findByName(String name) {
-        return userRepository.findByName(name);
-    }
+//    @Override
+//    @Transactional
+//    public List<String> findByName(String name) {
+//        return userRepository.findByName(name);
+//    }
 
     @Override
     @Transactional

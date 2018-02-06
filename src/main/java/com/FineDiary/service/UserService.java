@@ -10,7 +10,7 @@ public interface UserService{
     User findUserById(Integer id);
     //User findUserByEmail(String email);
     User create(User user);
-    List<String> findByName(String name);
+    //List<String> findByName(String name);
     User findByEmail(String name);
 
 

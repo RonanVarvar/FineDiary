@@ -1,4 +1,4 @@
-package com.FineDiary.entity.Authorization.Enums;
+package com.FineDiary.entity.Authorization;
 
 public enum UserRoleEnum {
     ADMIN,

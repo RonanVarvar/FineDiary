@@ -1,6 +1,6 @@
 package com.FineDiary.service;
 
-import com.FineDiary.entity.Authorization.Enums.UserRoleEnum;
+import com.FineDiary.entity.Authorization.UserRoleEnum;
 import com.FineDiary.entity.User;
 
 import org.springframework.beans.factory.annotation.Autowired;

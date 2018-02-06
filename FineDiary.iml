@@ -26,7 +26,7 @@
         <datasource-mapping>
           <factory-entry name="LOCAL_PERSISTENCE" />
         </datasource-mapping>
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistanceDev.xml" />
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistanceProdutc.xml" />
       </configuration>
     </facet>
   </component>
@@ -140,5 +140,7 @@
     <orderEntry type="library" name="Maven: com.jcabi:jcabi-log:0.14" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mail:1.4.7" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
   </component>
 </module>
