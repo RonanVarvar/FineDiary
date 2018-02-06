@@ -46,10 +46,7 @@
         },
         methods: {
             MenuHovered() {
-               console.log('MenuHovered');
                let liIdMenu = document.querySelector('.menuListOpen').style.display = 'block';
-               console.log(liIdMenu);
-               // liIdMenu.style.display = 'block';
             },
             MenuOutHovered(){
                 let liIdMenu = document.querySelector('.menuListOpen').style.display = 'none';
