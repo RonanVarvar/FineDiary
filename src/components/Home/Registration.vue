@@ -1,5 +1,6 @@
 <template>
-<div>
+
+<div class="row">
 
   <!-- Teacher modal window -->
   <b-modal centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
@@ -153,7 +154,7 @@
           </br>
           <b-btn v-b-modal.studentModal class="button-typeUser">Учень/батьки</b-btn>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="twobuttonsCenter">
           <button class="button" @click="navigateToBack">Назад</button>
           <button class="button" @click.prevent='Registration'>Зареєструватися</button>
         </div>
@@ -164,6 +165,7 @@
 </template>
 
 <script>
+
 import myDatepicker from 'vue-datepicker'
 
 export default {
@@ -216,7 +218,7 @@ export default {
     }
   },
   components: {
-    'date-picker': myDatepicker
+    'date-picker': myDatepicker,
   },
   methods: {
     navigateToBack() {
@@ -247,7 +249,12 @@ export default {
   position: relative;
   z-index: 0;
 }
-
+.row{
+  border:1px solid black;
+  display: inline-block;
+  text-align: center;
+  margin:0 auto;
+}
 #teacherModal  {
   position: absolute;
   margin-top: -270px;
@@ -279,6 +286,13 @@ export default {
   font-size: 20pt;
 }
 
+.twobuttonsCenter{
+  text-align: center;
+  width:50%;
+  margin:0 auto;
+  }
+
+
 .form-control,
 .name {
   width: 400px;
@@ -301,7 +315,9 @@ export default {
   border: 2px solid #29c770;
   border-radius: 20px;
 }
-
+.button:first-child{
+  margin-bottom: 25px;
+}
 .button {
   font-size: 16pt;
   font-family: Arimo;

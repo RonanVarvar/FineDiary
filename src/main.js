@@ -7,11 +7,14 @@ import VueAuthenticate from 'vue-authenticate';
 import { routes } from './routes';
 import BootstrapVue from 'bootstrap-vue';
 import Vuex from 'vuex';
+import { Navbar, Dropdown } from 'bootstrap-vue/es/components';
 
 Vue.use(BootstrapVue);
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
 Vue.use(Vuex);
+Vue.use(Navbar);
+Vue.use(Dropdown);
 
 const router = new VueRouter({
   routes,
