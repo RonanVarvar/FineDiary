@@ -1,71 +1,97 @@
 package com.FineDiary.entity;
 
 import javax.persistence.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 //CREATE TABLE users (id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT, email VARCHAR(30) NOT NULL, password VARCHAR(30) NOT NULL, role INTEGER NOT NULL);
 
 @Entity
 @Table(name = "users")
 public class User {
-    private Long id;
-    private String email;
-    private String password;
-    private Byte role;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
-    /* Setters */
-    public void setId(Long id) {
+    @Column(name = "PASSWORD",nullable = false)
+    private String password;
+
+    @Column(name = "EMAIL",nullable = false,unique = true)
+    private String email;
+
+    @Column (name = "NAME",nullable = false)
+    private String name;
+
+    @Column(name = "LASTNAME",nullable = false)
+    private String lastName;
+
+    @Column(name = "ROLE",nullable = false)
+    private String role;
+
+    //Getters and Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getPassword() {
+        return password;
+    }
+
+    public String getPasswordDecoded(){
+        byte[] decoded = Base64.getDecoder().decode(password);
+        String str = new String(decoded, StandardCharsets.UTF_8);
+        return str;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setRole(Byte role) {
-        this.role = role;
-    }
-
-    /* Getters */
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    public Long getId() {
-        return id;
-    }
-
-    @Column(name = "email")
     public String getEmail() {
         return email;
     }
 
-    @Column(name = "password")
-    public String getPassword() {
-        return password;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    /*
-     * 0 - admin
-     * 1 - teacher
-     * 2 - parent
-     * 3 - student
-     */
-    @Column(name = "role")
-    public Byte getRole() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getRole() {
         return role;
     }
 
-    /* Constructor */
-    public User() {
-
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    public User(String email, String password, Byte role) {
-        this.email = email;
-        this.password = password;
-        this.role = role;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
