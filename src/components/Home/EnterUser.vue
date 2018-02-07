@@ -54,8 +54,8 @@
           this.$router.push('/registration');
         },
         login: function () {
-          const { username, password } = this
-          myLoginRoutine({ username, password }).then(() => {
+          const { useremail, password } = this
+          this.$store.dispatch(AUTH_REQUEST, { useremail, password }).then(() => {
             this.$router.push('/')
           })
         }
