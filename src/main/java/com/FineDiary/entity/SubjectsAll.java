@@ -7,37 +7,28 @@ import javax.persistence.*;
 @Entity
 @Table(name = "subjectsAll")
 public class SubjectsAll {
-    private Long id;
-    private String subject;
 
-    /* Setters */
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    /* Getters */
     @Id
     @GeneratedValue
     @Column(name = "id")
-    public Long getId() {
+    private int id;
+
+    @Column(name = "subject")
+    private String subject;
+
+    public int getId() {
         return id;
     }
 
-    @Column(name = "subject")
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getSubject() {
         return subject;
     }
 
-    /* Constructors */
-    public SubjectsAll() {
-
-    }
-
-    public SubjectsAll(String subject) {
+    public void setSubject(String subject) {
         this.subject = subject;
     }
 }

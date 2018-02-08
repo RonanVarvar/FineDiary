@@ -7,52 +7,48 @@ import javax.persistence.*;
 @Entity
 @Table(name = "subjects")
 public class Subjects {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @Column(name = "subjectId")
     private Long subjectId;
+
+    @Column(name = "classId")
     private Long classId;
+
+    @Column(name = "teacherId")
     private Long teacherId;
 
-    /* Setters */
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Long getSubjectId() {
+        return subjectId;
+    }
+
     public void setSubjectId(Long subjectId) {
         this.subjectId = subjectId;
+    }
+
+    public Long getClassId() {
+        return classId;
     }
 
     public void setClassId(Long classId) {
         this.classId = classId;
     }
 
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    /* Getters */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
-    @Column(name = "subjectId")
-    public Long getSubjectId() {
-        return subjectId;
-    }
-
-    @Column(name = "classId")
-    public Long getClassId() {
-        return classId;
-    }
-
-    @Column(name = "teacherId")
     public Long getTeacherId() {
         return teacherId;
     }
 
-    /* Constructor */
-
-    public Subjects() {
-
-    }
-
-    public Subjects(Long subjectId, Long classId, Long teacherId) {
-        this.subjectId = subjectId;
-        this.classId = classId;
+    public void setTeacherId(Long teacherId) {
         this.teacherId = teacherId;
     }
 }

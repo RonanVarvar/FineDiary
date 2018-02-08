@@ -7,40 +7,37 @@ import javax.persistence.*;
 @Entity
 @Table(name = "student2class")
 public class Student2Class {
-    private Long studentId;
-    private Long classId;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    /* Setters */
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
-    public void setClassId(Long classId) {
-        this.classId = classId;
-    }
-
-    /* Getters */
     @Column(name = "studentId")
+    private Long studentId;
+
+    @Column(name = "classId")
+    private Long classId;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Long getStudentId() {
         return studentId;
     }
 
-    @Column(name = "classId")
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
+    }
+
     public Long getClassId() {
         return classId;
     }
 
-    /* Constructor */
-    public Student2Class() {
-
-    }
-
-    public Student2Class(Long studentId, Long classId) {
-        this.studentId = studentId;
+    public void setClassId(Long classId) {
         this.classId = classId;
     }
 }

@@ -7,51 +7,50 @@ import javax.persistence.*;
 @Entity
 @Table(name = "parents")
 public class Parents {
-    private Long studentId;
-    private Long fatherId;
-    private Long motherId;
 
-    /* Setters */
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
-    public void setFatherId(Long fatherId) {
-        this.fatherId = fatherId;
-    }
-
-    public void setMotherId(Long motherId) {
-        this.motherId = motherId;
-    }
-
-    /* Getters */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name = "studentId")
-    public Long getStudentId() {
+    private int studentId;
+
+    @Column(name = "fatherId")
+    private int fatherId;
+
+    @Column(name = "motherId")
+    private int motherId;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getStudentId() {
         return studentId;
     }
 
-    @Column(name = "fatherId")
-    public Long getFatherId() {
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public int getFatherId() {
         return fatherId;
     }
 
-    @Column(name = "motherId")
-    public Long getMotherId() {
+    public void setFatherId(int fatherId) {
+        this.fatherId = fatherId;
+    }
+
+    public int getMotherId() {
         return motherId;
     }
 
-    /* Constructor */
-    public Parents() {
-
-    }
-
-    public Parents(Long studentId, Long fatherId, Long motherId) {
-        this.studentId = studentId;
-        this.fatherId = fatherId;
+    public void setMotherId(int motherId) {
         this.motherId = motherId;
     }
 }

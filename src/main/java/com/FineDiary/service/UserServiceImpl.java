@@ -56,10 +56,16 @@ public class UserServiceImpl implements UserService{
 //        return userRepository.findByName(name);
 //    }
 
+//@Override
+//@Transactional
+//public List<String> findByName(String name) {
+//    return userRepository.findByName(name);
+//}
+
     @Override
     @Transactional
     public User findByEmail(String email) {
-        return (User) userRepository.findByEmail(email);
+        return userRepository.findByEmail(email);
     }
 
     @Override
@@ -81,8 +87,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void deleteUser(int id) {
-
+        userRepository.deleteById(id);
     }
+
 
 
 }

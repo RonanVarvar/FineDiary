@@ -7,68 +7,67 @@ import javax.persistence.*;
 @Entity
 @Table(name = "classes")
 public class Classes {
-    private Long id;
-    private Long schoolId;
-    private Long curatorId;
-    private Byte year;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "schoolId")
+    private int schoolId;
+
+    @Column(name = "curatorId")
+    private int curatorId;
+
+    @Column(name = "year")
+    private byte year;
+
+    @Column(name = "letter")
     private Character letter;
 
+
+    /* Getters */
+
+    public int getId() {
+        return id;
+    }
+    public int getSchoolId() {
+        return schoolId;
+    }
+    public int getCuratorId() {
+        return curatorId;
+    }
+    /* Year+letter like 11-A, 6-B */
+    public Byte getYear() {
+        return year;
+    }
+    public Character getLetter() {
+        return letter;
+    }
     /* Setters */
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
-
-    public void setSchoolId(Long schoolId) {
+    public void setSchoolId(int schoolId) {
         this.schoolId = schoolId;
     }
-
-    public void setCuratorId(Long curatorId) {
+    public void setCuratorId(int curatorId) {
         this.curatorId = curatorId;
     }
-
     public void setYear(Byte year) {
         this.year = year;
     }
-
     public void setLetter(Character letter) {
         this.letter = letter;
     }
 
-    /* Getters */
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    public Long getId() {
-        return id;
-    }
-
-    @Column(name = "schoolId")
-    public Long getSchoolId() {
-        return schoolId;
-    }
-
-    @Column(name = "curatorId")
-    public Long getCuratorId() {
-        return curatorId;
-    }
-
-    /* Year+letter like 11-A, 6-B */
-    @Column(name = "year")
-    public Byte getYear() {
-        return year;
-    }
-
-    @Column(name = "letter")
-    public Character getLetter() {
-        return letter;
-    }
 
     /* Constructor */
     public Classes() {
 
     }
 
-    public Classes(Long schoolId, Long curatorId, Byte year, Character letter) {
+    public Classes(int schoolId, int curatorId, Byte year, Character letter) {
         this.schoolId = schoolId;
         this.curatorId = curatorId;
         this.year = year;

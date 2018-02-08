@@ -7,51 +7,49 @@ import javax.persistence.*;
 @Entity
 @Table(name = "studentInfo")
 public class StudentInfo {
-    private Long studentId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @Column(name = "studentId")
+    private int studentId;
+
+    @Column(name = "healthId")
     private Long healthId;
+
+    @Column(name = "archiveNumber")
     private String archiveNumber;
 
-    /* Setters */
-    public void setStudentId(Long studentId) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
         this.studentId = studentId;
+    }
+
+    public Long getHealthId() {
+        return healthId;
     }
 
     public void setHealthId(Long healthId) {
         this.healthId = healthId;
     }
 
-    public void setArchiveNumber(String archiveNumber) {
-        this.archiveNumber = archiveNumber;
-    }
-
-    /* Getters */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
-    @Column(name = "studentId")
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    @Column(name = "healthId")
-    public Long getHealthId() {
-        return healthId;
-    }
-
-    @Column(name = "archiveNumber")
     public String getArchiveNumber() {
         return archiveNumber;
     }
 
-    /* Constructor */
-    public StudentInfo() {
-
-    }
-
-    public StudentInfo(Long studentId, Long healthId, String archiveNumber) {
-        this.studentId = studentId;
-        this.healthId = healthId;
+    public void setArchiveNumber(String archiveNumber) {
         this.archiveNumber = archiveNumber;
     }
 }

@@ -7,75 +7,62 @@ import javax.persistence.*;
 @Entity
 @Table(name = "marks")
 public class Marks {
-    private Long id;
-    private Long studentId;
-    private Long subjectId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @Column(name = "studentId")
+    private int studentId;
+
+    @Column(name = "subjectId")
+    private int subjectId;
+
+    @Column(name = "date")
     private String date;
+
+    @Column(name = "mark")
     private Byte mark;
 
-    /* Setters */
-    public void setId(Long id) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void setStudentId(Long studentId) {
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
 
-    public void setSubjectId(Long subjectId) {
+    public int getSubjectId() {
+        return subjectId;
+    }
+
+    public void setSubjectId(int subjectId) {
         this.subjectId = subjectId;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public void setDate(String date) {
         this.date = date;
     }
 
-    public void setMark(Byte mark) {
-        this.mark = mark;
-    }
-
-    /* Getters */
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    public Long getId() {
-        return id;
-    }
-
-    @Column(name = "studentId")
-    public Long getStudentId() {
-        return studentId;
-    }
-
-    @Column(name = "subjectId")
-    public Long getSubjectId() {
-        return subjectId;
-    }
-
-    /* SQLite has no type like DATETIME so
-     * I use String to avoid unexpected behaviour */
-    @Column(name = "date")
-    public String getDate() {
-        return date;
-    }
-
-    /* Marks vary from 1 to 12
-     * >O.M.>Also possible from 1 to 100 (for university)
-     * */
-    @Column(name = "mark")
     public Byte getMark() {
         return mark;
     }
 
-    /* Constructor */
-    public Marks() {
-
-    }
-
-    public Marks(Long studentId, Long subjectId, String date, Byte mark) {
-        this.studentId = studentId;
-        this.subjectId = subjectId;
-        this.date = date;
+    public void setMark(Byte mark) {
         this.mark = mark;
     }
+
+
 }

@@ -4,11 +4,12 @@ import javax.persistence.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
-//CREATE TABLE users (id INTEGER PRIMARY KEY NOT NULL AUTOINCREMENT, email VARCHAR(30) NOT NULL, password VARCHAR(30) NOT NULL, role INTEGER NOT NULL);
+
 
 @Entity
-@Table(name = "users")
+@Table(name = "USERS")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -27,6 +28,9 @@ public class User {
 
     @Column(name = "ROLE",nullable = false)
     private String role;
+
+    @Column(name = "SURNAME",nullable = false)
+    private String surrName;
 
     //Getters and Setters
     public int getId() {
@@ -81,6 +85,14 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getSurrName() {
+        return surrName;
+    }
+
+    public void setSurrName(String surrName) {
+        this.surrName = surrName;
     }
 
     @Override

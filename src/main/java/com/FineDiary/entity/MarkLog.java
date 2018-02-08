@@ -7,41 +7,49 @@ import javax.persistence.*;
 @Entity
 @Table(name = "markLog")
 public class MarkLog {
-    private Long markId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @Column(name = "markId")
+    public int markId;
+
+    @Column(name = "note")
     private String note;
 
-    /* Setters */
-    public void setMarkId(Long markId) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getMarkId() {
+        return markId;
+    }
+
+    public void setMarkId(int markId) {
         this.markId = markId;
+    }
+
+    public String getNote() {
+        return note;
     }
 
     public void setNote(String note) {
         this.note = note;
     }
-
-    /* Getters */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
-
-    @Column(name = "markId")
-    public Long getMarkId() {
-        return markId;
-    }
-
-    @Column(name = "note")
-    public String getNote() {
-        return note;
-    }
-
-    /* Constructor */
-    public MarkLog() {
-
-    }
-
-    public MarkLog(Long markId, String note) {
-        this.markId = markId;
-        this.note = note;
-    }
 }
+
+
+
+
+
+
+
+
+
+
+

@@ -7,37 +7,47 @@ import javax.persistence.*;
 @Entity
 @Table(name = "healthGroups")
 public class HealthGroups {
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    int id;
+
+    @Column(name = "name")
     private String name;
 
-    /* Setters */
-    public void setId(Long id) {
+    @Column(name = "HEALSGROUP")
+    private String healsGroup;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    /* Getters */
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    public Long getId() {
-        return id;
+    public String getHealsGroup() {
+        return healsGroup;
     }
 
-    @Column(name = "name")
-    public String getName() {
-        return name;
+    public void setHealsGroup(String healsGroup) {
+        this.healsGroup = healsGroup;
     }
 
     /* Constructors */
     public HealthGroups() {
-
     }
-
-    public HealthGroups(String name) {
+    public HealthGroups(String name, String healsGroup) {
         this.name = name;
+        this.healsGroup = healsGroup;
     }
 }

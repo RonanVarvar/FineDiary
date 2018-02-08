@@ -7,85 +7,83 @@ import javax.persistence.*;
 @Entity
 @Table(name = "info")
 public class Info {
-    private Long userId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "surname")
     private String surname;
+
+    @Column(name = "patronymic")
     private String patronymic;
+
+    @Column(name = "gender")
     private Character gender;
+
+    @Column(name = "birthday")
     private String birthday;
+
+    @Column(name = "phoneNumber")
     private String phoneNumber;
 
-    /* Setters */
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
     }
 
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
     }
 
+    public Character getGender() {
+        return gender;
+    }
+
     public void setGender(Character gender) {
         this.gender = gender;
+    }
+
+    public String getBirthday() {
+        return birthday;
     }
 
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    /* Getters */
-    //need to add id for correct db's work
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
-    @Column(name = "userId")
-    public Long getUserId() {
-        return userId;
-    }
-
-    @Column(name = "name")
-    public String getName() {
-        return name;
-    }
-
-    @Column(name = "surname")
-    public String getSurname() {
-        return surname;
-    }
-
-    @Column(name = "patronymic")
-    public String getPatronymic() {
-        return patronymic;
-    }
-
-    /* 'M' = male, 'F' = female */
-    @Column(name = "gender")
-    public Character getGender() {
-        return gender;
-    }
-
-    /* SQLite has no type like DATETIME so
-     * I use String to avoid unexpected behaviour */
-    @Column(name = "birthday")
-    public String getBirthday() {
-        return birthday;
-    }
-
-    @Column(name = "phoneNumber")
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     /* Constructor */
@@ -95,7 +93,7 @@ public class Info {
 
     public Info(Long userId, String name, String surname, String patronymic,
                 Character gender, String birthday, String phoneNumber) {
-        this.userId = userId;
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;

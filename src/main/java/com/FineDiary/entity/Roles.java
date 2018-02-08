@@ -7,37 +7,28 @@ import javax.persistence.*;
 @Entity
 @Table(name = "roles")
 public class Roles {
-    private Byte id;
-    private String role;
 
-    /* Setters */
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public void setId(Byte id) {
-        this.id = id;
-    }
-
-    /* Getters */
     @Id
     @GeneratedValue
     @Column(name = "id")
-    public Byte getId() {
+    private int id;
+
+    @Column(name = "role")
+    private String role;
+
+    public int getId() {
         return id;
     }
 
-    @Column(name = "role")
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getRole() {
         return role;
     }
 
-    /* Constructors */
-    public Roles() {
-
-    }
-
-    public Roles(String role) {
+    public void setRole(String role) {
         this.role = role;
     }
 }
