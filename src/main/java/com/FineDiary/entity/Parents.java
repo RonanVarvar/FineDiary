@@ -12,7 +12,7 @@ public class Parents {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "studentId")
+    @Column(name = "studentId", nullable = false)
     private int studentId;
 
     @Column(name = "fatherId")
@@ -52,5 +52,15 @@ public class Parents {
 
     public void setMotherId(int motherId) {
         this.motherId = motherId;
+    }
+
+    @Override
+    public String toString() {
+        return "Parents{" +
+                "id=" + id +
+                ", studentId=" + studentId +
+                ", fatherId=" + fatherId +
+                ", motherId=" + motherId +
+                '}';
     }
 }

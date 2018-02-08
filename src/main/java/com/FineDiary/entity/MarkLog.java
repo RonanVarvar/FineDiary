@@ -12,7 +12,7 @@ public class MarkLog {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "markId")
+    @Column(name = "markId", nullable = false)
     public int markId;
 
     @Column(name = "note")
@@ -40,6 +40,15 @@ public class MarkLog {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    @Override
+    public String toString() {
+        return "MarkLog{" +
+                "id=" + id +
+                ", markId=" + markId +
+                ", note='" + note + '\'' +
+                '}';
     }
 }
 

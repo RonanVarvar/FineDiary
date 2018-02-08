@@ -12,10 +12,10 @@ public class Schools {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "address")
+    @Column(name = "address", nullable = false)
     private String address;
 
 
@@ -41,5 +41,14 @@ public class Schools {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Schools{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

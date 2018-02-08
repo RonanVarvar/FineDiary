@@ -12,17 +12,17 @@ public class Marks {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "studentId")
+    @Column(name = "studentId", nullable = false)
     private int studentId;
 
-    @Column(name = "subjectId")
+    @Column(name = "subjectId", nullable = false)
     private int subjectId;
 
-    @Column(name = "date")
+    @Column(name = "date", nullable = false)
     private String date;
 
-    @Column(name = "mark")
-    private Byte mark;
+    @Column(name = "mark", nullable = false)
+    private int mark;
 
     public int getId() {
         return id;
@@ -56,13 +56,23 @@ public class Marks {
         this.date = date;
     }
 
-    public Byte getMark() {
+    public int getMark() {
         return mark;
     }
 
-    public void setMark(Byte mark) {
+    public void setMark(int mark) {
         this.mark = mark;
     }
 
+    @Override
+    public String toString() {
+        return "Marks{" +
+                "id=" + id +
+                ", studentId=" + studentId +
+                ", subjectId=" + subjectId +
+                ", date='" + date + '\'' +
+                ", mark=" + mark +
+                '}';
+    }
 
 }

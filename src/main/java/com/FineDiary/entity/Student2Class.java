@@ -11,11 +11,11 @@ public class Student2Class {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "studentId")
-    private Long studentId;
+    @Column(name = "studentId", nullable = false)
+    private int studentId;
 
-    @Column(name = "classId")
-    private Long classId;
+    @Column(name = "classId", nullable = false)
+    private int classId;
 
     public int getId() {
         return id;
@@ -25,19 +25,28 @@ public class Student2Class {
         this.id = id;
     }
 
-    public Long getStudentId() {
+    public int getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Long studentId) {
+    public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
 
-    public Long getClassId() {
+    public int getClassId() {
         return classId;
     }
 
-    public void setClassId(Long classId) {
+    public void setClassId(int classId) {
         this.classId = classId;
+    }
+
+    @Override
+    public String toString() {
+        return "Student2Class{" +
+                "id=" + id +
+                ", studentId=" + studentId +
+                ", classId=" + classId +
+                '}';
     }
 }

@@ -12,13 +12,13 @@ public class StudentInfo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "studentId")
+    @Column(name = "studentId", nullable = false)
     private int studentId;
 
-    @Column(name = "healthId")
-    private Long healthId;
+    @Column(name = "healthId", nullable = false)
+    private int healthId;
 
-    @Column(name = "archiveNumber")
+    @Column(name = "archiveNumber", nullable = false)
     private String archiveNumber;
 
     public int getId() {
@@ -37,11 +37,11 @@ public class StudentInfo {
         this.studentId = studentId;
     }
 
-    public Long getHealthId() {
+    public int getHealthId() {
         return healthId;
     }
 
-    public void setHealthId(Long healthId) {
+    public void setHealthId(int healthId) {
         this.healthId = healthId;
     }
 
@@ -51,5 +51,15 @@ public class StudentInfo {
 
     public void setArchiveNumber(String archiveNumber) {
         this.archiveNumber = archiveNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentInfo{" +
+                "id=" + id +
+                ", studentId=" + studentId +
+                ", healthId=" + healthId +
+                ", archiveNumber='" + archiveNumber + '\'' +
+                '}';
     }
 }

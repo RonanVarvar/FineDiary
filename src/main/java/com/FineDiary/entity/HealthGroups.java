@@ -12,10 +12,10 @@ public class HealthGroups {
     @Column(name = "id")
     int id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "HEALSGROUP")
+    @Column(name = "HEALSGROUP", nullable = false)
     private String healsGroup;
 
 
@@ -49,5 +49,14 @@ public class HealthGroups {
     public HealthGroups(String name, String healsGroup) {
         this.name = name;
         this.healsGroup = healsGroup;
+    }
+
+    @Override
+    public String toString() {
+        return "HealthGroups{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", healsGroup='" + healsGroup + '\'' +
+                '}';
     }
 }

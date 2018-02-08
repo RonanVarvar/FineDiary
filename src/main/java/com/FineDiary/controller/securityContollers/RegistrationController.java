@@ -54,7 +54,8 @@ public class RegistrationController {
             user.setEmail(newUser.getEmail());
             user.setPassword(newUser.getPassword());
             user.setName(newUser.getName());
-            user.setLastName(newUser.getSurname());
+            user.setSurrName(newUser.getSurname());
+            user.setLastName("LastName");
             user.setRole("user");
             service.create(user);
 

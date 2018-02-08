@@ -10,10 +10,10 @@ public class Teacher2School {
     private int id;
 
     @Column(name = "teacherId")
-    private Long teacherId;
+    private int teacherId;
 
     @Column(name = "schoolId")
-    private Long schoolId;
+    private int schoolId;
 
     public int getId() {
         return id;
@@ -23,19 +23,28 @@ public class Teacher2School {
         this.id = id;
     }
 
-    public Long getTeacherId() {
+    public int getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(Long teacherId) {
+    public void setTeacherId(int teacherId) {
         this.teacherId = teacherId;
     }
 
-    public Long getSchoolId() {
+    public int getSchoolId() {
         return schoolId;
     }
 
-    public void setSchoolId(Long schoolId) {
+    public void setSchoolId(int schoolId) {
         this.schoolId = schoolId;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher2School{" +
+                "id=" + id +
+                ", teacherId=" + teacherId +
+                ", schoolId=" + schoolId +
+                '}';
     }
 }

@@ -12,22 +12,22 @@ public class Info {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "surname")
+    @Column(name = "surname", nullable = false)
     private String surname;
 
     @Column(name = "patronymic")
     private String patronymic;
 
-    @Column(name = "gender")
+    @Column(name = "gender", nullable = false)
     private Character gender;
 
-    @Column(name = "birthday")
+    @Column(name = "birthday", nullable = false)
     private String birthday;
 
-    @Column(name = "phoneNumber")
+    @Column(name = "phoneNumber", nullable = false)
     private String phoneNumber;
 
     public int getId() {
@@ -100,5 +100,18 @@ public class Info {
         this.gender = gender;
         this.birthday = birthday;
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Info{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", gender=" + gender +
+                ", birthday='" + birthday + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }

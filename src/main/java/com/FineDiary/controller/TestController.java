@@ -35,6 +35,7 @@ public class TestController{
         user.setEmail("test"+rand+"@test.test");
         user.setLastName("Kosiy");
         user.setSurrName("Stanislavovich");
+        user.setRole("Admin");
         svc.create(user);
         return "User " + user.getName() + "with " + user.getEmail() + " email has been saved";
     }

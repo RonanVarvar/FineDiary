@@ -13,16 +13,16 @@ public class Classes {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "schoolId")
+    @Column(name = "schoolId", nullable = false)
     private int schoolId;
 
-    @Column(name = "curatorId")
+    @Column(name = "curatorId", nullable = false)
     private int curatorId;
 
-    @Column(name = "year")
+    @Column(name = "year", nullable = false)
     private byte year;
 
-    @Column(name = "letter")
+    @Column(name = "letter", nullable = false)
     private Character letter;
 
 
@@ -72,5 +72,16 @@ public class Classes {
         this.curatorId = curatorId;
         this.year = year;
         this.letter = letter;
+    }
+
+    @Override
+    public String toString() {
+        return "Classes{" +
+                "id=" + id +
+                ", schoolId=" + schoolId +
+                ", curatorId=" + curatorId +
+                ", year=" + year +
+                ", letter=" + letter +
+                '}';
     }
 }

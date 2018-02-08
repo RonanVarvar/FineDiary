@@ -40,4 +40,13 @@ public class TestEntity {
     public void setTest(String test) {
         this.test = test;
     }
+
+    @Override
+    public String toString() {
+        return "TestEntity{" +
+                "id=" + id +
+                ", columnTest='" + columnTest + '\'' +
+                ", test='" + test + '\'' +
+                '}';
+    }
 }

@@ -13,7 +13,7 @@ public class SubjectsAll {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "subject")
+    @Column(name = "subject", nullable = false)
     private String subject;
 
     public int getId() {
@@ -30,5 +30,13 @@ public class SubjectsAll {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    @Override
+    public String toString() {
+        return "SubjectsAll{" +
+                "id=" + id +
+                ", subject='" + subject + '\'' +
+                '}';
     }
 }

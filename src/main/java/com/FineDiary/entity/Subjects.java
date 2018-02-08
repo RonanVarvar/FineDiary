@@ -11,14 +11,14 @@ public class Subjects {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "subjectId")
-    private Long subjectId;
+    @Column(name = "subjectId", nullable = false)
+    private int subjectId;
 
-    @Column(name = "classId")
-    private Long classId;
+    @Column(name = "classId", nullable = false)
+    private int classId;
 
-    @Column(name = "teacherId")
-    private Long teacherId;
+    @Column(name = "teacherId", nullable = false)
+    private int teacherId;
 
     public int getId() {
         return id;
@@ -28,27 +28,37 @@ public class Subjects {
         this.id = id;
     }
 
-    public Long getSubjectId() {
+    public int getSubjectId() {
         return subjectId;
     }
 
-    public void setSubjectId(Long subjectId) {
+    public void setSubjectId(int subjectId) {
         this.subjectId = subjectId;
     }
 
-    public Long getClassId() {
+    public int getClassId() {
         return classId;
     }
 
-    public void setClassId(Long classId) {
+    public void setClassId(int classId) {
         this.classId = classId;
     }
 
-    public Long getTeacherId() {
+    public int getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(Long teacherId) {
+    public void setTeacherId(int teacherId) {
         this.teacherId = teacherId;
+    }
+
+    @Override
+    public String toString() {
+        return "Subjects{" +
+                "id=" + id +
+                ", subjectId=" + subjectId +
+                ", classId=" + classId +
+                ", teacherId=" + teacherId +
+                '}';
     }
 }
