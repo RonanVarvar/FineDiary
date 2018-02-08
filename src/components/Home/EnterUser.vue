@@ -22,7 +22,7 @@
                   required
                   >
           </div>
-    		  <div class="EnterRegistrate">
+    		  <div class="col-sm-6 col-md-4 col-lg-3">
       			<button @click.prevent='login' class='button' type="submit">Вхід</button>
       			<button @click='navigateToReg' class='button'>Зареєструватися</button>
           </div>
@@ -54,8 +54,8 @@
           this.$router.push('/registration');
         },
         login: function () {
-          const { useremail, password } = this
-          this.$store.dispatch(AUTH_REQUEST, { useremail, password }).then(() => {
+          const { username, password } = this
+          myLoginRoutine({ username, password }).then(() => {
             this.$router.push('/')
           })
         }
@@ -64,15 +64,11 @@
 </script>
 
 <style lang="scss" scoped>
-#EnterUser{
+#enterUser{
   font-family: Arimo;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-.EnterRegistrate{
-    margin:0 auto;
-    display: inline-block;
-    width:50%;
+  text-align: center;
 }
 
 .passwordRemind {
@@ -80,9 +76,7 @@
   color: #86e6b1;
   cursor: pointer;
 }
-.button:first-child{
-    margin-bottom: 25px;
-}
+
 .logo {
 	  text-align: center;
 }
