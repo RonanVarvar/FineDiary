@@ -1,19 +1,16 @@
 <template>
   <div id="app">
-	<div class="container">
 		<div class="row">
-      <header-home></header-home>
       <transition name="fade">
         <router-view></router-view>
       </transition>
 		</div>
 	</div>
-  </div>
 </template>
 
 <script>
     import Home from './components/Home/Home.vue';
-    import HeaderHome from './components/Home/HeaderHome.vue';
+    import headerHome from './components/Home/HeaderHome.vue';
     import EnterUser from './components/Home/EnterUser.vue';
     import PasswordRemind from './components/Home/PasswordRemind.vue';
     import Registration  from './components/Home/Registration.vue';
@@ -28,7 +25,7 @@
       },
       components: {
         home: Home,
-        headerHome: HeaderHome,
+        headerHome: headerHome,
         enterUser: EnterUser,
         passwordRemind: PasswordRemind,
         registration: Registration,

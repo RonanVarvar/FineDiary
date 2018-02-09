@@ -1,5 +1,6 @@
 <template>
   <div>
+    <header-home></header-home>
     <form>
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3">
@@ -28,8 +29,13 @@
 </template>
 
 <script>
+import headerHome from './HeaderHome.vue'
+
 export default {
   name: 'NewPasswordForm',
+  components: {
+      headerHome
+  },
   methods: {
     navigateToBack() {
       this.$router.push('/');
