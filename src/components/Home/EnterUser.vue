@@ -1,4 +1,9 @@
 <template>
+  <div>
+    <div class="logo">
+      <img src="../../assets/logo.png" alt="Файний щоденник" width="110px">
+      <h1 class="header">ФАЙНИЙ ЩОДЕННИК</h1>
+    </div>
   <div id="EnterUser">
       <form class="login" @submit.prevent="login">
         <div class="row">
@@ -35,11 +40,17 @@
 		  </div>
 		</form>
 		</div>
+  </div>
 </template>
 
 <script>
+import headerHome from './HeaderHome.vue'
+
   export default {
     name: 'EnterUser',
+    componets: {
+      headerHome
+    },
     data () {
         return {
           userData: {
@@ -59,7 +70,7 @@
             this.$router.push('/')
           })
         }
-}
+      }
 }
 </script>
 
@@ -69,6 +80,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+
+.header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20pt;
+}
+
+.logo {
+	  text-align: center;
+    margin-top: 80px;
 }
 
 .passwordRemind {

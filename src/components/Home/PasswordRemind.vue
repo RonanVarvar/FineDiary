@@ -1,5 +1,6 @@
 <template>
     <div id="passwordRemind">
+      <header-home></header-home>
       <input
             type="text"
             id="emailRemind"
@@ -18,8 +19,13 @@
 </template>
 
 <script>
+import headerHome from './HeaderHome.vue'
+
 export default {
   name: 'PasswordRemind',
+  components: {
+      headerHome
+  },
   methods: {
     navigateToBack() {
       this.$router.push('/');

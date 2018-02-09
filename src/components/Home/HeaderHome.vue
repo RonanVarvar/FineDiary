@@ -6,13 +6,6 @@
 </template>
 
 <script>
-  export default {
-    name: 'HeaderHome',
-    data () {
-      return {
-      }
-    }
-  }
 </script>
 
 <style lang="scss" scoped>

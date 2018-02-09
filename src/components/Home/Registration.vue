@@ -67,6 +67,7 @@
     </div>
   </b-modal>
   <div id="Registration">
+      <header-home></header-home>
       <form>
         <div class="container">
           <div class="col-sm-6 col-md-4 col-lg-3">
@@ -104,6 +105,7 @@
 
 <script>
 import myDatepicker from 'vue-datepicker'
+import headerHome from './HeaderHome.vue'
 
 export default {
   data () {
@@ -154,7 +156,8 @@ export default {
       }
     },
     components: {
-      'date-picker': myDatepicker
+      'date-picker': myDatepicker,
+        headerHome
     },
   methods: {
     navigateToBack() {
