@@ -7,6 +7,7 @@
 
 <script>
 import headerHome from './HeaderHome.vue'
+import teacherForm from './TeacherForm.vue'
 
 export default {
   components: {
