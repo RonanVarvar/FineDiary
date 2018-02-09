@@ -1,13 +1,8 @@
 <template>
-<<<<<<< HEAD
 <div>
 
   <!--Teacher modal window-->
-  <b-modal centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
-=======
-  <div>
   <b-modal  centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
->>>>>>> 94ee4756e96264aaf3a1f53cfc2cd3cdbdef4a62
     <div class="TeacherRegForm">
         <div class="container ">
           <div class="row col-lg-12">
@@ -70,118 +65,9 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-      </div>
-    </div>
-  </b-modal>
-
-  <!--Student modal window-->
-  <b-modal centered ref="studentModalRef" id="studentModal" ok-only hide-header-close>
-    <div class="StudentRegForm">
-      <div class="container ">
-        <div class="row col-lg-12">
-        <!--  <div class="col-lg-4">
-            <p class="header">Данні учня/учениці</p>
-            <div>
-              <input type="text" class="name" placeholder="Код отріманій від вчителя" v-model="student.code">
-            </div>
-            <div>
-              <input type="text" class="name" placeholder="Ім'я" v-model="student.name">
-            </div>
-            <div>
-              <input type="text" class="name" placeholder="По-батькові" v-model="student.middleName">
-            </div>
-            <div>
-              <input type="text" class="name" placeholder="Прізвище" v-model="student.lastName">
-            </div>
-            <p class="sub-header">Cтать</p>
-            <input type="checkbox" id="woman" value="Woman" v-model="checkedSex">
-            <label for="woman">Жіноча</label>
-            <input type="checkbox" id="man" value="Man" v-model="checkedSex">
-            <label for="man">Чоловіча</label>
-            <p class="sub-header">Дата народження</p>
-            <date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
-            <div>
-              <input type="text" class="name" placeholder="Мобільній телефон" v-model="student.phone">
-            </div>
-            <div>
-              <input type="text" class="name" placeholder="Домашня адреса" v-model="student.adress">
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <p class="header">Шкільні дані</p>
-            <div>
-              <input type="text" class="info" placeholder="Школа в якій ви викладаєте" v-model="teacher.school">
-              <button class="buttonAdd" @click='addSchool()'>Додати</button>
-            </div>
-            <div>
-              <input type="text" class="info" placeholder="Предмет який ви викладаєте" v-model="teacher.subject">
-              <button class="buttonAdd" @click='addSubject()'>Додати</button>
-            </div>
-            <div>
-              <input type="checkbox" id="form-master" value="formMaster" v-model="checkedFM">
-              <label for="man">У Вас є класне керівництво</label>
-              <input type="checkbox" id="Admin" value="Admin" v-model="checkedAdmin">
-              <label for="man">Адміністратор школи</label>
-            </div>
-            <br><br><br><br><br><br><br><br><br><br><br><br>
-            <div>
-              <button @click='regTeacher()' class='button'>Зберегти</button>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <br><br><br><br><br>
-            <div>
-              <input type="text" class="name" placeholder="Ваш клас" v-model="teacher.grade">
-            </div>
-            <div>
-              <input type="text" class="info" placeholder="Класи, в яких ви викладаєте" v-model="teacher.subject">
-              <button class="buttonAdd" @click='addClasses()'>Додати</button>
-            </div>
-            <div>
-              <input type="text" class="info" placeholder="Номер мобільного телефону" v-model="teacher.subject">
-              <button class="buttonAdd" @click='addMobileNumber()'>Додати</button>
-            </div>
-          </div>-->
-=======
->>>>>>> 94ee4756e96264aaf3a1f53cfc2cd3cdbdef4a62
         </div>
     </div>
   </b-modal>
-  <div id="Registration">
-      <header-home></header-home>
-      <form>
-        <div class="container">
-          <div class="col-sm-6 col-md-4 col-lg-3">
-            <input
-                  type="text"
-                  id="email-reg"
-                  class="form-control"
-                  placeholder="Введіть Ваш E-mail"
-                  v-model="email"
-                  >
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3">
-            <input
-                  type="password"
-                  id="password-reg"
-                  class="form-control"
-                  placeholder="Придумайте пароль"
-                  v-model="password"
-                  >
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3">
-            <b-btn v-b-modal.teacherModal class="button-typeUser" >Я вчитель</b-btn>
-          </br>
-            <b-btn v-b-modal.student Modal class="button-typeUser" >Учень/батьки</b-btn>
-          </div>
-    		  <div class="col-sm-6 col-md-4 col-lg-3">
-            <button  class="button" @click="navigateToBack">Назад</button>
-      			<button class="button" @click.prevent='Registration'>Зареєструватися</button>
-          </div>
-		  </div>
-		</form>
-    </div>
 </div>
 </template>
 
@@ -240,20 +126,6 @@ export default {
           type: 'fromto',
           from: '',
           to: ''
-<<<<<<< HEAD
-        }
-      ],
-      selected: '',
-      options: [
-        { text: 'Я вичтель', value: 'userTeacher' },
-        { text: 'Учень/батьки', value: 'UserStudent' },
-     ]
-    }
-  },
-  components: {
-    'date-picker': myDatepicker
-  },
-=======
         }]
       }
     },
@@ -261,7 +133,6 @@ export default {
       'date-picker': myDatepicker,
         headerHome
     },
->>>>>>> 94ee4756e96264aaf3a1f53cfc2cd3cdbdef4a62
   methods: {
     navigateToBack() {
       this.$router.push('/');
@@ -291,7 +162,7 @@ export default {
   position: relative;
   z-index: 0;
 }
-<<<<<<< HEAD
+
 
 #teacherModal {
     border-radius: 20px;
@@ -299,25 +170,20 @@ export default {
       z-index: 20;
 }
 
-=======
 #teacherModal {
   position: absolute;
   margin-top: -270px;
   z-index: 20;
 }
->>>>>>> 94ee4756e96264aaf3a1f53cfc2cd3cdbdef4a62
 .col-lg-12 {
   display: inline-flex;
 }
 .TeacherRegForm {
-<<<<<<< HEAD
   background-color: rgba(105, 220, 156, .9);
   width: 100%;
   border-radius: 20px;
-=======
   background-color: rgba(105,220,156,.9);
   width: 100%;
->>>>>>> 94ee4756e96264aaf3a1f53cfc2cd3cdbdef4a62
 }
 .header {
   font-family: 'Montserrat', sans-serif;
@@ -378,7 +244,6 @@ export default {
   color: #49da8a;
   cursor: pointer;
 }
-<<<<<<< HEAD
 .form-group {
   border: none;
 }
@@ -390,7 +255,6 @@ export default {
 .custom-control-input {
   zoom: 2.3;
 }
-=======
 
->>>>>>> 94ee4756e96264aaf3a1f53cfc2cd3cdbdef4a62
+
 </style>
