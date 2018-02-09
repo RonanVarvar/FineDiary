@@ -1,7 +1,7 @@
 <template>
 <div>
 
-  <!-- Teacher modal window -->
+  <!--Teacher modal window-->
   <b-modal centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
     <div class="TeacherRegForm">
       <div class="container ">
@@ -65,15 +65,15 @@
     </div>
   </b-modal>
 
-  <!--Student modal window -->
- <b-modal centered ref="studentModalRef" id="studentModal" ok-only hide-header-close>
-    <div class="TeacherRegForm">
+  <!--Student modal window-->
+  <b-modal centered ref="studentModalRef" id="studentModal" ok-only hide-header-close>
+    <div class="StudentRegForm">
       <div class="container ">
         <div class="row col-lg-12">
-        <!--<div class="col-lg-4">
+        <!--  <div class="col-lg-4">
             <p class="header">Данні учня/учениці</p>
             <div>
-              <input type="text" class="name" placeholder="Код отріманий від вчителя" v-model="student.code">
+              <input type="text" class="name" placeholder="Код отріманій від вчителя" v-model="student.code">
             </div>
             <div>
               <input type="text" class="name" placeholder="Ім'я" v-model="student.name">
@@ -138,7 +138,7 @@
     </div>
   </b-modal>
 
-  <!--First form for registration -->
+  <!--First form for registration-->
   <div id="Registration">
     <form>
       <div class="container">
@@ -149,21 +149,35 @@
           <input type="password" id="password-reg" class="form-control" placeholder="Придумайте пароль" v-model="password">
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
-          <b-btn v-b-modal.teacherModal class="button-typeUser">Я вчитель</b-btn>
+          <b-form-group>
+            <b-form-radio-group v-model="selected"
+                          :options="options"
+                          stacked
+                          name="radiosStacked">
+            </b-form-radio-group>
+         </b-form-group>
+        <!--  <b-btn v-b-modal.teacherModal class="button-typeUser">Я вчитель</b-btn>
           </br>
           <b-btn v-b-modal.studentModal class="button-typeUser">Учень/батьки</b-btn>
-        </div>
+        </div>-->
+      </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <button class="button" @click="navigateToBack">Назад</button>
           <button class="button" @click.prevent='Registration'>Зареєструватися</button>
         </div>
       </div>
     </form>
-  </div>
+</div>
 </div>
 </template>
 
 <script>
+
+//Vue.component (radio, {
+  //props: [selected],
+  //template: <div class="radioCheck"
+//})
+
 import myDatepicker from 'vue-datepicker'
 
 export default {
@@ -212,7 +226,12 @@ export default {
           from: '',
           to: ''
         }
-      ]
+      ],
+      selected: '',
+      options: [
+        { text: 'Я вичтель', value: 'userTeacher' },
+        { text: 'Учень/батьки', value: 'UserStudent' },
+     ]
     }
   },
   components: {
@@ -248,16 +267,10 @@ export default {
   z-index: 0;
 }
 
-#teacherModal  {
-  position: absolute;
-  margin-top: -270px;
-  z-index: 20;
-}
-
-#studentModal {
-  position: absolute;
-  margin-top: -270px;
-  z-index: 20;
+#teacherModal {
+    border-radius: 20px;
+    position: absolute;
+      z-index: 20;
 }
 
 .col-lg-12 {
@@ -267,11 +280,7 @@ export default {
 .TeacherRegForm {
   background-color: rgba(105, 220, 156, .9);
   width: 100%;
-}
-
-.StudentRegFor {
-  background-color: rgba(105, 220, 156, .9);
-  width: 100%;
+  border-radius: 20px;
 }
 
 .header {
@@ -338,5 +347,16 @@ export default {
   background-color: white;
   color: #49da8a;
   cursor: pointer;
+}
+.form-group {
+  border: none;
+}
+.custom-control-label {
+  font-size: 36px;
+  color: #3fc863;
+  cursor: pointer;
+}
+.custom-control-input {
+  zoom: 2.3;
 }
 </style>
