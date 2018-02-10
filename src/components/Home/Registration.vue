@@ -1,9 +1,11 @@
 <template>
 <div>
   <header-home></header-home>
+
   <!--Teacher modal window-->
   <b-modal  centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
-      <teacher-form></teacher-form>
+<learner-form></learner-form>
+     <teacher-form></teacher-form>
   </b-modal>
   <!--First form for registration -->
   <div id="Registration">
@@ -33,36 +35,38 @@
 <script>
 import headerHome from './HeaderHome.vue'
 import teacherForm from './TeacherForm.vue'
+import learnerForm from './LearnerForm.vue'
 
-export default {
-  data () {
-  },
-    components: {
-      headerHome,
-      teacherForm
+  export default {
+    data () {
     },
-  methods: {
-    navigateToBack() {
-      this.$router.push('/');
-    },
-    Registration(event) {
-      this.regUsers.push({
-        'email': this.email,
-        'password': this.password,
-      });
-    },
-    back() {
-      this.$router.push('/');
-    },
-    teacher: {
-      name: ''
-    },
-    addSchool() {},
-    addSubject() {},
-    addClasses() {},
-    addMobileNumber() {}
-  }
-  }
+      components: {
+        headerHome,
+        teacherForm,
+        learnerForm
+      },
+    methods: {
+      navigateToBack() {
+        this.$router.push('/');
+      },
+      Registration(event) {
+        this.regUsers.push({
+          'email': this.email,
+          'password': this.password,
+        });
+      },
+      back() {
+        this.$router.push('/');
+      },
+      teacher: {
+        name: ''
+      },
+      addSchool() {},
+      addSubject() {},
+      addClasses() {},
+      addMobileNumber() {}
+    }
+    }
 </script>
 
 <style>

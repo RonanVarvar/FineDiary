@@ -1,5 +1,6 @@
 <template>
-    <div class="TeacherRegForm">
+  <div>
+    <div class="TeacherForm">
       <div class="row col-lg-12">
         <div class="col-lg-4">
             <p class="header">Персональні дані</p>
@@ -61,6 +62,8 @@
         </div>
     </div>
   </div>
+
+</div>
 </template>
 
 <script>
@@ -145,7 +148,7 @@ export default {
 .col-lg-12 {
   display: inline-flex;
 }
-.TeacherRegForm {
+.TeacherForm {
   background-color: rgba(105, 220, 156, .9);
   width: 100%;
   border-radius: 20px;
