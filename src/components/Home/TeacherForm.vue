@@ -1,4 +1,4 @@
-<template>  <b-modal  centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
+<template>
 
     <div class="TeacherRegForm">
       <div class="row col-lg-12">
@@ -61,7 +61,7 @@
             </div>
         </div>
     </div>
-  </div></b-modal>
+  </div>
 </template>
 
 <script>

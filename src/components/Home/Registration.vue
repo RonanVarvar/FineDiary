@@ -3,7 +3,7 @@
   <header-home></header-home>
   <!--Teacher modal window-->
 <student-form></student-form>
-    <teacher-form></teacher-form>
+  <teacher-form></teacher-form>
 
 
 
