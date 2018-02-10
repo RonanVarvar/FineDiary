@@ -1,6 +1,6 @@
 <template>
-
-    <div class="TeacherRegForm">
+  <div>
+    <div class="TeacherForm">
       <div class="row col-lg-12">
         <div class="col-lg-4">
             <p class="header">Персональні дані</p>
@@ -13,11 +13,11 @@
             <div>
                 <input type="text" class="name" placeholder="Прізвище" v-model="teacher.lastName">
             </div>
-            <p class="sub-header">Cтать</p>
-            <input type="checkbox" id="woman" value="Woman" v-model="checkedSex">
-            <label for="woman">Жіноча</label>
-            <input type="checkbox" id="man" value="Man" v-model="checkedSex">
-            <label for="man">Чоловіча</label>
+            <br>
+              <b-form-group label="Стать" class="checkedSex">
+                <b-form-radio-group id="radios1" v-model="sex" :options="options" name="radioOpenions">
+                </b-form-radio-group>
+             </b-form-group>
             <p class="sub-header">Дата народження</p>
             <date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
         </div>
@@ -26,16 +26,17 @@
             <div>
                 <input type="text" class="info" placeholder="Школа в якій ви викладаєте"
                     v-model="teacher.school">
-               <button class="buttonAdd" @click='addSchool()'>Додати</button>
+               <!-- <button class="buttonAdd" @click='addSchool()'>Додати</button> -->
             </div>
-            <div>
+            <div class="wide">
                 <input type="text" class="info" placeholder="Предмет який ви викладаєте"
                     v-model="teacher.subject">
-                <button class="buttonAdd" @click='addSubject()'>Додати</button>
+                <button class="buttonAdd" @click='addSubject()'>+Додати</button>
             </div>
-            <div>
+               <br>
+           <div class="white">
                 <input type="checkbox" id="form-master" value="formMaster" v-model="checkedFM">
-                <label for="man">У Вас є класне керівництво</label>
+                <label for="man">Класне керівництво</label>
                 <input type="checkbox" id="Admin" value="Admin" v-model="checkedAdmin">
                 <label for="man">Адміністратор школи</label>
             </div>
@@ -49,19 +50,21 @@
             <div>
                 <input type="text" class="name" placeholder="Ваш клас" v-model="teacher.grade">
             </div>
-            <div>
+            <div class="wide">
                 <input type="text" class="info" placeholder="Класи, в яких ви викладаєте"
                     v-model="teacher.subject">
-                <button class="buttonAdd" @click='addClasses()'>Додати</button>
+                <button class="buttonAdd" @click='addClasses()'>+Додати</button>
             </div>
-            <div>
+            <div class="wide">
                 <input type="text" class="info" placeholder="Номер мобільного телефону"
-                    v-model="teacher.subject">
-                <button class="buttonAdd" @click='addMobileNumber()'>Додати</button>
+                    v-model="teacher.phone">
+                <button class="buttonAdd" @click='addMobileNumber()'>+Додати</button>
             </div>
         </div>
     </div>
   </div>
+
+</div>
 </template>
 
 <script>
@@ -70,6 +73,16 @@ import myDatepicker from 'vue-datepicker'
 export default {
   data () {
     return {
+      sex: '',
+      options: [
+        { text: 'Жіноча', value: 'female'},
+        { text: 'Чоловіча', value: 'male' }
+      ],
+      teacherRole: '',
+      options: [
+        { text: 'Жіноча', value: 'female'},
+        { text: 'Чоловіча', value: 'male' }
+      ],
       startTime: {
           time: ''
         },
@@ -145,12 +158,25 @@ export default {
 <style>
 .col-lg-12 {
   display: inline-flex;
-}
-.TeacherRegForm {
-  background-color: rgba(105, 220, 156, .9);
-  width: 100%;
   border-radius: 20px;
-  background-color: rgba(105,220,156,.9);
+
+}
+.TeacherForm {
+
+  width: 100%;
+  height: 90%;
+  margin-bottom: 20px;
+}
+.header {
+  color: #fff;
+}
+.white {
+  color: #fff;
+  font-size: 25px;
+  display: flex;
+}
+.wide {
+  display: inline-flex;
   width: 100%;
 }
 </style>

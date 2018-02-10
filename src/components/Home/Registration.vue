@@ -1,12 +1,15 @@
 <template>
 <div>
   <header-home></header-home>
+
   <!--Teacher modal window-->
-<student-form></student-form>
-  <teacher-form></teacher-form>
+  <b-modal  centered  ref="foo" id="teacherModal2" ok-only hide-header-close>
+      <teacher-form></teacher-form>
+  </b-modal>
 
-
-
+  <b-modal  centered ref="boo" id="teacherModal" ok-only hide-header-close>
+      <learner-form></learner-form>
+  </b-modal>
   <!--First form for registration -->
   <div id="Registration">
     <form>
@@ -18,13 +21,13 @@
           <input type="password" id="password-reg" class="form-control" placeholder="Придумайте пароль" v-model="password">
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
-          <b-btn v-b-modal.teacherModal class="button-typeUser">Я вчитель</b-btn>
+          <b-btn @click="showModal('foo')" class="button-typeUser">Я вчитель</b-btn>
           </br>
-          <b-btn v-b-modal.studentModal class="button-typeUser">Учень/батьки</b-btn>
+          <b-btn @click="showModal('boo')" class="button-typeUser">Учень/батьки</b-btn>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
-          <button class="button" @click="navigateToBack">Назад</button>
-          <button class="button" @click.prevent='Registration'>Зареєструватися</button>
+          <button class="button" id="show-show" @click="navigateToBack">Назад</button>
+          <button class="button" id="show-show" @click.prevent='Registration'>Зареєструватися</button>
         </div>
       </div>
     </form>
@@ -35,38 +38,45 @@
 <script>
 import headerHome from './HeaderHome.vue'
 import teacherForm from './TeacherForm.vue'
-import studentForm from './StudentForm.vue'
+import learnerForm from './LearnerForm.vue'
 
-export default {
-  data () {
-  },
-    components: {
-      headerHome,
-      teacherForm,
-      studentForm
+  export default {
+    data () {
+      return {
+        email: '',
+        password: ''
+      };
     },
-  methods: {
-    navigateToBack() {
-      this.$router.push('/');
-    },
-    Registration(event) {
-      this.regUsers.push({
-        'email': this.email,
-        'password': this.password,
-      });
-    },
-    back() {
-      this.$router.push('/');
-    },
-    teacher: {
-      name: ''
-    },
-    addSchool() {},
-    addSubject() {},
-    addClasses() {},
-    addMobileNumber() {}
-  }
-  }
+      components: {
+        headerHome,
+        teacherForm,
+        learnerForm
+      },
+    methods: {
+      showModal: function(name) {
+        this.$refs[name].show();
+      },
+      navigateToBack() {
+        this.$router.push('/');
+      },
+      Registration(event) {
+        this.regUsers.push({
+          'email': this.email,
+          'password': this.password,
+        });
+      },
+      back() {
+        this.$router.push('/');
+      },
+      teacher: {
+        name: ''
+      },
+      addSchool() {},
+      addSubject() {},
+      addClasses() {},
+      addMobileNumber() {}
+    }
+}
 </script>
 
 <style>
@@ -76,17 +86,13 @@ export default {
 }
 
 
-#teacherModal {
-    border-radius: 20px;
-    position: absolute;
+#teacherModal #studentModal {
+    position: inherit;
       z-index: 20;
+      margin-top: -270px;
 }
 
-#teacherModal {
-  position: absolute;
-  margin-top: -270px;
-  z-index: 20;
-}
+
 
 .header {
   font-family: 'Montserrat', sans-serif;
@@ -140,7 +146,7 @@ export default {
   font-family: Arimo;
   border: 2px solid #29c770;
   border-radius: 15px;
-  width: 100px;
+  width: 75px;
   height: 55px;
   padding: 10px;
   background-color: white;
