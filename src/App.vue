@@ -16,8 +16,7 @@
     import Registration  from './components/Home/Registration.vue';
     import MassagePassRemind from './components/Home/MassagePassRemind.vue';
     import NewPasswordForm from './components/Home/NewPasswordForm.vue';
-    import teacherForm from './components/Home/TeacherForm.vue';
-    import studentForm from './components/Home/StudentForm.vue'
+    //import teacherForm from './components/Home/teacherForm.vue';
 
     export default {
       name: 'app',
@@ -32,9 +31,8 @@
         passwordRemind: PasswordRemind,
         registration: Registration,
         massagePassPemind: MassagePassRemind,
-        newPasswordForm: NewPasswordForm,
-        teacherForm: teacherForm,
-        studentForm: studentForm
+        newPasswordForm: NewPasswordForm
+        //teacherForm: teacherForm,
 
     }
 }
