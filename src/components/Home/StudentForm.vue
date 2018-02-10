@@ -1,17 +1,16 @@
-<template>  <b-modal  centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
-
-    <div class="TeacherRegForm">
+<template> <b-modal  centered ref="myModalRef" id="studentModal" ok-only hide-header-close>
+    <div class="StudentRegForm">
       <div class="row col-lg-12">
         <div class="col-lg-4">
             <p class="header">Персональні дані</p>
             <div>
-                <input type="text" class="name" placeholder="Ім'я" v-model="teacher.name">
+                <input type="text" class="name" placeholder="Ім'я" v-model="student.name">
             </div>
             <div>
-                <input type="text" class="name" placeholder="По-батькові" v-model="teacher.middleName">
+                <input type="text" class="name" placeholder="По-батькові" v-model="student.middleName">
             </div>
             <div>
-                <input type="text" class="name" placeholder="Прізвище" v-model="teacher.lastName">
+                <input type="text" class="name" placeholder="Прізвище" v-model="student.lastName">
             </div>
             <p class="sub-header">Cтать</p>
             <input type="checkbox" id="woman" value="Woman" v-model="checkedSex">
@@ -25,12 +24,12 @@
             <p class="header">Шкільні дані</p>
             <div>
                 <input type="text" class="info" placeholder="Школа в якій ви викладаєте"
-                    v-model="teacher.school">
+                    v-model="student.school">
                <button class="buttonAdd" @click='addSchool()'>Додати</button>
             </div>
             <div>
                 <input type="text" class="info" placeholder="Предмет який ви викладаєте"
-                    v-model="teacher.subject">
+                    v-model="student.subject">
                 <button class="buttonAdd" @click='addSubject()'>Додати</button>
             </div>
             <div>
@@ -41,7 +40,7 @@
             </div>
             <br><br><br><br><br><br><br><br><br><br><br><br>
             <div>
-                <button @click='regTeacher()' class='button'>Зберегти</button>
+                <button @click='regStudent()' class='button'>Зберегти</button>
             </div>
         </div>
         <div class="col-lg-4">
@@ -51,12 +50,12 @@
             </div>
             <div>
                 <input type="text" class="info" placeholder="Класи, в яких ви викладаєте"
-                    v-model="teacher.subject">
+                    v-model="student.subject">
                 <button class="buttonAdd" @click='addClasses()'>Додати</button>
             </div>
             <div>
                 <input type="text" class="info" placeholder="Номер мобільного телефону"
-                    v-model="teacher.subject">
+                    v-model="student.subject">
                 <button class="buttonAdd" @click='addMobileNumber()'>Додати</button>
             </div>
         </div>
@@ -131,7 +130,7 @@ export default {
     back() {
       this.$router.push('/');
     },
-    teacher: {
+    student: {
       name: ''
     },
     addSchool() {},

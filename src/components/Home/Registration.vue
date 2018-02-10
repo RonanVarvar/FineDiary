@@ -2,9 +2,11 @@
 <div>
   <header-home></header-home>
   <!--Teacher modal window-->
-  <b-modal  centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
-      <teacher-form></teacher-form>
-  </b-modal>
+<student-form></student-form>
+    <teacher-form></teacher-form>
+
+
+
   <!--First form for registration -->
   <div id="Registration">
     <form>
@@ -33,13 +35,15 @@
 <script>
 import headerHome from './HeaderHome.vue'
 import teacherForm from './TeacherForm.vue'
+import studentForm from './StudentForm.vue'
 
 export default {
   data () {
   },
     components: {
       headerHome,
-      teacherForm
+      teacherForm,
+      studentForm
     },
   methods: {
     navigateToBack() {
