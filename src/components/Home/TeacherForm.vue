@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="TeacherForm">
-      <div class="row col-lg-12">
+      <div class="col-lg-12">
         <div class="col-lg-4">
             <p class="head">Персональні дані</p>
             <div>
@@ -15,23 +15,28 @@
             </div>
             <br>
               <b-form-group label="Стать" class="checkedSex">
-                <b-form-radio-group id="radios1" v-model="sex" :options="options" name="radioOpenions">
+                <b-form-radio-group
+                    id="radios1"
+                    v-model="sex"
+                    :options="options"
+                    name="radioOpenions">
                 </b-form-radio-group>
              </b-form-group>
             <p class="sub-header">Дата народження</p>
-            <date-picker :date="startTime" :option="option" :limit="limit"></date-picker>
+            <date-picker :date="startTime" :option="option" :limit="limit">
+            </date-picker>
         </div>
         <div class="col-lg-4">
             <p class="head">Шкільні дані</p>
-            <div>
-                <input type="text" class="info" placeholder="Школа в якій ви викладаєте"
+            <div class="wide">
+               <input type="text" class="info" placeholder="Школа в якій ви викладаєте"
                     v-model="teacher.school">
-               <button class="buttonAdd" @click='addSchool()'>Додати</button>
+               <button class="buttonAdd" @click='addSchool()'>Додати +</button>
             </div>
             <div class="wide">
                 <input type="text" class="info" placeholder="Предмет який ви викладаєте"
                     v-model="teacher.subject">
-                <button class="buttonAdd" @click='addSubject()'>+Додати</button>
+                <button class="buttonAdd" @click='addSubject()'>Додати +</button>
             </div>
                <br>
            <div class="white">
@@ -42,7 +47,8 @@
             </div>
             <br><br><br><br><br><br><br><br><br><br><br><br>
             <div>
-                <button @click='regTeacher()' class='button'>Зберегти</button>
+              <button @click='back()' class='buttonNav'>Назад</button>
+              <button @click='regStudent()' class='buttonNav'>Зберегти</button>
             </div>
         </div>
         <div class="col-lg-4">
@@ -53,12 +59,12 @@
             <div class="wide">
                 <input type="text" class="info" placeholder="Класи, в яких ви викладаєте"
                     v-model="teacher.subject">
-                <button class="buttonAdd" @click='addClasses()'>+Додати</button>
+                <button class="buttonAdd" @click='addClasses()'>Додати +</button>
             </div>
             <div class="wide">
                 <input type="text" class="info" placeholder="Номер мобільного телефону"
                     v-model="teacher.phone">
-                <button class="buttonAdd" @click='addMobileNumber()'>+Додати</button>
+                <button class="buttonAdd" @click='addMobileNumber()'>Додати +</button>
             </div>
         </div>
     </div>

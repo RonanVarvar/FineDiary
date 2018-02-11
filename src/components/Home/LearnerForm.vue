@@ -4,7 +4,6 @@
     <div class="col-lg-12">
       <div class="col-lg-4">
           <p class="head">Дані учня/учениці</p>
-
           <div>
               <input type="text" class="info" placeholder="Введіть реєстраційній код"
                   v-model="student.code">
@@ -38,11 +37,10 @@
                <input type="text" class="info" placeholder="Домашня адреса"
                    v-model="student.home">
            </div>
-
-
       </div>
       <div class="col-lg-4">
         <p class="head">Данні батьків/опікунів</p>
+        <p class="head">Батько</p>
         <div>
           <input type="text" class="name" placeholder="Ім'я" v-model="parent_1.name">
         </div>
@@ -56,17 +54,18 @@
         <div class="wide">
             <input type="text" class="info" placeholder="Номер мобільного телефону"
                 v-model="parent_1.phone">
-            <button class="buttonAdd" @click='addMobileNumber()'>+Додати</button>
+            <button class="buttonAdd" @click='addMobileNumber()'>Додати +</button>
         </div>
         <br /><br /><br /><br /><br />
         <div>
-          <button @click='back()' class='button b_button'>Назад</button>
-          <button @click='regStudent()' class='button'>Зберегти</button>
+          <button @click='back()' class='buttonNav'>Назад</button>
+          <button @click='regStudent()' class='buttonNav'>Зберегти</button>
         </div>
       </div>
       <div class="col-lg-4">
-            <br><br/><br/><br/><br />
-            <div>
+            <br /><br/>
+         <p class="head">Мати</p>
+         <div>
            <input type="text" class="name" placeholder="Ім'я" v-model="parent_2.name">
          </div>
          <div>
@@ -79,10 +78,9 @@
          <div class="wide">
              <input type="text" class="info" placeholder="Номер мобільного телефону"
                  v-model="parent_2.phone">
-             <button class="buttonAdd" @click='addMobileNumber()'>+Додати</button>
+             <button class="buttonAdd" @click='addMobileNumber()'>Додати +</button>
          </div>
         </div>
-
     </div>
   </div>
 </div>
@@ -108,7 +106,8 @@ export default {
       option: {
         type: 'day',
         week: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Суб', 'Нд'],
-        month: ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'],
+        month: ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень',
+         'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'],
         format: 'DD.MM.YYYY',
         placeholder: '',
         inputStyle: {
@@ -193,12 +192,19 @@ export default {
     color: #fff;
     font-size: 25px;
 }
-.b_button {
-  background-color:rgba(105, 220, 156, .9);
-  color: #fff;
-  border-color: #fff;
-  margin-bottom: 10px;
+.buttonNav {
+  font-size: 16pt;
+  font-family: Arimo;
+  border: 2px solid white;
+  border-radius: 20px;
+  width: 185px;
+  height: 55px;
+  padding: 10px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
 }
+
 .btn-primary {
   display: none;
 }
