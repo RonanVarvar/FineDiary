@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="TeacherForm">
-      <div class="col-lg-12">
+        <form>
+          <div class="col-lg-12">
         <div class="col-lg-4">
             <p class="head">Персональні дані</p>
             <div>
@@ -68,8 +69,8 @@
             </div>
         </div>
     </div>
+          </form>
   </div>
-
 </div>
 </template>
 

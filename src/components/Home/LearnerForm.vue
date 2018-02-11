@@ -1,6 +1,7 @@
 <template>
 <div>
   <div class="StudentForm">
+      <form>
     <div class="col-lg-12">
       <div class="col-lg-4">
           <p class="head">Дані учня/учениці</p>
@@ -82,6 +83,7 @@
          </div>
         </div>
     </div>
+          </form>
   </div>
 </div>
 </template>

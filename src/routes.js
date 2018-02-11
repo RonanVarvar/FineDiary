@@ -6,6 +6,22 @@ import Home from './components/Home/Home.vue';
 import MassagePassRemind from './components/Home/MassagePassRemind.vue';
 import NewPasswordForm from './components/Home/NewPasswordForm.vue';
 
+const ifNotAuthenticated = (to, from, next) => {
+  if (!store.getters.isAuthenticated) {
+    next()
+    return
+  }
+  next('/')
+}
+
+const ifAuthenticated = (to, from, next) => {
+  if (store.getters.isAuthenticated) {
+    next()
+    return
+  }
+  next('/login')
+}
+
 export const routes = [
     { path: '', name: 'home', components: {
         default: Home
@@ -15,5 +31,16 @@ export const routes = [
         { path: '/registration', component: registration },
         { path: '/MassagePassRemind', component: MassagePassRemind },
         { path: '/NewPasswordForm', component: NewPasswordForm }
-    ] }
+    ] },/*
+    {  path: '/account',
+      name: 'Account',
+      component: TeacherHomePage,
+      beforeEnter: ifAuthenticated,
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login,
+      beforeEnter: ifNotAuthenticated,
+    },*/
 ];
