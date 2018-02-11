@@ -1,14 +1,15 @@
 <template>
 <div>
   <header-home></header-home>
-
   <!--Teacher modal window-->
-  <b-modal  centered ref="myModalRef" id="teacherModal" ok-only hide-header-close>
-<learner-form></learner-form>
-     <teacher-form></teacher-form>
+  <b-modal  centered  ref="foo" class="teacherModal" ok-only hide-header-close>
+      <teacher-form></teacher-form>
+  </b-modal>
+  <b-modal  centered ref="boo" class="learnerModal" ok-only hide-header-close>
+      <learner-form></learner-form>
   </b-modal>
   <!--First form for registration -->
-  <div id="Registration">
+  <div class="Registration">
     <form>
       <div class="container">
         <div class="col-sm-6 col-md-4 col-lg-3">
@@ -18,13 +19,13 @@
           <input type="password" id="password-reg" class="form-control" placeholder="Придумайте пароль" v-model="password">
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
-          <b-btn v-b-modal.teacherModal class="button-typeUser">Я вчитель</b-btn>
+          <b-btn @click="showModal('foo')" class="button-typeUser">Я вчитель</b-btn>
           </br>
-          <b-btn v-b-modal.studentModal class="button-typeUser">Учень/батьки</b-btn>
+          <b-btn @click="showModal('boo')" class="button-typeUser">Учень/батьки</b-btn>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
-          <button class="button" @click="navigateToBack">Назад</button>
-          <button class="button" @click.prevent='Registration'>Зареєструватися</button>
+          <button class="button" id="show-show" @click="navigateToBack">Назад</button>
+          <button class="button" id="show-show" @click.prevent='Registration'>Зареєструватися</button>
         </div>
       </div>
     </form>
@@ -39,6 +40,10 @@ import learnerForm from './LearnerForm.vue'
 
   export default {
     data () {
+      return {
+        email: '',
+        password: ''
+      };
     },
       components: {
         headerHome,
@@ -46,6 +51,9 @@ import learnerForm from './LearnerForm.vue'
         learnerForm
       },
     methods: {
+      showModal: function(name) {
+        this.$refs[name].show();
+      },
       navigateToBack() {
         this.$router.push('/');
       },
@@ -66,31 +74,20 @@ import learnerForm from './LearnerForm.vue'
       addClasses() {},
       addMobileNumber() {}
     }
-    }
+}
 </script>
 
 <style>
-#Registration {
+.Registration {
   position: relative;
   z-index: 0;
 }
 
-
-#teacherModal {
-    border-radius: 20px;
-    position: absolute;
-      z-index: 20;
-}
-
-#teacherModal {
+.teacherModal, .learnerModal {
   position: absolute;
-  margin-top: -270px;
+  margin-top: -280px;
   z-index: 20;
-}
-
-.header {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20pt;
+  width: 100%;
 }
 .form-control, .name {
   width: 400px;
@@ -140,7 +137,7 @@ import learnerForm from './LearnerForm.vue'
   font-family: Arimo;
   border: 2px solid #29c770;
   border-radius: 15px;
-  width: 100px;
+  width: 75px;
   height: 55px;
   padding: 10px;
   background-color: white;

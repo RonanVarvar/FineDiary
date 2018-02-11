@@ -38,7 +38,7 @@
             </router-link>
 		    </div>
 		  </div>
-		</form>
+		  </form>
 		</div>
   </div>
 </template>
