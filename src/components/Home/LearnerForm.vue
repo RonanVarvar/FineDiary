@@ -1,9 +1,9 @@
 <template>
 <div>
   <div class="StudentForm">
-    <div class="row col-lg-12">
+    <div class="col-lg-12">
       <div class="col-lg-4">
-          <p class="header">Дані учня/учениці</p>
+          <p class="head">Дані учня/учениці</p>
 
           <div>
               <input type="text" class="info" placeholder="Введіть реєстраційній код"
@@ -42,7 +42,7 @@
 
       </div>
       <div class="col-lg-4">
-        <p class="header">Данні батьків/опікунів</p>
+        <p class="head">Данні батьків/опікунів</p>
         <div>
           <input type="text" class="name" placeholder="Ім'я" v-model="parent_1.name">
         </div>
@@ -176,7 +176,6 @@ export default {
 
 <style>
 .col-lg-12 {
-  display: inline-flex;
   background-color: rgba(105, 220, 156, .9);
 }
 .checkedSex {
