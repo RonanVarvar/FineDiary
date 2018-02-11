@@ -1,15 +1,17 @@
 <template>
 <div>
   <header-home></header-home>
+
   <!--Teacher modal window-->
-  <b-modal  centered  ref="foo" class="teacherModal" ok-only hide-header-close>
+  <b-modal  centered  ref="foo" id="teacherModal2" ok-only hide-header-close>
       <teacher-form></teacher-form>
   </b-modal>
-  <b-modal  centered ref="boo" class="learnerModal" ok-only hide-header-close>
+
+  <b-modal  centered ref="boo" id="teacherModal" ok-only hide-header-close>
       <learner-form></learner-form>
   </b-modal>
   <!--First form for registration -->
-  <div class="Registration">
+  <div id="Registration">
     <form>
       <div class="container">
         <div class="col-sm-6 col-md-4 col-lg-3">
@@ -78,16 +80,23 @@ import learnerForm from './LearnerForm.vue'
 </script>
 
 <style>
-.Registration {
+#Registration {
   position: relative;
   z-index: 0;
 }
 
-.teacherModal, .learnerModal {
-  position: absolute;
-  margin-top: -280px;
-  z-index: 20;
-  width: 100%;
+
+#teacherModal #studentModal {
+    position: inherit;
+      z-index: 20;
+      margin-top: -270px;
+}
+
+
+
+.header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20pt;
 }
 .form-control, .name {
   width: 400px;

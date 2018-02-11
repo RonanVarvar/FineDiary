@@ -4,6 +4,7 @@
     <div class="row col-lg-12">
       <div class="col-lg-4">
           <p class="header">Дані учня/учениці</p>
+
           <div>
               <input type="text" class="info" placeholder="Введіть реєстраційній код"
                   v-model="student.code">
@@ -37,6 +38,8 @@
                <input type="text" class="info" placeholder="Домашня адреса"
                    v-model="student.home">
            </div>
+
+
       </div>
       <div class="col-lg-4">
         <p class="header">Данні батьків/опікунів</p>
@@ -79,6 +82,7 @@
              <button class="buttonAdd" @click='addMobileNumber()'>+Додати</button>
          </div>
         </div>
+
     </div>
   </div>
 </div>
@@ -170,11 +174,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .col-lg-12 {
   display: inline-flex;
   background-color: rgba(105, 220, 156, .9);
-  width: 1315px;
 }
 .checkedSex {
   font-size: 25px;
@@ -190,10 +193,6 @@ export default {
 .sub-header {
     color: #fff;
     font-size: 25px;
-}
-.header {
-  color: #fff;
-  font-size: 16pt;
 }
 .b_button {
   background-color:rgba(105, 220, 156, .9);

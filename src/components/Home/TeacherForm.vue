@@ -1,33 +1,21 @@
 <template>
   <div>
     <div class="TeacherForm">
-      <div class="col-lg-12">
+      <div class="row col-lg-12">
         <div class="col-lg-4">
             <p class="header">Персональні дані</p>
             <div>
-                <input
-                      type="text"
-                      class="name"
-                      placeholder="Ім'я"
-                      v-model="teacher.name">
+                <input type="text" class="name" placeholder="Ім'я" v-model="teacher.name">
             </div>
             <div>
-                <input
-                      type="text"
-                      class="name"
-                      placeholder="По-батькові"
-                      v-model="teacher.middleName">
+                <input type="text" class="name" placeholder="По-батькові" v-model="teacher.middleName">
             </div>
             <div>
-                <input
-                      type="text"
-                      class="name"
-                      placeholder="Прізвище"
-                      v-model="teacher.lastName">
+                <input type="text" class="name" placeholder="Прізвище" v-model="teacher.lastName">
             </div>
             <br>
               <b-form-group label="Стать" class="checkedSex">
-                <b-form-radio-group class="radiobutton" id="radios1" v-model="sex" :options="options" name="radioOpenions">
+                <b-form-radio-group id="radios1" v-model="sex" :options="options" name="radioOpenions">
                 </b-form-radio-group>
              </b-form-group>
             <p class="sub-header">Дата народження</p>
@@ -38,6 +26,7 @@
             <div>
                 <input type="text" class="info" placeholder="Школа в якій ви викладаєте"
                     v-model="teacher.school">
+               <!-- <button class="buttonAdd" @click='addSchool()'>Додати</button> -->
             </div>
             <div class="wide">
                 <input type="text" class="info" placeholder="Предмет який ви викладаєте"
@@ -166,21 +155,20 @@ export default {
   }
 </script>
 
-<style scoped>
+<style>
 .col-lg-12 {
   display: inline-flex;
-  background-color: rgba(105, 220, 156, .9);
   border-radius: 20px;
-}
 
+}
 .TeacherForm {
-  width: 1366px;
+
+  width: 100%;
   height: 90%;
   margin-bottom: 20px;
 }
 .header {
   color: #fff;
-  font-size: 16pt;
 }
 .white {
   color: #fff;
@@ -190,9 +178,5 @@ export default {
 .wide {
   display: inline-flex;
   width: 100%;
-}
-.radiobutton {
-  font-size: 16pt;
-  color: black;
 }
 </style>
