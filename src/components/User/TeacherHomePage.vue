@@ -17,7 +17,7 @@
                     <li class="cell"><a href="#">Довідка</a></li>
                 </ul>
                 <div class="searchDiv">
-                    <b-form-input class="SearchInput" type="text" placeholder="Search"></b-form-input>
+                    <input class="SearchInput" type="text" placeholder="Search"/>
                     <div class="LeftInfo">
                         <span class="inlineBlock">Добрый день,<br> Имя</span>
                         <img class="inlineBlock" src="./img/SovaLogo.png">
@@ -206,7 +206,7 @@
     ul.ForUlAddBlock{/*add block*/
         display: flex;
         list-style: none;
-        width:320px;
+        width:300px;
         border-radius: 15px;
         border: 2px solid rgb(0,218,132);
         text-align: center;

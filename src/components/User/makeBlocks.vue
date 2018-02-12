@@ -38,7 +38,6 @@
 
     .divWrapperforUl{
         width:320px;
-        height:220px;
         display: flex;
     }
     .ForUl{
@@ -46,6 +45,8 @@
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         font-size: 20px;
         color:white;
+        border:1px solid rgb(0,218,132);
+        margin-bottom:5px;
     }
     ul.FoUlManaging{
         background: rgb(0,218,132);
@@ -56,7 +57,6 @@
         text-align: left;
         width: 100%;
         list-style: none;
-        /*display: inline-block;*/
     }
     ul.FoUlManaging > li:first-child{
         border-bottom: 2px solid white;
@@ -80,7 +80,6 @@
     }
     .active{
         vertical-align: top;
-       /* display: inline-block;*/
     }
     .liUl{
         text-align: center;
@@ -106,7 +105,7 @@
         font-weight: normal;
         margin: 0px;
         color:white;
-       text-align: center;
+        text-align: center;
     }
     .UldisplayNone li:hover{
         color:black;
@@ -117,8 +116,11 @@
     @media (max-width: 700px) {/*при маленьком екране блок открытый не становится  position: absolute;*/
         .activeUl{
             position: relative;
-
         }
+        div.divContent{
+             width:280px;
+        }
+
     }
 
 </style>
