@@ -5,7 +5,7 @@
         <router-view></router-view>
       </transition>
 		</div>
-	</div>
+   </div>
 </template>
 
 <script>
@@ -16,6 +16,8 @@
     import Registration  from './components/Home/Registration.vue';
     import MassagePassRemind from './components/Home/MassagePassRemind.vue';
     import NewPasswordForm from './components/Home/NewPasswordForm.vue';
+    import TeacherHomePage from './components/User/TeacherHomePage.vue';
+
 
     export default {
       name: 'app',
@@ -30,7 +32,8 @@
         passwordRemind: PasswordRemind,
         registration: Registration,
         massagePassPemind: MassagePassRemind,
-        newPasswordForm: NewPasswordForm
+        newPasswordForm: NewPasswordForm,
+        teacherHomePage: TeacherHomePage
     },
     created: function () {
       axios.interceptors.response.use(undefined, function (err) {

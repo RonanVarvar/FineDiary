@@ -147,7 +147,7 @@
         z-index: 2;
         position: absolute;
         border:2px solid rgb(1,232,154);
-        top:102%;
+        top:100%;
         left:-28%;
         width: 150%;
         border-radius: 15px;
