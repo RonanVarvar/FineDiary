@@ -1,4 +1,9 @@
 <template>
+  <div>
+    <div class="logo">
+      <img src="../../assets/logo.png" alt="Файний щоденник" width="110px">
+      <h1 class="header">ФАЙНИЙ ЩОДЕННИК</h1>
+    </div>
   <div id="EnterUser">
       <form class="login" @submit.prevent="login">
         <div class="row">
@@ -35,11 +40,17 @@
 		  </div>
 		</form>
 		</div>
+  </div>
 </template>
 
 <script>
+import headerHome from './HeaderHome.vue'
+
   export default {
     name: 'EnterUser',
+    componets: {
+      headerHome
+    },
     data () {
         return {
           userData: {
@@ -55,11 +66,11 @@
         },
         login: function () {
           const { username, password } = this
-          myLoginRoutine({ username, password }).then(() => {
+          this.$store.dispatch(AUTH_REQUEST, { username, password }).then(() => {
             this.$router.push('/')
           })
         }
-}
+      }
 }
 </script>
 
@@ -69,6 +80,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+
+.header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20pt;
+}
+
+.logo {
+	  text-align: center;
+    margin-top: 80px;
 }
 
 .passwordRemind {
@@ -96,17 +117,52 @@
   margin-top: 20px;
 }
 
-.button {
-  font-size: 16pt;
-  font-family: Arimo;
-  border: 2px solid #29c770;
-  border-radius: 15px;
-  width: 200px;
-  height: 55px;
-  padding: 10px;
-  background-color: white;
-  color: #49da8a;
-  cursor: pointer;
-}
+.button{text-decoration:none; text-align:center;
+ padding:15px 55px;
+ border:none;
+ -webkit-border-radius:15px;
+ -moz-border-radius:15px;
+ border-radius: 15px;
+ font:16pt Arimo;
+ color:#ffffff;
+ background-color:#74f4ad;
+ background-image: -moz-linear-gradient(top, #74f4ad 0%, #2fcb75 100%);
+ background-image: -webkit-linear-gradient(top, #74f4ad 0%, #2fcb75 100%);
+ background-image: -o-linear-gradient(top, #74f4ad 0%, #2fcb75 100%);
+ background-image: -ms-linear-gradient(top, #74f4ad 0% ,#2fcb75 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2fcb75', endColorstr='#2fcb75',GradientType=0 );
+ background-image: linear-gradient(top, #74f4ad 0% ,#2fcb75 100%);
+ -webkit-transition: color 0.12s ease;
+ -moz-transition:  color 0.12s ease;
+ -o-transition:  color 0.12s ease;
+ transition:  color 0.12s ease;}.button:hover{
+ padding:13px 53px;
+ border:ridge 2px #54e191;
+ -webkit-border-radius:15px;
+ -moz-border-radius:15px;
+ border-radius: 15px;
+ font:16pt Arimo;
+ color:#49da8a;
+ background:#ffffff;
+ -webkit-box-shadow:inset 0,0,0px 0,0,0px 0,-13,-13px #ffffff,#ffffff,#ffffff;  -moz-box-shadow:inset 0px 0px -13px #ffffff;  box-shadow:inset 0px 0px -13px #ffffff;
+ }.button:active{
+ padding:13px 53px;
+ border:none;
+ -webkit-border-radius:15px;
+ -moz-border-radius:15px;
+ border-radius: 15px;
+ font:16pt Arimo;
+ color:#ffffff;
+ background-color:#74f4ad;
+ background-image: -moz-linear-gradient(top, #74f4ad 0%, #2fcb75 100%);
+ background-image: -webkit-linear-gradient(top, #74f4ad 0%, #2fcb75 100%);
+ background-image: -o-linear-gradient(top, #74f4ad 0%, #2fcb75 100%);
+ background-image: -ms-linear-gradient(top, #74f4ad 0% ,#2fcb75 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2fcb75', endColorstr='#2fcb75',GradientType=0 );
+ background-image: linear-gradient(top, #74f4ad 0% ,#2fcb75 100%);
+ -webkit-box-shadow:-7px 0px -16px #bababa, inset 0px 0px -13px #ffffff;
+ -moz-box-shadow: -7px 0px -16px #bababa,  inset 0px 0px -13px #ffffff;
+ box-shadow:-7px 0px -16px #bababa, inset 0px 0px -13px #ffffff;
+ }
 
 </style>

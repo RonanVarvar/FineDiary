@@ -1,65 +1,63 @@
 <template>
   <div id="app">
-	<!--<div class="container">
 		<div class="row">
-      <header-home></header-home>-->
       <transition name="fade">
         <router-view></router-view>
       </transition>
-      <!--</div>
-  </div>-->
-</div>
+		</div>
+	</div>
 </template>
 
 <script>
-  import Home from './components/Home/Home.vue';
-  import HeaderHome from './components/Home/HeaderHome.vue';
-  import EnterUser from './components/Home/EnterUser.vue';
-  import PasswordRemind from './components/Home/PasswordRemind.vue';
-  import Registration  from './components/Home/Registration.vue';
-  import MassagePassRemind from './components/Home/MassagePassRemind.vue';
-  import NewPasswordForm from './components/Home/NewPasswordForm.vue';
-  import TeacherHomePage from './components/User/TeacherHomePage.vue';
-  import makeBlocks from './components/User/makeBlocks.vue';
+    import Home from './components/Home/Home.vue';
+    import headerHome from './components/Home/HeaderHome.vue';
+    import EnterUser from './components/Home/EnterUser.vue';
+    import PasswordRemind from './components/Home/PasswordRemind.vue';
+    import Registration  from './components/Home/Registration.vue';
+    import MassagePassRemind from './components/Home/MassagePassRemind.vue';
+    import NewPasswordForm from './components/Home/NewPasswordForm.vue';
 
-  export default {
-    name: 'app',
-    data () {
-      return {
-      }
+    export default {
+      name: 'app',
+      data () {
+        return {
+        }
+      },
+      components: {
+        home: Home,
+        headerHome: headerHome,
+        enterUser: EnterUser,
+        passwordRemind: PasswordRemind,
+        registration: Registration,
+        massagePassPemind: MassagePassRemind,
+        newPasswordForm: NewPasswordForm
     },
-    components: {
-      home: Home,
-      headerHome: HeaderHome,
-      enterUser: EnterUser,
-      passwordRemind: PasswordRemind,
-      registration: Registration,
-      massagePassPemind: MassagePassRemind,
-      newPasswordForm: NewPasswordForm,
-      TeacherHomePage:TeacherHomePage,
-      makeBlocks:makeBlocks
-  }
+    created: function () {
+      axios.interceptors.response.use(undefined, function (err) {
+        return new Promise(function (resolve, reject) {
+          if (err.status === 401 && err.config && !err.config.__isRetryRequest) {
+          // if you ever get an unauthorized, logout the user
+            this.$store.dispatch(AUTH_LOGOUT)
+          // you can also redirect to /login if needed !
+          }
+          throw err;
+        });
+      });
+    }
 }
 
 </script>
 
 <style lang="scss">
 body {
-background: url('./assets/background.jpg') no-repeat center center fixed;
-    padding:0px;
-    margin:0px;
- /* background-position: right;  Положение фона */
+  background: url('./assets/background.jpg') no-repeat center  fixed;
 }
 
 #app {
-font-family:  Arimo;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-text-align: center;
-    width:100%;
-    height:100%;
-    position: relative;
-
+  font-family:  Arimo;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
 </style>
