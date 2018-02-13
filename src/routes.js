@@ -32,8 +32,12 @@ export const routes = [
         { path: '/registration', component: registration },
         { path: '/MassagePassRemind', component: MassagePassRemind },
         { path: '/NewPasswordForm', component: NewPasswordForm },
-        { path: '/TeacherHomePage', component: TeacherHomePage }
-    ] },/*
+    ] },
+    {  path: '/TeacherHomePage',
+      name: 'TeacherAcount',
+      component: TeacherHomePage,
+    },
+    /*
     {  path: '/account',
       name: 'Account',
       component: TeacherHomePage,

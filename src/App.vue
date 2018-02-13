@@ -9,9 +9,6 @@
 </template>
 
 <script>
-    /* import 'bootstrap/dist/css/bootstrap.css';
-     import 'bootstrap/dist/css/bootstrap.css';
-     import 'bootstrap-vue/dist/bootstrap-vue.css';*/
     import Home from './components/Home/Home.vue';
     import headerHome from './components/Home/HeaderHome.vue';
     import EnterUser from './components/Home/EnterUser.vue';
@@ -20,8 +17,8 @@
     import MassagePassRemind from './components/Home/MassagePassRemind.vue';
     import NewPasswordForm from './components/Home/NewPasswordForm.vue';
     import TeacherHomePage from './components/User/TeacherHomePage.vue';
-     import makeBlocks from './components/User/makeBlocks.vue';
-     //import test from './components/User/test.vue';
+    import makeBlocks from './components/User/makeBlocks.vue';
+
     export default {
       name: 'app',
       data () {
