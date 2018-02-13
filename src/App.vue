@@ -12,7 +12,6 @@
     /* import 'bootstrap/dist/css/bootstrap.css';
      import 'bootstrap/dist/css/bootstrap.css';
      import 'bootstrap-vue/dist/bootstrap-vue.css';*/
-
     import Home from './components/Home/Home.vue';
     import headerHome from './components/Home/HeaderHome.vue';
     import EnterUser from './components/Home/EnterUser.vue';
@@ -23,7 +22,6 @@
     import TeacherHomePage from './components/User/TeacherHomePage.vue';
      import makeBlocks from './components/User/makeBlocks.vue';
      //import test from './components/User/test.vue';
-
     export default {
       name: 'app',
       data () {
@@ -53,7 +51,6 @@
       });
     }
 }
-
 </script>
 
 <style lang="scss">
@@ -62,7 +59,6 @@ body {
     background-position: right; /* Положение фона */
     padding:0px;
 }
-
 #app {
   font-family:  Arimo;
   -webkit-font-smoothing: antialiased;
@@ -73,5 +69,4 @@ body {
      position: relative;
   text-align: center;
 }
-
 </style>
