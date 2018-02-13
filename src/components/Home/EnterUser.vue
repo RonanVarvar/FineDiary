@@ -5,17 +5,17 @@
       <h1 class="header">ФАЙНИЙ ЩОДЕННИК</h1>
     </div>
   <div id="EnterUser">
-      <form class="login" @submit.prevent="login">
+      <b-form class="login" @submit.prevent="login" @submit="onSubmit">
         <div class="row">
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <input
-                  type="text"
+            <b-form-input
+                  type="email"
                   id="email"
                   class="form-control"
                   placeholder="E-mail"
                   v-model="useremail"
                   required
-                  >
+                  ></b-form-input>
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3">
             <input
@@ -28,7 +28,7 @@
                   >
           </div>
     		  <div class="col-sm-6 col-md-4 col-lg-3">
-      			<button @click.prevent='login' class='button' type="submit">Вхід</button>
+      			<button @click='login' class='button' type="submit">Вхід</button>
       			<button @click='navigateToReg' class='button'>Зареєструватися</button>
           </div>
         <div @click="" class="linkPasswordRemind">
@@ -38,7 +38,7 @@
             </router-link>
 		    </div>
 		  </div>
-		</form>
+		</b-form>
 		</div>
   </div>
 </template>
@@ -54,7 +54,7 @@ import headerHome from './HeaderHome.vue'
     data () {
         return {
           userData: {
-            email: '',
+            useremail: '',
             password: ''
         },
           users: [  ]
@@ -65,12 +65,12 @@ import headerHome from './HeaderHome.vue'
           this.$router.push('/registration');
         },
         login: function () {
-          const { username, password } = this
+          const { useremail, password } = this
           this.$store.dispatch(AUTH_REQUEST, { useremail, password }).then(() => {
             this.$router.push('/')
           })
         }
-      }
+}
 }
 </script>
 
@@ -103,14 +103,14 @@ import headerHome from './HeaderHome.vue'
 }
 
 .form-control {
-  width: 400px;
-  height: 55px;
+  width: 390px;
+  height: 50px;
   margin-bottom: 28px;
   padding-left: 15px;
   font-size: 16pt;
   font-family: Arimo;
   border: 2px solid #29c770;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .linkPasswordRemind {
