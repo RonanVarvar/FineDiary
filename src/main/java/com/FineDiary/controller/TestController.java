@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 @Controller
 public class TestController{
     @Autowired
-    UserService svc;
+    UserService userService;
 
 
     @RequestMapping(value = "/save",method = RequestMethod.GET)
@@ -36,7 +36,7 @@ public class TestController{
         user.setLastName("Kosiy");
         user.setSurrName("Stanislavovich");
         user.setRole("Admin");
-        svc.create(user);
+        userService.create(user);
         return "User " + user.getName() + "with " + user.getEmail() + " email has been saved";
     }
 
@@ -46,10 +46,10 @@ public class TestController{
 
         ArrayList<String> buffer = new ArrayList<>();
 
-        try (Stream<User> stream = (Stream<User>) svc.findAll()) {
+        try (Stream<User> stream = (Stream<User>) userService.findAll()) {
             stream.forEach((k)->buffer.add("User : " + k));
         }
-        return "The first user in the database is : "+svc.findUserById(1).getEmail();
+        return "The first user in the database is : "+userService.findUserById(1).getEmail();
 
         //return "redirect:index.jsp/";
 //        return buffer.get(1);
@@ -59,7 +59,7 @@ public class TestController{
     @ResponseBody
     public String testNameFinder() {
 
-        List testList = svc.findAll();//сетаем то, что мы будем искать
+        List testList = userService.findAll();//сетаем то, что мы будем искать
         User firstUserWIthName = (User) testList.get(0);//Возвращает первую запись
 
         return firstUserWIthName.getName();
@@ -69,7 +69,7 @@ public class TestController{
     @ResponseBody
     public String testEmailFind() {
 
-        User firstUserWithMail = svc.findByEmail("test@test.test");//сетаем то, что мы будем искать
+        User firstUserWithMail = userService.findByEmail("test@test.test");//сетаем то, что мы будем искать
         return "The user with " + firstUserWithMail.getEmail()+ " has ID: "+ firstUserWithMail.getId() + ", Name : "  + firstUserWithMail.getName()  + ", Password :  " + firstUserWithMail.getPassword();
     }
 

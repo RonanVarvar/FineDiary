@@ -25,8 +25,8 @@ public class RegistrationController {
     private UserService service;
 
 
-    @RequestMapping(value = "/auth/register", method = RequestMethod.POST, produces = Constants.MimeTypes.UTF_8_PLAIN_TEXT)
-//TODO change to post
+    //@RequestMapping(value = "/auth/register", method = RequestMethod.POST, produces = Constants.MimeTypes.UTF_8_PLAIN_TEXT)
+    @PostMapping(value = "/auth/register")
     @ResponseBody
     public String registrationPage(@RequestHeader(value = CONTENT_TYPE) String contentType,
                                    @RequestBody String body,
@@ -48,16 +48,15 @@ public class RegistrationController {
                 if (checkerUser.getEmail().equals(newUser.getEmail()))
                     throw new AuthenticationException();
             }
-
-
             user.setId(Integer.MAX_VALUE);//cant be null and cant be a number that is already registered
             user.setEmail(newUser.getEmail());
             user.setPassword(newUser.getPassword());
             user.setName(newUser.getName());
             user.setSurrName(newUser.getSurname());
-            user.setLastName("LastName");
-            user.setRole("user");
-            service.create(user);
+            user.setLastName("MockLastName");//пока заглушки
+            user.setRole("user");//
+            service.create(user);//
+            // TODO добавить еще школу , либо еще класс - если учитель
 
 //            //because email sends for too long
 //            new Thread(() -> mailSender.sendEmail(user)).start();

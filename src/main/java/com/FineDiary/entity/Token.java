@@ -7,8 +7,8 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "TOKEN")
-public class UserToken {
+@Table(name = "TOKENS")
+public class Token {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
