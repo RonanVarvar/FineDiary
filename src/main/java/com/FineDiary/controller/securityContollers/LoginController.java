@@ -35,7 +35,7 @@ import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
 //    @ResponseBody
 //    public String loginPage(@RequestHeader(value = CONTENT_TYPE) String contentType,
 //                            @RequestBody String body,
-//                            HttpServletResponse response) throws IOException {
+//                            HttpServletResponse response) throws IOException , Exception {
 //        boolean isUser, isAdmin;
 //        LoginResponseBuilder builder = new LoginResponseBuilder();
 //
@@ -88,8 +88,7 @@ import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
 //                tokenService.create(newToken);
 //
 //            }
-//            ObjectListEntity objectListEntity = new ObjectListEntity();
-//            List<>
+//
 //
 //        }
 //    }
