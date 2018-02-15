@@ -48,5 +48,4 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 nb-configuration.xml
-/target
 /.idea
