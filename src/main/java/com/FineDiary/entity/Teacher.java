@@ -1,26 +1,23 @@
 package com.FineDiary.entity;
 
-import org.springframework.stereotype.Controller;
-
 import javax.persistence.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 
     @Entity
-    @Table(name = "STUDENTS")
-    public class Students {
+    @Table(name = "TEACHERS")
+    public class Teacher {
 
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private int id;
 
+        @Column(name = "PASSWORD",nullable = false)
+        private String password;
 
         @Column(name = "EMAIL",nullable = false,unique = true)
         private String email;
-
-        @Column(name = "PASSWORD", nullable = false,unique = true)
-        private String password;
 
         @Column (name = "NAME",nullable = false)
         private String name;
@@ -34,11 +31,14 @@ import java.util.Base64;
         @Column(name = "SCHOOL", nullable = false)
         private String school;
 
-        @Column(name = "CLASS", nullable = false)
-        private String studentClass;
+        @Column(name = "CLASS", nullable = true)
+        private String ownClass;
 
-        @Column(name = "STUDENTMOBILE", nullable = false)
-        private int studentMobile;
+        @Column(name = "TEACHERMOBILE", nullable = false)
+        private int teacherMobile;
+
+
+
 
         //Getters and Setters
 
@@ -51,20 +51,20 @@ import java.util.Base64;
             this.id = id;
         }
 
-        public String getEmail() {
-            return email;
-        }
-
-        public void setEmail(String email) {
-            this.email = email;
-        }
-
         public String getPassword() {
             return password;
         }
 
         public void setPassword(String password) {
             this.password = password;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
         }
 
         public String getName() {
@@ -99,30 +99,33 @@ import java.util.Base64;
             this.school = school;
         }
 
-        public String getStudentClass() {
-            return studentClass;
+        public String getOwnClass() {
+            return ownClass;
         }
 
-        public void setStudentClass(String studentClass) {
-            this.studentClass = studentClass;
+        public void setOwnClass(String ownClass) {
+            this.ownClass = ownClass;
         }
 
-        public int getStudentMobile() {
-            return studentMobile;
+        public int getTeacherMobile() {
+            return teacherMobile;
         }
 
-        public void setStudentMobile(int studentMobile) {
-            this.studentMobile = studentMobile;
+        public void setTeacherMobile(int teacherMobile) {
+            this.teacherMobile = teacherMobile;
         }
 
         @Override
         public String toString() {
             return "User{" +
                     "id=" + id +
+                    ", password='" + password + '\'' +
                     ", email='" + email + '\'' +
                     ", name='" + name + '\'' +
                     ", lastName='" + lastName + '\'' +
+                    ", school='" + school + '\'' +
+                    "ownClass=" + ownClass + '\'' +
                     '}';
         }
+    }
 
-}

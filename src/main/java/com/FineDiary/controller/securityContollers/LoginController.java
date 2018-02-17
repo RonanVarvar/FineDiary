@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.FineDiary.entity.Authorization.UserRoleEnum.ADMIN;
 import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
@@ -89,7 +92,34 @@ import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
 //
 //            }
 //
+//            ObjectListEntity objectDefault = new ObjectListEntity();
+//            List<Adress> adresses = adressService.findAllByUser(user);
+//            List<Adress> adressesObjDefault = adresses;
+//            adressesObjDefault = adresses.stream().filter(d -> d.getObjectDefault() == true).collect(Collectors.toList());
 //
+//
+//            if (adressesObjDefault.size() > 0) {
+//                objectDefault = new ObjectListEntity(adressesObjDefault.get(0).getId(),
+//                        adressesObjDefault.get(0).getType() + ", " + adressesObjDefault.get(0).getStreet() + " " + adressesObjDefault.get(0).getHouseNumber(),
+//                        adressesObjDefault.get(0).getObjectDefault());
+//                builder.addInfo(new LoginResponseEntity(newToken.getToken(), isAdmin, isUser, objectDefault));
+//            } else if (adresses.size() > 0) {
+//                objectDefault = new ObjectListEntity(adresses.get(0).getId(), adresses.get(0).getType(), adresses.get(0).getObjectDefault());
+//                builder.addInfo(new LoginResponseEntity(newToken.getToken(), isAdmin, isUser, objectDefault));
+//            } else {
+//                builder.addInfo(new LoginResponseEntity(newToken.getToken(), isAdmin, isUser, new ArrayList()));
+//            }
+//
+//
+//
+//            result = builder.createJson();
+//            response.setStatus(200);
+//            response.setHeader("Headers", "{\"Content-Type\":\"application/json\"}");
+//            return result;
+//        } catch (Exception e) {
+//            response.setStatus(401);
+//            response.setHeader("Headers", "{\"Content-Type\":\"application/json\"}");
+//            return "{\"info\":\"Неверный пароль или логин\"}";
 //        }
 //    }
 //}

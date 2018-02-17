@@ -25,7 +25,7 @@ public class Classes {
     @Column(name = "letter", nullable = false)
     private Character letter;
 
-
+//subjects need to add
     /* Getters */
 
     public int getId() {
