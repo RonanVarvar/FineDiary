@@ -5,7 +5,7 @@
       <h1 class="header">ФАЙНИЙ ЩОДЕННИК</h1>
     </div>
   <div id="EnterUser">
-      <b-form class="login" @submit.prevent="login" @submit="onSubmit">
+      <b-form class="login" @submit.prevent="login">
         <div class="row">
           <div class="col-sm-6 col-md-4 col-lg-3">
             <b-form-input
@@ -18,14 +18,14 @@
                   ></b-form-input>
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3">
-            <input
+            <b-form-input
                   type="password"
                   id="password"
                   class="form-control"
                   placeholder="Пароль"
                   v-model="password"
                   required
-                  >
+                  ></b-form-input>
           </div>
     		  <div class="col-sm-6 col-md-4 col-lg-3">
       			<button @click='login' class='button' type="submit">Вхід</button>
@@ -53,11 +53,8 @@ import headerHome from './HeaderHome.vue'
     },
     data () {
         return {
-          userData: {
             useremail: '',
             password: ''
-        },
-          users: [  ]
       }
     },
     methods: {
@@ -70,7 +67,7 @@ import headerHome from './HeaderHome.vue'
             this.$router.push('/')
           })
         }
-}
+      }
 }
 </script>
 
@@ -125,7 +122,7 @@ import headerHome from './HeaderHome.vue'
   border:none;
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
-  border-radius: 15px;
+  border-radius: 20px;
   font: 16pt Arimo;
   color:#ffffff;
   background-color:#74f4ad;
@@ -146,7 +143,7 @@ import headerHome from './HeaderHome.vue'
   border:ridge 2px #54e191;
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
-  border-radius: 15px;
+  border-radius: 20px;
   font: 16pt Arimo;
   color: #49da8a;
   background:#ffffff;
@@ -160,7 +157,7 @@ import headerHome from './HeaderHome.vue'
   border:none;
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
-  border-radius: 15px;
+  border-radius: 20px;
   font:16pt Arimo;
   color:#ffffff;
   background-color:#74f4ad;

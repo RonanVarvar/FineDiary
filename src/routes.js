@@ -24,7 +24,7 @@ const ifAuthenticated = (to, from, next) => {
 }
 
 export const routes = [
-    { path: '', name: 'home', components: {
+    { path: '',  components: {
         default: Home
     },  children: [
         { path: '', component: EnterUser },

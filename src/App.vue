@@ -9,6 +9,8 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     import Home from './components/Home/Home.vue';
     import headerHome from './components/Home/HeaderHome.vue';
     import EnterUser from './components/Home/EnterUser.vue';

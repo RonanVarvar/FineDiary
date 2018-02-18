@@ -1,3 +1,8 @@
+import Vue from 'vue';
+import axios from 'axios';
+
+Vue.use(axios);
+
 const state = {
   token: localStorage.getItem('user-token') || ''
   status: '',

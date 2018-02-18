@@ -16,6 +16,6 @@
 
 .logo {
 	  text-align: center;
-    margin-top: 80px;
+    margin-top: 30px;
 }
 </style>

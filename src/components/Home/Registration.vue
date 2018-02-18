@@ -26,22 +26,20 @@
             v-model="password">
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
-          <b-btn
+          <b-btn  v-b-modal.modalPrevent
               @click="showModal('teacher')"
               class="button-typeUser">Я вчитель</b-btn>
           </br>
-          <b-btn
+          <b-btn  v-b-modal.modalPrevent
               @click="showModal('learner')"
               class="button-typeUser">Учень/батьки</b-btn>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3">
           <button
               class="button"
-              id="show-show"
               @click="navigateToBack">Назад</button>
           <button
               class="button"
-              id="show-show"
               @click.prevent='Registration'>Зареєструватися</button>
         </div>
       </div>
@@ -75,10 +73,13 @@ import learnerForm from './LearnerForm.vue'
         this.$router.push('/');
       },
       Registration(event) {
-        this.regUsers.push({
-          'email': this.email,
-          'password': this.password,
-        });
+        let formData = JSON.parse(sessionStorage.getItem("formData")),
+            mainData = {
+              email: this.email,
+              password: this.password,
+            },
+            regData = Object.assign(mainData, formData);
+            console.log(JSON.stringify(regData));
       },
       back() {
         this.$router.push('/');
@@ -103,7 +104,7 @@ import learnerForm from './LearnerForm.vue'
 .teacherModal, .studentModal {
   position: absolute;
   z-index: 20;
-  margin-top: -270px;
+  margin-top: -200px;
 }
 .form-control, .name {
   width: 390px;
@@ -113,7 +114,7 @@ import learnerForm from './LearnerForm.vue'
   font-size: 16pt;
   font-family: Arimo;
   border: 2px solid #29c770;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 .info {
   width: 280px;
@@ -133,7 +134,7 @@ import learnerForm from './LearnerForm.vue'
   border:none;
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
-  border-radius: 15px;
+  border-radius: 20px;
   font: 16pt Arimo;
   color:#ffffff;
   background-color:#74f4ad;
@@ -154,7 +155,7 @@ import learnerForm from './LearnerForm.vue'
   border:ridge 2px #54e191;
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
-  border-radius: 15px;
+  border-radius: 20px;
   font: 16pt Arimo;
   color: #49da8a;
   background:#ffffff;
@@ -168,7 +169,7 @@ import learnerForm from './LearnerForm.vue'
   border:none;
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
-  border-radius: 15px;
+  border-radius: 20px;
   font:16pt Arimo;
   color:#ffffff;
   background-color:#74f4ad;
@@ -192,7 +193,7 @@ import learnerForm from './LearnerForm.vue'
   border:none;
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
-  border-radius: 15px;
+  border-radius: 20px;
   font: 16pt Arimo;
   color:#ffffff;
   background-color:#74f4ad;
@@ -213,7 +214,7 @@ import learnerForm from './LearnerForm.vue'
   border:ridge 2px #54e191;
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
-  border-radius: 15px;
+  border-radius: 20px;
   font: 16pt Arimo;
   color: #49da8a;
   background:#ffffff;
@@ -227,7 +228,7 @@ import learnerForm from './LearnerForm.vue'
   border:none;
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
-  border-radius: 15px;
+  border-radius: 20px;
   font:16pt Arimo;
   color:#ffffff;
   background-color:#74f4ad;

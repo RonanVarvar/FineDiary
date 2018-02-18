@@ -60,7 +60,7 @@ export default {
   border:none;
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
-  border-radius: 15px;
+  border-radius: 20px;
   font: 16pt Arimo;
   color:#ffffff;
   background-color:#74f4ad;
@@ -81,7 +81,7 @@ export default {
   border:ridge 2px #54e191;
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
-  border-radius: 15px;
+  border-radius: 20px;
   font: 16pt Arimo;
   color: #49da8a;
   background:#ffffff;
@@ -95,7 +95,7 @@ export default {
   border:none;
   -webkit-border-radius:15px;
   -moz-border-radius:15px;
-  border-radius: 15px;
+  border-radius: 20px;
   font:16pt Arimo;
   color:#ffffff;
   background-color:#74f4ad;
