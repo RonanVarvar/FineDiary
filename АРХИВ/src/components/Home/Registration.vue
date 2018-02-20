@@ -35,18 +35,22 @@
                 <p class="head">Шкільні дані</p>
                 <div class="wide">
                     <input type="text"
-                           class="name"
+                           class="info"
                            placeholder="Школа в якій ви викладаєте"
                            v-model="school">
+                    <button class="buttonAdd"
+                            @click='addSchool'>Додати +</button>
                 </div>
                 <div id="newEl"></div>
                 <div id='schoolAdd'></div>
                 <div class="wide">
                     <input
                           type="text"
-                          class="name"
+                          class="info"
                           placeholder="Предмет який ви викладаєте"
                           v-model="subject">
+                    <button class="buttonAdd"
+                            @click='addSubject()'>Додати +</button>
                 </div>
                 <br>
                 <div class="white">
@@ -58,8 +62,8 @@
                       В мене є класне керівництво</label>
                 </div>
                 <br><br><br><br><br><br><br><br><br><br><br><br>
-                <div class="wide">
-                    <button @click='backClose()'
+                <div>
+                    <button @click='back()'
                             class='buttonNav'>Назад</button>
                     <button @click='saveTeacher()'
                             class='buttonNav'>Зберегти</button>
@@ -79,6 +83,8 @@
                           class="info"
                           placeholder="Класи, в яких ви викладаєте"
                           v-model="classes">
+                    <button class="buttonAdd"
+                            @click='addClasses()'>Додати +</button>
                 </div>
                 <div class="wide">
                     <input
@@ -86,97 +92,15 @@
                           class="info"
                           placeholder="Номер мобільного телефону"
                           v-model="phone">
+                    <button class="buttonAdd"
+                            @click='handleSubmit()'>Додати +</button>
                 </div>
             </div>
         </div>
     </form>
   </b-modal>
   <b-modal  centered ref="learner" class="studentModal" ok-only hide-header-close>
-      <form @submit.stop.prevent="handleSubmit()">
-          <div class="col-lg-12">
-              <div class="col-lg-4">
-                  <p class="head">Дані учня/учениці</p>
-                  <div>
-                      <input type="text" class="name" placeholder="Ім'я"
-                          v-model="lname">
-                  </div>
-                  <div>
-                      <input type="text" class="name" placeholder="По-батькові"
-                          v-model="lpatronymic">
-                  </div>
-                  <div>
-                      <input type="text" class="name" placeholder="Прізвіще"
-                          v-model="lsurname">
-                  </div>
-                  <br>
-                  <b-form-group label="Стать учня" class="checkedSex">
-                      <b-form-radio-group id="radios2" v-model="sex"
-                          :options="options" name="radioOpenions">
-                      </b-form-radio-group>
-                  </b-form-group>
-                  <p class="sub-header">Дата народження</p>
-                  <date-picker :date="startTime" :option="option"
-                      :limit="limit">
-                  </date-picker>
-                  <br><br>
-                  <div>
-                      <input type="text" class="info" placeholder="Номер мобільного телефону"
-                          v-model="lphone">
-                  </div>
-                  <div>
-                      <input type="text" class="info" placeholder="Домашня адреса"
-                          v-model="ladress">
-                  </div>
-              </div>
-              <div class="col-lg-4">
-                  <p class="head">Данні батьків/опікунів</p>
-                  <p class="head">Батько</p>
-                  <div>
-                      <input type="text" class="name" placeholder="Ім'я"
-                          v-model="parent1name">
-                  </div>
-                  <div>
-                      <input type="text" class="name" placeholder="По-батькові"
-                          v-model="parent1patronymic">
-                  </div>
-                  <div>
-                      <input type="text" class="name" placeholder="Прізвище"
-                          v-model="parent1surname">
-                  </div>
-                  <br />
-                  <div class="wide">
-                      <input type="text" class="info" placeholder="Номер мобільного телефону"
-                          v-model="parent1phone">
-                  </div>
-                  <br /><br /><br /><br /><br/>
-                  <div>
-                      <button @click='backClose()' class='buttonNav'>Назад</button>
-                      <button @click='saveLearner()' class='buttonNav'>Зберегти</button>
-                  </div>
-              </div>
-              <div class="col-lg-4">
-                  <br /><br/>
-                  <p class="head">Мати</p>
-                  <div>
-                      <input type="text" class="name" placeholder="Ім'я"
-                          v-model="parent2name">
-                  </div>
-                  <div>
-                      <input type="text" class="name" placeholder="По-батькові"
-                          v-model="parent2patronymic">
-                  </div>
-                  <div>
-                      <input type="text" class="name" placeholder="Прізвище"
-                          v-model="parent2surname">
-                  </div>
-                  <br />
-                  <div class="wide">
-                      <input type="text" class="info" placeholder="Номер мобільного телефону"
-                          v-model="parent2phone">
-                  </div>
-              </div>
-          </div>
-      </form>
+      <learner-form></learner-form>
   </b-modal>
   <div id="Registration">
     <form>
@@ -222,13 +146,17 @@
 <script>
 import myDatepicker from 'vue-datepicker'
 import headerHome from './HeaderHome.vue'
+import teacherForm from './TeacherForm.vue'
+import learnerForm from './LearnerForm.vue'
 import axios from 'axios'
+import { bus } from './bus.js'
 
   export default {
     data () {
       return {
         email: '',
         password: '',
+        show: true,
           name: '',
           patronymic: '',
           surname: '',
@@ -240,24 +168,6 @@ import axios from 'axios'
           formMaster: '',
           classes:'',
           phone: '',
-          lname: '',
-          lpatronymic: '',
-          lsurname: '',
-          sex: '',
-          lphone: '',
-          ladress: '',
-          parent1name: '',
-          parent1patronymic: '',
-          parent1surname: '',
-          parent1phone: '',
-          parent2name: '',
-          parent2patronymic: '',
-          parent2surname: '',
-          parent2phone: '',
-          options: [
-            { text: 'Жіноча', value: 'female'},
-            { text: 'Чоловіча', value: 'male' }
-          ],
         startTime: {
             time: ''
           },
@@ -307,6 +217,7 @@ import axios from 'axios'
       components: {
         headerHome,
         'date-picker': myDatepicker,
+        learnerForm
       },
     methods: {
       showModal: function(name) {
@@ -338,34 +249,18 @@ import axios from 'axios'
                 console.log(error);
               });
       },
+      addSchool: function () {
+        let el, s;
+        el = document.getElementById("newEl");
+        s = el.innerHTML;
+        s = s+'<input type="button" @click="remove.this">';
+        el.innerHTML = s;
+      },
       handleSubmit() {
       },
-      saveLearner() {
-         let datepicker = document.getElementsByClassName('cov-datepicker')[0],
-             birthData = datepicker.value,
-             learnerData = {
-                 name: this.lname,
-                 patronymic: this.lpatronymic,
-                 birthday: birthData,
-                 phone: this.lphone,
-                 name: this.lname,
-                 patronymic: this.lpatronymic,
-                 surname: this.lsurname,
-                 sex: this.sex,
-                 phone: this.lphone,
-                 adress: this.ladress,
-                 parent1name: this.parent1name,
-                 parent1patronymic: this.parent1patronymic,
-                 parent1surname: this.parent1surname,
-                 parent1phone: this. parent1phone,
-                 parent2name: this.parent2name,
-                 parent2patronymic: this.parent2patronymic,
-                 parent2surname: this.parent2surname,
-                 parent2phone: this.parent2phone,
-              };
-              sessionStorage.clear(),
-            sessionStorage.setItem('formData', JSON.stringify(learnerData));
-        },
+      addSubject() {},
+      addClasses() {},
+      addMobileNumber() {},
       saveTeacher() {
          let datepicker = document.getElementsByClassName('cov-datepicker')[0],
              birthData = datepicker.value,
@@ -380,11 +275,12 @@ import axios from 'axios'
                  birthday: birthData,
                  phone: this.phone,
               };
+
             sessionStorage.setItem('formData', JSON.stringify(theacherData));
           this.$refs.teacher.hide();
         },
-      backClose() {
-        this.$refs.teacher.hide();
+      back() {
+        this.$router.push('/');
       }
     }
 }
@@ -561,79 +457,5 @@ import axios from 'axios'
 }
 .custom-control-input {
   zoom: 2.3;
-}
-.cov-date-caption {
-  font-family: Arimo;
-}
-.week {
-  font-family: Arimo;
-}
-.day {
-  font-family: Arimo;
-}
-.button-box {
-  font-family: Arimo;
-}
-.date-item {
-  font-family: Arimo;
-}
-.label {
-  font-size: 16pt;
-}
-.col-lg-12 {
-  display: inline-flex;
-  border-radius: 20px;
-}
-.TeacherForm {
-  width: 100%;
-  height: 90%;
-  margin-bottom: 20px;
-}
-.head {
-  color: #fff;
-  font-size: 16pt;
-}
-.white {
-  color: #fff;
-  font-size: 25px;
-  display: flex;
-}
-.wide {
-  display: inline-flex;
-  width: 100%;
-}
-.col-lg-12 {
-  background-color: rgba(105, 220, 156, .9);
-}
-.checkedSex {
-  font-size: 25px;
-  color: #fff;
-}
-.custom-control-label{
-  font-size: 25px;
-  color: #fff;
-}
-#radios1 {
-  display: inline-flex;
-}
-.sub-header {
-    color: #fff;
-    font-size: 25px;
-}
-.buttonNav {
-  font-size: 16pt;
-  font-family: Arimo;
-  border: 2px solid white;
-  border-radius: 20px;
-  width: 185px;
-  height: 55px;
-  padding: 10px;
-  background-color: transparent;
-  color: white;
-  cursor: pointer;
-}
-
-.btn-primary {
-  display: none;
 }
 </style>

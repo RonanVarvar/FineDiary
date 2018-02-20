@@ -98,12 +98,12 @@ import myDatepicker from 'vue-datepicker'
 export default {
   data() {
     return {
-      lname: '',
-      lpatronymic: '',
-      lsurname: '',
+      name: '',
+      patronymic: '',
+      surname: '',
       sex: '',
-      lphone: '',
-      ladress: '',
+      phone: '',
+      adress: '',
       parent1name: '',
       parent1patronymic: '',
       parent1surname: '',
@@ -210,5 +210,38 @@ export default {
 </script>
 
 <style>
+.col-lg-12 {
+  background-color: rgba(105, 220, 156, .9);
+}
+.checkedSex {
+  font-size: 25px;
+  color: #fff;
+}
+.custom-control-label{
+  font-size: 25px;
+  color: #fff;
+}
+#radios1 {
+  display: inline-flex;
+}
+.sub-header {
+    color: #fff;
+    font-size: 25px;
+}
+.buttonNav {
+  font-size: 16pt;
+  font-family: Arimo;
+  border: 2px solid white;
+  border-radius: 20px;
+  width: 185px;
+  height: 55px;
+  padding: 10px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
 
+.btn-primary {
+  display: none;
+}
 </style>
