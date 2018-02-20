@@ -59,7 +59,7 @@
                 </div>
                 <br><br><br><br><br><br><br><br><br><br><br><br>
                 <div class="wide">
-                    <button @click='backClose()'
+                    <button @click="closeModal('teacher')"
                             class='buttonNav'>Назад</button>
                     <button @click='saveTeacher()'
                             class='buttonNav'>Зберегти</button>
@@ -150,7 +150,7 @@
                   </div>
                   <br /><br /><br /><br /><br/>
                   <div>
-                      <button @click='backClose()' class='buttonNav'>Назад</button>
+                      <button @click="closeModal('learner')"class='buttonNav'>Назад</button>
                       <button @click='saveLearner()' class='buttonNav'>Зберегти</button>
                   </div>
               </div>
@@ -312,6 +312,9 @@ import axios from 'axios'
       showModal: function(name) {
         this.$refs[name].show();
       },
+      closeModal: function(name) {
+        this.$refs[name].hide();
+      },
       navigateToBack() {
         this.$router.push('/');
       },
@@ -365,6 +368,7 @@ import axios from 'axios'
               };
               sessionStorage.clear(),
             sessionStorage.setItem('formData', JSON.stringify(learnerData));
+            this.$refs.learner.hide();
         },
       saveTeacher() {
          let datepicker = document.getElementsByClassName('cov-datepicker')[0],
@@ -382,10 +386,7 @@ import axios from 'axios'
               };
             sessionStorage.setItem('formData', JSON.stringify(theacherData));
           this.$refs.teacher.hide();
-        },
-      backClose() {
-        this.$refs.teacher.hide();
-      }
+        }
     }
 }
 </script>
