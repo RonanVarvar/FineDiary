@@ -48,13 +48,46 @@ public class RegistrationController {
                 if (checkerUser.getEmail().equals(newUser.getEmail()))
                     throw new AuthenticationException();
             }
+            /*
+            Ученик (с родителями)
+{
+"name":"d",
+"patronymic":"d",
+"birthday":"15.02.2018",
+"phone":"f",
+"surname":"d",
+"sex":"female",
+"adress":"",
+"parent1name":"d",
+"parent1patronymic":"d",
+"parent1surname":"d",
+"parent1phone":"d",
+"parent2name":"d",
+"parent2patronymic":"d",
+"parent2surname":"d",
+"parent2phone":"d"}
+Учитель
+{
+"name":"e",
+"patronymic":"e",
+"surname":"e",
+"subject":"e",
+"myclass":"e",
+"classes":"e",
+"formMaster":true,
+"birthday":"15.02.2018",
+"phone":"e"
+}             */
+
+
+
             user.setId(Integer.MAX_VALUE);//cant be null and cant be a number that is already registered
             user.setEmail(newUser.getEmail());
             user.setPassword(newUser.getPassword());
             user.setName(newUser.getName());
-            user.setSurrName(newUser.getSurname());
-            user.setLastName("MockLastName");//пока заглушки
-            user.setRole("user");//
+            user.setPatronymic(newUser.getSurname());
+            user.setLastName(newUser.getLastName());//пока заглушки
+            user.setRole(newUser.getRole());//
             service.create(user);//
             // TODO добавить еще школу , либо еще класс - если учитель
 

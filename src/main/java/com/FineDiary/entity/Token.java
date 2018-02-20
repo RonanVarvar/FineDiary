@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "TOKENS")
 public class Token {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

@@ -34,7 +34,7 @@ public class TestController{
         user.setPassword("040593");
         user.setEmail("test"+rand+"@test.test");
         user.setLastName("Kosiy");
-        user.setSurrName("Stanislavovich");
+        user.setPatronymic("Stanislavovich");
         user.setRole("Admin");
         userService.create(user);
         return "User " + user.getName() + "with " + user.getEmail() + " email has been saved";

@@ -5,6 +5,8 @@ public class PersonToRegisterEntity {
     private String password;
     private String name;
     private String surname;
+    private String lastname;
+    private String role;
 
     public String getEmail() {
         return email;
@@ -18,4 +20,6 @@ public class PersonToRegisterEntity {
     public String getSurname(){
         return surname;
     }
+    public String getLastName(){return lastname;}
+    public String getRole(){return role;}
 }
