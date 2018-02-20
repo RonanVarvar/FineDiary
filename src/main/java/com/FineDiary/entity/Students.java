@@ -70,6 +70,10 @@ import java.util.Base64;
             return id;
         }
 
+        @JoinColumn(name = "TEACHER_ID", nullable=false, referencedColumnName="Id")
+        private Teacher2School teacher2School;
+
+
         public void setId(int id) {
             this.id = id;
         }
@@ -84,7 +88,15 @@ import java.util.Base64;
         }
 
         public void setPassword(String password) {
-            this.password = password;
+            this.password = password;}
+
+        public Teacher2School getTeacher2School() {
+            return teacher2School;
+        }
+
+        public void setTeacher2School(Teacher2School teacher2School) {
+            this.teacher2School = teacher2School;
+
         }
 
         public String getEmail() {
