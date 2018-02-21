@@ -10,6 +10,5 @@ import java.util.List;
 
 @Repository
 public interface StudentsRepo extends JpaRepository<Students,Integer>{
-
     List<Students> findAllBy(Teacher2School teacher2School);
 }

@@ -70,6 +70,7 @@ import java.util.Base64;
             return id;
         }
 
+        @ManyToOne(cascade = CascadeType.ALL)
         @JoinColumn(name = "TEACHER_ID", nullable=false, referencedColumnName="Id")
         private Teacher2School teacher2School;
 
@@ -229,12 +230,26 @@ import java.util.Base64;
 
         @Override
         public String toString() {
-            return "User{" +
+            return "Students{" +
                     "id=" + id +
+                    ", password='" + password + '\'' +
                     ", email='" + email + '\'' +
                     ", name='" + name + '\'' +
+                    ", patronymic='" + patronymic + '\'' +
                     ", lastName='" + lastName + '\'' +
+                    ", role='" + role + '\'' +
+                    ", birthday='" + birthday + '\'' +
+                    ", sex='" + sex + '\'' +
+                    ", adress='" + adress + '\'' +
+                    ", parent1Name='" + parent1Name + '\'' +
+                    ", parent1Patronymic='" + parent1Patronymic + '\'' +
+                    ", parent1Surname='" + parent1Surname + '\'' +
+                    ", parent1Mobile=" + parent1Mobile +
+                    ", parent2Name='" + parent2Name + '\'' +
+                    ", parent2Patronymic='" + parent2Patronymic + '\'' +
+                    ", parent2Surname='" + parent2Surname + '\'' +
+                    ", parent2Mobile=" + parent2Mobile +
+                    ", teacher2School=" + teacher2School +
                     '}';
         }
-
-}
+    }

@@ -38,7 +38,10 @@ public class User {
     @Column(name = "SEX", nullable = false)
     private String sex;
 
-    @Column(name = "ADRESS")
+    @Column(name = "MOBILE", nullable = false)
+    private String mobile;
+
+    @Column(name = "ADRESS", nullable = false)
     private String adress;
 
     @Column(name = "PARENT1NAME" , nullable = false)
@@ -51,7 +54,7 @@ public class User {
     private String parent1Surname;
 
     @Column(name = "PARENT1MOBILE", nullable = false )
-    private int parent1Mobile;
+    private String parent1Mobile;
 
     @Column(name = "PARENT2NAME" , nullable = true)
     private String parent2Name;
@@ -63,7 +66,7 @@ public class User {
     private String parent2Surname;
 
     @Column(name = "PARENT2MOBILE", nullable = true  )
-    private int parent2Mobile;
+    private String parent2Mobile;
 
 
     //Getters and Setters
@@ -132,6 +135,7 @@ public class User {
         return birthday;
     }
 
+
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
@@ -144,6 +148,7 @@ public class User {
         this.sex = sex;
     }
 
+
     public String getAdress() {
         return adress;
     }
@@ -151,6 +156,15 @@ public class User {
     public void setAdress(String adress) {
         this.adress = adress;
     }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String  mobile) {
+        this.mobile = mobile;
+    }
+
 
     public String getParent1Name() {
         return parent1Name;
@@ -176,11 +190,11 @@ public class User {
         this.parent1Surname = parent1Surname;
     }
 
-    public int getParent1Mobile() {
+    public String  getParent1Mobile() {
         return parent1Mobile;
     }
 
-    public void setParent1Mobile(int parent1Mobile) {
+    public void setParent1Mobile(String parent1Mobile) {
         this.parent1Mobile = parent1Mobile;
     }
 
@@ -208,11 +222,11 @@ public class User {
         this.parent2Surname = parent2Surname;
     }
 
-    public int getParent2Mobile() {
+    public String getParent2Mobile() {
         return parent2Mobile;
     }
 
-    public void setParent2Mobile(int parent2Mobile) {
+    public void setParent2Mobile(String parent2Mobile) {
         this.parent2Mobile = parent2Mobile;
     }
 

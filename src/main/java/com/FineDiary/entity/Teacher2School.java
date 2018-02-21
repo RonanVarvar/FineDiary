@@ -1,6 +1,7 @@
 package com.FineDiary.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "teacher2school")
@@ -38,6 +39,12 @@ public class Teacher2School {
     public void setSchoolId(int schoolId) {
         this.schoolId = schoolId;
     }
+
+
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "SUDENT_ID", nullable = false, referencedColumnName = "Id")
+    private Set<Students> students;
 
     @Override
     public String toString() {

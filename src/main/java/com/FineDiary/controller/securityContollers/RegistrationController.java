@@ -1,9 +1,11 @@
 package com.FineDiary.controller.securityContollers;
 
 
+import com.FineDiary.config.MailSender;
 import com.FineDiary.entity.User;
 import com.FineDiary.global.Constants;
 import com.FineDiary.json.JsonRegister.PersonToRegisterEntity;
+import com.FineDiary.service.MailService;
 import com.FineDiary.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +26,12 @@ public class RegistrationController {
     @Autowired
     private UserService service;
 
+    @Autowired
+    private MailService mailSender;
 
-    //@RequestMapping(value = "/auth/register", method = RequestMethod.POST, produces = Constants.MimeTypes.UTF_8_PLAIN_TEXT)
-    @PostMapping(value = "/auth/register")
+
+    @RequestMapping(value = "/auth/register", method = RequestMethod.POST, produces = Constants.MimeTypes.UTF_8_PLAIN_TEXT)
+   // @PostMapping(value = "/auth/register")
     @ResponseBody
     public String registrationPage(@RequestHeader(value = CONTENT_TYPE) String contentType,
                                    @RequestBody String body,
@@ -48,51 +53,36 @@ public class RegistrationController {
                 if (checkerUser.getEmail().equals(newUser.getEmail()))
                     throw new AuthenticationException();
             }
-            /*
-            Ученик (с родителями)
-{
-"name":"d",
-"patronymic":"d",
-"birthday":"15.02.2018",
-"phone":"f",
-"surname":"d",
-"sex":"female",
-"adress":"",
-"parent1name":"d",
-"parent1patronymic":"d",
-"parent1surname":"d",
-"parent1phone":"d",
-"parent2name":"d",
-"parent2patronymic":"d",
-"parent2surname":"d",
-"parent2phone":"d"}
-Учитель
-{
-"name":"e",
-"patronymic":"e",
-"surname":"e",
-"subject":"e",
-"myclass":"e",
-"classes":"e",
-"formMaster":true,
-"birthday":"15.02.2018",
-"phone":"e"
-}             */
-
-
 
             user.setId(Integer.MAX_VALUE);//cant be null and cant be a number that is already registered
             user.setEmail(newUser.getEmail());
             user.setPassword(newUser.getPassword());
             user.setName(newUser.getName());
-            user.setPatronymic(newUser.getSurname());
-            user.setLastName(newUser.getLastName());//пока заглушки
+            user.setPatronymic(newUser.getPatronymic());
+            user.setLastName(newUser.getLastname());//пока заглушки
             user.setRole(newUser.getRole());//
+            user.setAdress(newUser.getAdress());
+            user.setBirthday(newUser.getBirthday());
+            user.setSex(newUser.getSex());
+            user.setMobile(newUser.getMobile());
+            user.setParent1Mobile(newUser.getParent1phone());
+            user.setParent1Name(newUser.getParent1name());
+            user.setParent1Patronymic(newUser.getParent1patronymic());
+            user.setParent1Surname(newUser.getParent1surname());
+            user.setParent2Mobile(newUser.getParent2phone());
+            user.setParent2Name(newUser.getParent2name());
+            user.setParent2Patronymic(newUser.getParent2patronymic());
+            user.setParent2Surname(newUser.getParent2surname());
+
+
+
+
+
             service.create(user);//
             // TODO добавить еще школу , либо еще класс - если учитель
 
-//            //because email sends for too long
-//            new Thread(() -> mailSender.sendEmail(user)).start();
+           //because email sends for too long
+           new Thread(() -> mailSender.sendEmail(user)).start();
 
 
             response.setStatus(200);
