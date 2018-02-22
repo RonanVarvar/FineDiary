@@ -1,6 +1,7 @@
 package com.FineDiary.service;
 
 import com.FineDiary.entity.Students;
+import com.FineDiary.entity.Teacher;
 import com.FineDiary.entity.Teacher2School;
 import com.FineDiary.repository.StudentsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class StudentsServiceImpl implements StudentService{
     private StudentsRepo studentsRepo;
 
     @Override
-    public List<Students> findAllByTeacher(Teacher2School teacher) {
+    public List<Students> findAllByTeacher(Teacher teacher) {
         return null;
     }
 
@@ -27,6 +28,11 @@ public class StudentsServiceImpl implements StudentService{
     @Override
     public Students create(Students students) {
         return studentsRepo.save(students);
+    }
+
+    @Override
+    public Students findByEmail(String email) {
+        return studentsRepo.findByEmail(email);
     }
 
     @Override

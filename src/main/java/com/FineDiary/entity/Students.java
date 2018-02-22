@@ -1,5 +1,7 @@
 package com.FineDiary.entity;
 
+import org.springframework.stereotype.Controller;
+
 import javax.persistence.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
@@ -28,11 +30,17 @@ import java.util.Base64;
         @Column(name = "LASTNAME",nullable = false)
         private String lastName;
 
-        @Column(name = "ROLE",nullable = false)
-        private String role;
+        @Column(name = "SCHOOL",nullable = false)
+        private String school;
+
+        @Column(name = "CLASS", nullable = false)
+        private String classNumber;
 
         @Column(name = "BIRTHDAY" ,nullable = false)
         private String birthday;
+
+        @Column(name = "MOBILE",nullable = false)
+        private String mobile;
 
         @Column(name = "SEX", nullable = false)
         private String sex;
@@ -50,7 +58,7 @@ import java.util.Base64;
         private String parent1Surname;
 
         @Column(name = "PARENT1MOBILE", nullable = false )
-        private int parent1Mobile;
+        private String parent1Mobile;
 
         @Column(name = "PARENT2NAME" , nullable = true)
         private String parent2Name;
@@ -62,7 +70,7 @@ import java.util.Base64;
         private String parent2Surname;
 
         @Column(name = "PARENT2MOBILE", nullable = true  )
-        private int parent2Mobile;
+        private String parent2Mobile;
 
 
         //Getters and Setters
@@ -70,9 +78,7 @@ import java.util.Base64;
             return id;
         }
 
-        @ManyToOne(cascade = CascadeType.ALL)
-        @JoinColumn(name = "TEACHER_ID", nullable=false, referencedColumnName="Id")
-        private Teacher2School teacher2School;
+
 
 
         public void setId(int id) {
@@ -91,12 +97,12 @@ import java.util.Base64;
         public void setPassword(String password) {
             this.password = password;}
 
-        public Teacher2School getTeacher2School() {
-            return teacher2School;
+        public Teacher getTeacher() {
+            return teacher;
         }
 
-        public void setTeacher2School(Teacher2School teacher2School) {
-            this.teacher2School = teacher2School;
+        public void setTeacher(Teacher teacher) {
+            this.teacher = teacher;
 
         }
 
@@ -132,12 +138,21 @@ import java.util.Base64;
             this.lastName = lastName;
         }
 
-        public String getRole() {
-            return role;
+
+        public String getSchool() {
+            return school;
         }
 
-        public void setRole(String role) {
-            this.role = role;
+        public void setSchool(String role) {
+            this.school = school;
+        }
+
+        public String getClassNumber() {
+            return classNumber;
+        }
+
+        public void setClassNumber(String classNumber) {
+            this.classNumber = classNumber;
         }
 
         public String getBirthday() {
@@ -146,6 +161,14 @@ import java.util.Base64;
 
         public void setBirthday(String birthday) {
             this.birthday = birthday;
+        }
+
+        public String getMobile() {
+            return mobile;
+        }
+
+        public void setMobile(String mobile) {
+            this.mobile = mobile;
         }
 
         public String getSex() {
@@ -188,11 +211,11 @@ import java.util.Base64;
             this.parent1Surname = parent1Surname;
         }
 
-        public int getParent1Mobile() {
+        public String getParent1Mobile() {
             return parent1Mobile;
         }
 
-        public void setParent1Mobile(int parent1Mobile) {
+        public void setParent1Mobile(String parent1Mobile) {
             this.parent1Mobile = parent1Mobile;
         }
 
@@ -220,13 +243,16 @@ import java.util.Base64;
             this.parent2Surname = parent2Surname;
         }
 
-        public int getParent2Mobile() {
+        public String getParent2Mobile() {
             return parent2Mobile;
         }
 
-        public void setParent2Mobile(int parent2Mobile) {
+        public void setParent2Mobile(String parent2Mobile) {
             this.parent2Mobile = parent2Mobile;
         }
+        @ManyToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name = "TEACHER_ID", nullable=false, referencedColumnName="Id")
+        private Teacher teacher;
 
         @Override
         public String toString() {
@@ -237,7 +263,6 @@ import java.util.Base64;
                     ", name='" + name + '\'' +
                     ", patronymic='" + patronymic + '\'' +
                     ", lastName='" + lastName + '\'' +
-                    ", role='" + role + '\'' +
                     ", birthday='" + birthday + '\'' +
                     ", sex='" + sex + '\'' +
                     ", adress='" + adress + '\'' +
@@ -249,7 +274,7 @@ import java.util.Base64;
                     ", parent2Patronymic='" + parent2Patronymic + '\'' +
                     ", parent2Surname='" + parent2Surname + '\'' +
                     ", parent2Mobile=" + parent2Mobile +
-                    ", teacher2School=" + teacher2School +
+                    ", teacher=" + teacher +
                     '}';
         }
     }
