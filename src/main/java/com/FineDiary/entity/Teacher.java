@@ -149,9 +149,9 @@ public class Teacher {
         this.mobile = mobile;
     }
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "SUDENT_ID", nullable = false, referencedColumnName = "Id")
-    private Set<Students> students;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "SUDENT_ID", nullable = false, referencedColumnName = "Id")
+//    private Set<Students> students;
 
     @Override
     public String toString() {

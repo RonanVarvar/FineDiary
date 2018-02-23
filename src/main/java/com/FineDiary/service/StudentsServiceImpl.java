@@ -10,19 +10,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StudentsServiceImpl implements StudentService{
+public class StudentsServiceImpl implements StudentService {
 
     @Autowired
     private StudentsRepo studentsRepo;
 
     @Override
     public List<Students> findAllByTeacher(Teacher teacher) {
-        return null;
+        return studentsRepo.findAll();
     }
 
     @Override
     public Students findStudentById(Integer id) {
-        return null;
+        return studentsRepo.findOne(id);
     }
 
     @Override
@@ -36,7 +36,9 @@ public class StudentsServiceImpl implements StudentService{
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteStudent(int id) {
 
     }
 }
+
+

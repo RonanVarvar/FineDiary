@@ -60,7 +60,7 @@ public class RegistrationController {
             user.setName(newUser.getName());
             user.setPatronymic(newUser.getPatronymic());
             user.setLastName(newUser.getLastname());//пока заглушки
-            user.setRole(newUser.getRole());//
+            user.setRole(newUser.getRole());
             user.setAdress(newUser.getAdress());
             user.setBirthday(newUser.getBirthday());
             user.setSex(newUser.getSex());

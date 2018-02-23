@@ -60,7 +60,8 @@ public class TeacherRegistrationController {
         teacher.setMobile(newTeacher.getMobile());
         teacher.setSchool(newTeacher.getSchool());
         teacher.setFormMaster(newTeacher.isFormMaster());//если true то заполнить поле с классом
-        teacher.setMyClass(newTeacher.getClassNumber());//♠
+        if (newTeacher.isFormMaster() == true){
+        teacher.setMyClass(newTeacher.getClassNumber());} //♠
         teacherService.create(teacher);
 
         //because email sends for too long

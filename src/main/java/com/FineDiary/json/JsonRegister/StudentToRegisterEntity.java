@@ -10,6 +10,8 @@ public class StudentToRegisterEntity {
     private String adress;
     private String birthday;
     private String mobile;
+    private String school;
+    private String classNumber;
     private String parent1name;
     private String parent1patronymic;
     private String parent1surname;
@@ -18,8 +20,9 @@ public class StudentToRegisterEntity {
     private String parent2patronymic;
     private String parent2surname;
     private String parent2phone;
-    private String school;
-    private String classNumber;
+
+    //
+
 
     public String getEmail() {
         return email;
@@ -57,6 +60,14 @@ public class StudentToRegisterEntity {
         return mobile;
     }
 
+    public String getSchool() {
+        return school;
+    }
+
+    public String getClassNumber() {
+        return classNumber;
+    }
+
     public String getParent1name() {
         return parent1name;
     }
@@ -89,14 +100,6 @@ public class StudentToRegisterEntity {
         return parent2phone;
     }
 
-    public String getSchool() {
-        return school;
-    }
-
-    public String getClassNumber() {
-        return classNumber;
-    }
-
     @Override
     public String toString() {
         return "StudentToRegisterEntity{" +
@@ -109,6 +112,8 @@ public class StudentToRegisterEntity {
                 ", adress='" + adress + '\'' +
                 ", birthday='" + birthday + '\'' +
                 ", mobile='" + mobile + '\'' +
+                ", school='" + school + '\'' +
+                ", classNumber='" + classNumber + '\'' +
                 ", parent1name='" + parent1name + '\'' +
                 ", parent1patronymic='" + parent1patronymic + '\'' +
                 ", parent1surname='" + parent1surname + '\'' +
@@ -117,8 +122,6 @@ public class StudentToRegisterEntity {
                 ", parent2patronymic='" + parent2patronymic + '\'' +
                 ", parent2surname='" + parent2surname + '\'' +
                 ", parent2phone='" + parent2phone + '\'' +
-                ", school='" + school + '\'' +
-                ", classNumber='" + classNumber + '\'' +
                 '}';
     }
 }

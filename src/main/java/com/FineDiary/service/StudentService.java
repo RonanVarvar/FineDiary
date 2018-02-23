@@ -11,5 +11,5 @@ public interface StudentService {
     Students findStudentById(Integer id);
     Students create(Students students);
     Students findByEmail(String name);
-    void deleteById(int id);
+    void deleteStudent(int id);
 }

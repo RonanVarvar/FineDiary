@@ -56,8 +56,9 @@ public class StudentRegistrationController {
             student.setAdress(newStudent.getAdress());
             student.setBirthday(newStudent.getBirthday());
             student.setSex(newStudent.getSex());
-            student.setMobile(newStudent.getMobile());
-            student.setSchool(newStudent.getSchool());//add class
+            student.setMobile(newStudent.getMobile());//problem don't read mobile
+            student.setSchool(newStudent.getSchool());
+            student.setClassNumber(newStudent.getClassNumber());
             student.setParent1Mobile(newStudent.getParent1phone());
             student.setParent1Name(newStudent.getParent1name());
             student.setParent1Patronymic(newStudent.getParent1patronymic());
@@ -67,6 +68,30 @@ public class StudentRegistrationController {
             student.setParent2Patronymic(newStudent.getParent2patronymic());
             student.setParent2Surname(newStudent.getParent2surname());//add classteacher
             studentService.create(student);
+/*
+
+"email":"duav6969@gmail.com",
+	"password":"passwordforstudent",
+	"name":"studentname",
+	"patronymic":"studentpatronymic",
+	"lastname":"studentlastname",
+	"sex":"sex",
+	"adress":"adress",
+	"birthday":"birthday",
+	"mobile":"0637252152",
+	"parent1name":"parent1name",
+	"parent1patronymic":"parent1patronymic",
+	"parent1surname":"parent1surname",
+	"parent1phone":"66699966",
+	"parent2name":"parent2name",
+	"parent2patronymic":"parent2patronymic",
+	"parent2surname":"parent2surname",
+	"parent2phone":"14144141",
+	"school":"5",
+	"classNumber":"256"
+
+
+ */
 
             //because email sends for too long
             new Thread(() -> mailSender.sendEmail(student)).start();

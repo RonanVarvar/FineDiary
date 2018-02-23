@@ -1,6 +1,6 @@
 package com.FineDiary.entity;
 
-import org.springframework.stereotype.Controller;
+
 
 import javax.persistence.*;
 import java.nio.charset.StandardCharsets;
@@ -15,11 +15,11 @@ import java.util.Base64;
         @GeneratedValue(strategy = GenerationType.AUTO)
         private int id;
 
-        @Column(name = "PASSWORD",nullable = false)
-        private String password;
-
         @Column(name = "EMAIL",nullable = false,unique = true)
         private String email;
+
+        @Column(name = "PASSWORD",nullable = false)
+        private String password;
 
         @Column (name = "NAME",nullable = false)
         private String name;
@@ -30,11 +30,11 @@ import java.util.Base64;
         @Column(name = "LASTNAME",nullable = false)
         private String lastName;
 
-        @Column(name = "SCHOOL",nullable = false)
-        private String school;
+        @Column(name = "SEX", nullable = false)
+        private String sex;
 
-        @Column(name = "CLASS", nullable = false)
-        private String classNumber;
+        @Column(name = "ADRESS" ,nullable = false)
+        private String adress;
 
         @Column(name = "BIRTHDAY" ,nullable = false)
         private String birthday;
@@ -42,11 +42,11 @@ import java.util.Base64;
         @Column(name = "MOBILE",nullable = false)
         private String mobile;
 
-        @Column(name = "SEX", nullable = false)
-        private String sex;
+        @Column(name = "SCHOOL",nullable = false)
+        private String school;
 
-        @Column(name = "ADRESS")
-        private String adress;
+        @Column(name = "CLASSNUMBER", nullable = true)
+        private String classNumber;
 
         @Column(name = "PARENT1NAME" , nullable = false)
         private String parent1Name;
@@ -74,15 +74,22 @@ import java.util.Base64;
 
 
         //Getters and Setters
+
+
         public int getId() {
             return id;
         }
 
-
-
-
         public void setId(int id) {
             this.id = id;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
         }
 
         public String getPassword() {
@@ -95,23 +102,7 @@ import java.util.Base64;
         }
 
         public void setPassword(String password) {
-            this.password = password;}
-
-        public Teacher getTeacher() {
-            return teacher;
-        }
-
-        public void setTeacher(Teacher teacher) {
-            this.teacher = teacher;
-
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public void setEmail(String email) {
-            this.email = email;
+            this.password = password;
         }
 
         public String getName() {
@@ -138,21 +129,20 @@ import java.util.Base64;
             this.lastName = lastName;
         }
 
-
-        public String getSchool() {
-            return school;
+        public String getSex() {
+            return sex;
         }
 
-        public void setSchool(String role) {
-            this.school = school;
+        public void setSex(String sex) {
+            this.sex = sex;
         }
 
-        public String getClassNumber() {
-            return classNumber;
+        public String getAdress() {
+            return adress;
         }
 
-        public void setClassNumber(String classNumber) {
-            this.classNumber = classNumber;
+        public void setAdress(String adress) {
+            this.adress = adress;
         }
 
         public String getBirthday() {
@@ -171,20 +161,20 @@ import java.util.Base64;
             this.mobile = mobile;
         }
 
-        public String getSex() {
-            return sex;
+        public String getSchool() {
+            return school;
         }
 
-        public void setSex(String sex) {
-            this.sex = sex;
+        public void setSchool(String school) {
+            this.school = school;
         }
 
-        public String getAdress() {
-            return adress;
+        public String getClassNumber() {
+            return classNumber;
         }
 
-        public void setAdress(String adress) {
-            this.adress = adress;
+        public void setClassNumber(String classNumber) {
+            this.classNumber = classNumber;
         }
 
         public String getParent1Name() {
@@ -250,31 +240,30 @@ import java.util.Base64;
         public void setParent2Mobile(String parent2Mobile) {
             this.parent2Mobile = parent2Mobile;
         }
-        @ManyToOne(cascade = CascadeType.ALL)
-        @JoinColumn(name = "TEACHER_ID", nullable=false, referencedColumnName="Id")
-        private Teacher teacher;
 
         @Override
         public String toString() {
             return "Students{" +
                     "id=" + id +
-                    ", password='" + password + '\'' +
                     ", email='" + email + '\'' +
+                    ", password='" + password + '\'' +
                     ", name='" + name + '\'' +
                     ", patronymic='" + patronymic + '\'' +
                     ", lastName='" + lastName + '\'' +
-                    ", birthday='" + birthday + '\'' +
                     ", sex='" + sex + '\'' +
                     ", adress='" + adress + '\'' +
+                    ", birthday='" + birthday + '\'' +
+                    ", mobile='" + mobile + '\'' +
+                    ", school='" + school + '\'' +
+                    ", classNumber='" + classNumber + '\'' +
                     ", parent1Name='" + parent1Name + '\'' +
                     ", parent1Patronymic='" + parent1Patronymic + '\'' +
                     ", parent1Surname='" + parent1Surname + '\'' +
-                    ", parent1Mobile=" + parent1Mobile +
+                    ", parent1Mobile='" + parent1Mobile + '\'' +
                     ", parent2Name='" + parent2Name + '\'' +
                     ", parent2Patronymic='" + parent2Patronymic + '\'' +
                     ", parent2Surname='" + parent2Surname + '\'' +
-                    ", parent2Mobile=" + parent2Mobile +
-                    ", teacher=" + teacher +
+                    ", parent2Mobile='" + parent2Mobile + '\'' +
                     '}';
         }
     }
