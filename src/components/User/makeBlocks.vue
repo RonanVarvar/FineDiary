@@ -37,8 +37,9 @@
 <style>
 
     .divWrapperforUl{
-        width:320px;
         display: flex;
+        height:230px;
+        width:320px;
     }
     .ForUl{
         border-radius: 15px;
@@ -46,7 +47,7 @@
         font-size: 20px;
         color:white;
         border:1px solid rgb(0,218,132);
-        margin-bottom:5px;
+        margin-bottom:10px;
     }
     ul.FoUlManaging{
         background: rgb(0,218,132);
@@ -89,6 +90,7 @@
         z-index: 1;
         border:1px solid black;
     }
+
     li.liUl a{
         display:inline-block;
         width:100%;
@@ -116,9 +118,18 @@
     @media (max-width: 700px) {/*при маленьком екране блок открытый не становится  position: absolute;*/
         .activeUl{
             position: relative;
+            background: rebeccapurple;
+
+        }
+        .divWrapperforUl{
+            height:100%;
         }
         div.divContent{
              width:280px;
+             margin:auto;
+        }
+        .ForUl{
+            margin-bottom:15px;
         }
 
     }

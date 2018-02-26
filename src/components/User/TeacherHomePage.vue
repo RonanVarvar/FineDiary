@@ -7,21 +7,21 @@
                 </div>
                 <ul class="ulMenu">
                     <li class="cell" id="menu" v-on:mouseover="MenuHovered" v-on:mouseout="MenuOutHovered">
-                        <a href="#">Меню</a>
+                        <a href="#" class="MenuHeader">Меню</a>
                         <ul class="menuListOpen">
                             <li>Створити розклад</li>
                             <li>Додати класс</li>
                             <li>створити код запрошення</li>
                         </ul>
                     </li>
-                    <li class="cell"><a href="#">Довідка</a></li>
+                   <li class="cell"><a href="#">Довідка</a></li>
                 </ul>
                 <div class="searchDiv">
                     <input class="SearchInput" type="text" placeholder="Search"/>
                     <div class="LeftInfo">
                         <span class="inlineBlock">Добрый день,<br> Имя</span>
-                        <img class="inlineBlock" src="./img/SovaLogo.png">
-                        <img class="inlineBlock" src="./img/SharLogo.png">
+                            <img class='imgSova' src="./img/SovaLogo.png">
+                            <img  src="./img/SharLogo.png">
                     </div>
                 </div>
        </div>
@@ -29,7 +29,7 @@
         <h3 class="header">Мои классы</h3>
         <div class="divContent">
             <make-blocks :dataMy="dataMy" v-for="classItem in dataMy.MyClasses" :classItem="classItem"></make-blocks>
-            <make-block-addManagingOtherClass text="Додати керівництво іншого класу +"></make-block-addManagingOtherClass>
+            <make-block-addManagingOtherClass text="Додати керівництво  іншого класу +"></make-block-addManagingOtherClass>
         </div>
         <h3 class="header headerGreen">Классы в которых я приподаю</h3>
         <div class="divContent">
@@ -91,6 +91,8 @@
 <style>
     .main{
         width: 100%;
+        padding: 0px;
+        margin: 0px;
         height:100%;
         background: white;
         padding-bottom: 40px;
@@ -104,7 +106,7 @@
         width: 100%;
     }
    li a:hover{
-       color:black;
+     /*  color:black;*/
    }
 
     ul, li{
@@ -143,6 +145,9 @@
     #menu{
         position: relative;
     }
+    a.MenuHeader{
+        display: none;
+    }
     ul.menuListOpen{
         z-index: 2;
         position: absolute;
@@ -171,7 +176,7 @@
         color:rgb(0, 219,127);
     }
     ul.menuListOpen li:hover{
-        color:black;
+      /*  color:black;*/
         background: none;
         cursor: pointer;
         font-size: 18px;
@@ -206,7 +211,7 @@
     ul.ForUlAddBlock{/*add block*/
         display: flex;
         list-style: none;
-        width:300px;
+        width:280px;
         border-radius: 15px;
         border: 2px solid rgb(0,218,132);
         text-align: center;
@@ -225,7 +230,7 @@
         color:rgb(0,218,132);
     }
     ul.ForUlAddBlock li a:hover{
-        color:black;
+       /* color:black;*/
     }
 
     h3.header{
@@ -238,4 +243,128 @@
     }
 
 
+
+    @media (max-width: 700px) {/*при маленьком екране блок открытый не становится  position: absolute;*/
+        h3.header, h3.header.headerGreen{
+           text-align: center;
+        }
+        div.divHeader{
+            padding-bottom: 15px;
+        }
+        .divLogo{
+            width:100%;
+            padding-top: 10px;
+        }
+
+        .ulMenu{
+            margin-top: 20px;
+            margin-left: 15px;
+            width:50%;
+            border:none;
+        }
+        ul.menuListOpen{/*border:1px solid blueviolet;*/
+            position: static;
+            display: inline-block !important;/*что бы display:none; не срабатывал */
+            border-radius: 0px;
+            border:none;
+            width:100%;
+            background: rgb(0,212,125);
+            padding: 0px;
+            margin: 0px;
+        }
+
+        ul.menuListOpen li{
+            margin-top: 5px;
+            list-style: none;
+            background: rgb(1,229,150);
+            color: white;
+        }
+
+        .ulMenu li.cell{
+            margin-top: 5px;
+            padding: 5px 0px 5px 0px;
+            width:100%;
+            background: rgb(1,229,150);
+        }
+        .ulMenu li.cell:hover{
+            background: none;
+        }
+
+        li.cell a{
+            padding: 0px;
+            font-size: inherit;
+            color: rgb(255,255,255);
+        }
+        li.cell a:hover{
+            color: black;
+        }
+
+        li#menu{
+            vertical-align: top;
+            padding: 0px;
+            margin:0px;
+
+        }
+
+        .MenuHeader{/*не отображать пункт меню */
+            display: none !important;
+        }
+
+
+
+
+
+
+
+        /*меню высвечивающееся*/
+        /*правая часть меню с поиском и приветствием */
+        .searchDiv{
+            width: 40%;
+            right: 5px;
+            position: absolute;
+            top:15px;
+            margin-left: 60%;
+        }
+        .SearchInput{
+            border-radius: 15px;
+            display:inline-block;
+            width: 90%;
+            padding: 5px;
+            margin-bottom: 10px;
+
+        }
+        div.LeftInfo .inlineBlock{
+           vertical-align: top;
+            display:inline-block;
+        }
+
+        span.inlineBlock{
+            display: inline-block;
+            width: 40%;
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        div.LeftInfo div{
+            display: inline-block;
+            width: 100%;
+        }
+        div.LeftInfo img:last-child{
+            margin-left: 10px;
+        }
+        /*правая часть меню с поиском и приветствием */
+
+
+        div.divContent{
+            background: white;
+            display: flex;
+            flex-wrap:wrap;
+            text-align: left;
+        }
+
+    }
+
 </style>
+<img class="imgSova" src="./img/SovaLogo.png">
+<img class="imgGlobus" src="./img/SharLogo.png">
