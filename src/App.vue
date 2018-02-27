@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-	<div class="row">
+	<!--<div class="row">-->
       <transition name="fade">
         <router-view></router-view>
       </transition>
-    </div>
+   <!-- </div>-->
  </div>
 </template>
 
@@ -20,7 +20,7 @@
   import NewPasswordForm from './components/Home/NewPasswordForm.vue';
   import TeacherHomePage from './components/User/TeacherHomePage.vue';
   import makeBlocks from './components/User/makeBlocks.vue';
-  import journal from './components/User/journal.vue'
+  import journal from './components/User/journal.vue';
 
   export default {
     name: 'app',

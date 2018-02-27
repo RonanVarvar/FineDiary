@@ -6,6 +6,7 @@ import Home from './components/Home/Home.vue';
 import MassagePassRemind from './components/Home/MassagePassRemind.vue';
 import NewPasswordForm from './components/Home/NewPasswordForm.vue';
 import TeacherHomePage from './components/User/TeacherHomePage.vue';
+import journal from './components/User/journal.vue';
 
 const ifNotAuthenticated = (to, from, next) => {
   if (!store.getters.isAuthenticated) {
@@ -36,6 +37,10 @@ export const routes = [
     {  path: '/TeacherHomePage',
       name: 'TeacherAcount',
       component: TeacherHomePage,
+    },
+    {  path: '/journal',
+        name: 'journal',
+        component: journal,
     },
     /*
     {  path: '/account',

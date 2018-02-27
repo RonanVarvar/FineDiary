@@ -29,6 +29,7 @@
         methods: {
             ArrowUpOrDown(){
                 this.arrow = !this.arrow;
+                console.log(this.arrow);
             }
         }
     }
