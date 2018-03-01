@@ -52,7 +52,7 @@
             return {
                 dataMy: {
                     MyClasses:[
-                        {number:"9-a", id:2, "subjects":[{ id:1, subject: "математика"}, { id:2, subject: "физика"}, { id:3, subject: "физ-ра"}, { id:4, subject: "физика"}]},
+                        {number:"9-a", id:2, "subjects":[{ id:1, subject: "математика"}, { id:2, subject: "фізика"}, { id:3, subject: "фіз-ра"}, { id:4, subject: "физика"}]},
                         {number:"11", id:3, "subjects":[{ id:5, subject: "информатика"}, { id:2, subject: "укр мова"}]},
                     ],
                     AllClassesIteach:{ "9-a":{ "subjects":["математика", "русский язык"] },

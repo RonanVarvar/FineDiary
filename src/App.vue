@@ -10,7 +10,6 @@
 
 <script>
     import axios from 'axios';
-
     import Home from './components/Home/Home.vue';
     import headerHome from './components/Home/HeaderHome.vue';
     import EnterUser from './components/Home/EnterUser.vue';
@@ -20,7 +19,7 @@
     import NewPasswordForm from './components/Home/NewPasswordForm.vue';
     import TeacherHomePage from './components/User/TeacherHomePage.vue';
     import makeBlocks from './components/User/makeBlocks.vue';
-    import journal from './components/User/journal.vue'
+    import journal from './components/User/journal.vue';
 
     export default {
       name: 'app',

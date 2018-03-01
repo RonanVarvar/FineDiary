@@ -30,24 +30,36 @@
                 <date-picker :date="startTime" :option="option"
                     :limit="limit">
                 </date-picker>
+                <div class="wide">
+                    <input
+                          type="text"
+                          class="info"
+                          placeholder="Номер мобільного телефону"
+                          id="phone"
+                          v-model="phone">
+                          <button class="buttonAdd" @click='addMobileNumber()'>Додати +</button>
+                </div>
+                <div class="addMobile"></div>
             </div>
             <div class="col-lg-4">
                 <p class="head">Шкільні дані</p>
                 <div class="wide">
                     <input type="text"
+                           id="school"
                            class="name"
-                           placeholder="Школа в якій ви викладаєте"
+                           placeholder="Школа, в якій ви викладаєте"
                            v-model="school">
                 </div>
-                <div id="newEl"></div>
-                <div id='schoolAdd'></div>
                 <div class="wide">
                     <input
                           type="text"
+                          id="subject"
                           class="name"
                           placeholder="Предмет який ви викладаєте"
                           v-model="subject">
+                          <button class="buttonAdd" @click='addSubject()'>Додати +</button>
                 </div>
+                                <div class="addSubject"></div>
                 <br>
                 <div class="white">
                     <input type="checkbox"
@@ -78,15 +90,11 @@
                           type="text"
                           class="info"
                           placeholder="Класи, в яких ви викладаєте"
+                          id="classes"
                           v-model="classes">
+                          <button class="buttonAdd" @click='addClasses()'>Додати +</button>
                 </div>
-                <div class="wide">
-                    <input
-                          type="text"
-                          class="info"
-                          placeholder="Номер мобільного телефону"
-                          v-model="phone">
-                </div>
+                <div class="addClasses"></div>
             </div>
         </div>
     </form>
@@ -108,9 +116,10 @@
                       <input type="text" class="name" placeholder="Прізвіще"
                           v-model="lsurname">
                   </div>
-                  <br>
-                  <b-form-group label="Стать учня" class="checkedSex">
+                  <b-form-group  label="Стать учня" class="checkedSex">
                       <b-form-radio-group id="radios2" v-model="sex"
+                      plain
+                      size="xs"
                           :options="options" name="radioOpenions">
                       </b-form-radio-group>
                   </b-form-group>
@@ -126,6 +135,14 @@
                   <div>
                       <input type="text" class="info" placeholder="Домашня адреса"
                           v-model="ladress">
+                  </div>
+                  <div>
+                      <input type="text" class="info" placeholder="Школа"
+                          v-model="lschool">
+                  </div>
+                  <div>
+                      <input type="text" class="info" placeholder="Класс"
+                          v-model="lclass">
                   </div>
               </div>
               <div class="col-lg-4">
@@ -151,7 +168,7 @@
                   <br /><br /><br /><br /><br/>
                   <div>
                       <button @click="closeModal('learner')"class='buttonNav'>Назад</button>
-                      <button @click='saveLearner()' class='buttonNav'>Зберегти</button>
+                      <button @click="saveLearner()" class='buttonNav'>Зберегти</button>
                   </div>
               </div>
               <div class="col-lg-4">
@@ -254,6 +271,8 @@ import axios from 'axios'
           parent2patronymic: '',
           parent2surname: '',
           parent2phone: '',
+          lclass: '',
+          lschool: '',
           options: [
             { text: 'Жіноча', value: 'female'},
             { text: 'Чоловіча', value: 'male' }
@@ -325,22 +344,30 @@ import axios from 'axios'
               password: this.password,
             },
             test = {
-              name: 'Roman',
-              surname: 'Veselovsky'
+                "email":"dfgdfgg@.com",
+                "password":"tch",
+                "name":"Teacher2",
+                "patronymic":"Patronymic",
+                "lastname":"lastname",
+                "birthday":"привет",
+                "mobile":"88666",
+                "school":"СШ-5",
+                "formMaster":"false"
             },
             //regData = Object.assign(mainData, formData);
-            testData = Object.assign(test, mainData),
+            testData = Object.assign(test),
             data = JSON.stringify(testData);
-          //  console.log(JSON.stringify(testData));
+            console.log(JSON.stringify(testData));
           //  console.log(JSON.stringify(regData));
-           axios.post('http://54.37.125.181:8080/project/auth/register', data)
+
+           axios.post('http://192.168.0.107:8090/auth/register/teacher',  test)
               .then((response) => {
                 console.log(response);
               })
               .catch((error) => {
                 console.log(error);
-              });
-      },
+              })
+          },
       handleSubmit() {
       },
       saveLearner() {
@@ -360,16 +387,55 @@ import axios from 'axios'
                  parent1name: this.parent1name,
                  parent1patronymic: this.parent1patronymic,
                  parent1surname: this.parent1surname,
-                 parent1phone: this. parent1phone,
+                 parent1phone: this.parent1phone,
                  parent2name: this.parent2name,
                  parent2patronymic: this.parent2patronymic,
                  parent2surname: this.parent2surname,
                  parent2phone: this.parent2phone,
+                 school: this.lschool,
+                 class: this.lclass
               };
-              sessionStorage.clear(),
+            sessionStorage.clear(),
             sessionStorage.setItem('formData', JSON.stringify(learnerData));
             this.$refs.learner.hide();
         },
+        addSubject() {
+          let addElem = document.getElementsByClassName('addSubject')[0],
+              elem = document.createElement('button'),
+              dataElem = document.getElementById('subject').value;
+
+              elem.classList.add('Add');
+              elem.innerHTML = dataElem;
+              addElem.insertAdjacentElement("beforeBegin", elem);
+              elem.onclick  = function() {
+                this.parentNode.removeChild(this);return false;
+              }
+        },
+        addClasses() {
+          let addElem = document.getElementsByClassName('addClasses')[0],
+              elem = document.createElement('button'),
+              dataElem = document.getElementById('classes').value;
+
+              elem.classList.add('Add');
+              elem.innerHTML = dataElem;
+
+              addElem.insertAdjacentElement("beforeBegin", elem);
+              elem.onclick  = function() {
+                this.parentNode.removeChild(this);return false;
+              }
+        },
+        addMobileNumber() {
+          let addElem = document.getElementsByClassName('addMobile')[0],
+              elem = document.createElement('button'),
+              dataElem = document.getElementById('phone').value;
+
+              elem.classList.add('Add');
+              elem.innerHTML = dataElem;
+              addElem.insertAdjacentElement("beforeBegin", elem);
+              elem.onclick  = function() {
+                this.parentNode.removeChild(this);return false;
+              }
+            },
       saveTeacher() {
          let datepicker = document.getElementsByClassName('cov-datepicker')[0],
              birthData = datepicker.value,
@@ -384,7 +450,7 @@ import axios from 'axios'
                  birthday: birthData,
                  phone: this.phone,
               };
-            sessionStorage.setItem('formData', JSON.stringify(theacherData));
+          sessionStorage.setItem('formData', JSON.stringify(theacherData));
           this.$refs.teacher.hide();
         }
     }
@@ -396,7 +462,6 @@ import axios from 'axios'
   position: relative;
   z-index: 0;
 }
-
 .teacherModal, .studentModal {
   position: absolute;
   z-index: 20;
@@ -421,6 +486,34 @@ import axios from 'axios'
   font-family: Arimo;
   border: 2px solid #29c770;
   border-radius: 20px;
+}
+.buttonAdd {
+  font-size: 16pt;
+  font-family: Arimo;
+  border: 2px solid white;
+  border-radius: 20px;
+  width: auto;
+  height: 55px;
+  padding: 10px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+overflow: hidden;
+display: inline-block
+}
+.Add {
+  font-size: 16pt;
+  font-family: Arimo;
+  border: 2px solid white;
+  border-radius: 20px;
+  width: auto;
+  height: 55px;
+  padding: 10px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+overflow: hidden;
+display: inline-block
 }
 .button{
   width: 200px;
@@ -539,7 +632,6 @@ import axios from 'axios'
   box-shadow:-7px 0px -16px #bababa, inset 0px 0px -13px #ffffff;
   cursor: pointer;
 }
-
 .buttonAdd {
   font-size: 16pt;
   font-family: Arimo;
@@ -619,7 +711,7 @@ import axios from 'axios'
 }
 .sub-header {
     color: #fff;
-    font-size: 25px;
+    font-size: 16pt;
 }
 .buttonNav {
   font-size: 16pt;
@@ -633,7 +725,6 @@ import axios from 'axios'
   color: white;
   cursor: pointer;
 }
-
 .btn-primary {
   display: none;
 }
