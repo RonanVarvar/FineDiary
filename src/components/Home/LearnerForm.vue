@@ -58,14 +58,12 @@
                         v-model="parent1phone">
                     <button class="buttonAdd" @click='addMobileNumber()'>Додати +</button>
                 </div>
-                <br /><br /><br /><br /><br/>
                 <div>
                     <button @click='back()' class='buttonNav'>Назад</button>
                     <button @click='saveLearner()' class='buttonNav'>Зберегти</button>
                 </div>
             </div>
             <div class="col-lg-4">
-                <br /><br/>
                 <p class="head">Мати</p>
                 <div>
                     <input type="text" class="name" placeholder="Ім'я"
@@ -79,7 +77,6 @@
                     <input type="text" class="name" placeholder="Прізвище"
                         v-model="parent2surname">
                 </div>
-                <br />
                 <div class="wide">
                     <input type="text" class="info" placeholder="Номер мобільного телефону"
                         v-model="parent2phone">
