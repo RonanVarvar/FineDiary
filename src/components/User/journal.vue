@@ -234,7 +234,7 @@
 
 
     @media (max-width: 700px) {
-        div#journal div.table .tableCell span,  div#journal div.table .tableCell,  div#journal div.table .tableCell a, div#journal div.table f{
+        div#journal div.table .tableCell span,  div#journal div.table .tableCell,  div#journal div.table .tableCell a, div#journal div.table {
             padding: 0px;
             margin: 0px;
         }
