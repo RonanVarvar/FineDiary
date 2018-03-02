@@ -8,7 +8,7 @@
         </div>
         <h3 class="header headerGreen">Классы в которых я приподаю</h3>
         <div class="divContent">
-            <make-blocks :dataMy="dataMy" v-for="classItem in dataMy.MyClasses" :classItem="classItem"></make-blocks>
+            <make-blocks :dataMy="dataMy" v-for="classItem in dataMy.AllClassesIteach" :classItem="classItem"></make-blocks>
             <make-block-addManagingOtherClass text="Додати класс для викладання +"></make-block-addManagingOtherClass>
         </div>
     </div>
@@ -32,9 +32,11 @@
                         {number:"9-a", id:2, "subjects":[{ id:1, subject: "математика"}, { id:2, subject: "физика"}, { id:3, subject: "физ-ра"}, { id:4, subject: "физика"}]},
                         {number:"11", id:3, "subjects":[{ id:5, subject: "информатика"}, { id:2, subject: "укр мова"}]},
                     ],
-                    AllClassesIteach:{ "9-a":{ "subjects":["математика", "русский язык"] },
-                        "5-a":{ "subjects":["математика", "химия"] }
-                    }
+                    AllClassesIteach:[
+                        {number:"9-а", id:2, "subjects":[{ id:1, subject: "математика"}, { id:2, subject: "физика"}, { id:3, subject: "физ-ра"}, { id:4, subject: "физика"}]},
+                        {number:"8", id:6, "subjects":[{ id:5, subject: "информатика"}, { id:2, subject: "укр мова"}]},
+                        {number:"6-д", id:7, "subjects":[{ id:4, subject: "алгебра"}]},
+                    ]
                 },
                 users: [  ],
                 height:{}
@@ -84,7 +86,8 @@
         display: flex;
         list-style: none;
         width:280px;
-        border-radius: 15px;
+        height:210px;
+        border-radius: 20px;
         border: 2px solid rgb(0,218,132);
         text-align: center;
     }

@@ -38,7 +38,7 @@ export const routes = [
       name: 'TeacherAcount',
       component: TeacherHomePage,
     },
-    {  path: '/journal',
+    {  path: '/journal/:myClassId/:selectedJournalId',
         name: 'journal',
         component: journal,
     },

@@ -30,8 +30,6 @@
 
     export default {
         name: 'headerTeacherPage',
-        data () {
-        },
         methods: {
             MenuHovered(event){
                 var el =document.querySelector('.menuListOpen li');
@@ -61,7 +59,7 @@
         display: inline-block;
         width: 100%;
     }
-    li a:hover{
+    li a:hover, li:hover{
         color:black;
     }
 
@@ -72,17 +70,15 @@
         vertical-align: middle;
         display: inline-block;
         margin-right:10%;
-        margin-left:10px;
+        margin-left:40px;
         font-size: 22px;
     }
     .divLogo img, .divLogo span, .ulMenu, li.cell, .searchDiv, .LeftInfo, div.LeftInfo .inlineBlock{
         display: inline-block;
         vertical-align: middle;
     }
-
     li.cell{
         text-align: center;
-        padding:10px;
         list-style: none;
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
@@ -169,6 +165,7 @@
         .divLogo{
             width:100%;
             padding-top: 10px;
+            margin-left: 20px;
         }
 
         .ulMenu{
@@ -268,6 +265,7 @@
             width:100%;
             padding-top: 10px;
             margin-bottom: 10px;
+            margin-left:20px;
         }
 
         #menu{
@@ -304,6 +302,7 @@
             display: flex;
             padding-top: 10px;
             padding-left: 10px;
+            margin-left:20px;
         }
         .divLogo{
             width:20%;
