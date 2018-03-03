@@ -260,6 +260,11 @@
 
 
     }
+    @media screen and (min-width:320px) and (max-width:701px){
+        .divLogo span{
+            font-size: 16px;
+        }
+    }
     @media screen and (min-width:701px) and (max-width:1000px){
         .divLogo{
             width:100%;

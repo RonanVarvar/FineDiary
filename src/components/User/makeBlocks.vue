@@ -14,7 +14,11 @@
                     <img v-if="!arrow" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMSSURBVGhD7ZlNyw1hGMcfQtkJyXspX0AiC4WUsrDwDaQoZeE1ysLCwidAURZET0pZ+ApSFAsUsbGWt4SNt99Pz9R0znVmrjlzzvFg/vWreWbu67r+Z+Z67rlnZqpTp06d/gnNg/Ow4vdfs0N60ZPe0joCP+EjHINGwSOWtfWgFz3pLSV/eRFU8BS2w6RlTWuXvegt1Sk3oBxY5iashHHLGtaKPIgeK7UDfkAUXPAJTsACGLXMaW5rRLUL9KjXUPPhGUSBEY7dCaOSuZrW13OfTkIUUMctWAPDylhzRLnr0HOfLkNdWw3CVjgNTdrNscbUtdEg9KrnUNEs0YQXsAvq5BjHRjkypGZR5+2j8AGiJBluw1rolfs8FsVk0JPeGt3XnKuvwbDt9gXOgC0kbrsvGluHHvTSaqWxFR5DVCDDyxmiYxmsrYeRyEt5GN5DVGwcWMuaY1keLYOrMGy7ZTC3Naw1dm2BRxAZaYM5zT1RzYVD8BYiU00wh7nMOXJlky4Fb0zfITJZhTHGmiOjxj90OXjD2gdz3JHQJngAkeEIxxqTkR70oie9pXUdioL3YANk5Bk7AG+gbLqMxxyTPbvW1kMRr7eUtkHvrPQNLsAiyGgxXIRyu7ntPo9lZC1rWrvsRW96rJTL4idQDizj2dwPTc7m/RmaXFVrVF1VPYZL+ELHIQrsRWMbISP7O/t/Zk5zRzV70WuoVdBkSW2rXIIl0FbmMFeTmU+veu7TNEQBddgCB6Hx1IiMMbaqjarQc5/2wmuIAjI8hM2QlWONiXJl0KueQy2Ec/AVouA6bI0rUHWD85hjmrRRGb3pUa+1Wg93IUqU4R30Ljncdp/HopgMetJbY+2BVxAlzVAsAtsuMvWgl1byEp6FNk93wy77rWntVBtltQ7uQFRwHFjLmmPTbmjz6FqHua0xERUvEz5DZGYYzFW8rJi42r7eKRj0+mji8oXbc4hMVmFM5oXeRGVLnILMes0xjv0jbZTVaqhat3nMMX+N/H5R/kzg9sBvGrNdPvz43CCVD0KdOnXq9D9pauoXFp8jJOQWjeUAAAAASUVORK5CYII=" >
                 </a>
                 <ul class="UldisplayNone" style="display:none" v-show="arrow">
-                    <li v-bind:class="{ UldisplayNoneLi :arrow }" v-for="(item, index) in classItem.subjects"  v-if="index > 1"><a>{{ item.subject}}</a></li>
+                    <li v-bind:class="{ UldisplayNoneLi :arrow }" v-for="(item, index) in classItem.subjects"  v-if="index > 1">
+                        <router-link :to="{ name: 'journal', params: { myClassId: classItem.id, selectedJournalId: item.id }}">
+                            Журнал {{ item.subject}}
+                        </router-link>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -132,7 +136,7 @@
         font-weight: normal;
         margin: 0px;
         color:white;
-        text-align: center;
+
     }
     .UldisplayNone li:hover{
         color:black;

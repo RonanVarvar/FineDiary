@@ -80,4 +80,14 @@
         position: relative;
     }
 
+    @media screen and (min-width:980px) and (max-width:1599px){
+        div.journalsList{
+            width: 235px;
+        }
+    }
+    @media screen and (min-width:780px) and (max-width:1207px){
+        div.journalsList{
+            width: 300px;
+        }
+    }
 </style>
