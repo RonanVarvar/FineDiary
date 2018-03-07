@@ -58,6 +58,7 @@
         text-align: left;
         display: inline-block;
         width: 100%;
+
     }
     li a:hover, li:hover{
         color:black;
@@ -307,7 +308,6 @@
             display: flex;
             padding-top: 10px;
             padding-left: 10px;
-            margin-left:20px;
         }
         .divLogo{
             width:20%;

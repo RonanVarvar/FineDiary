@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-	<!--<div class="row">-->
+	<div class="row">
       <transition name="fade">
         <router-view></router-view>
       </transition>
-   <!-- </div>-->
+   </div>
  </div>
 </template>
 
@@ -66,10 +66,9 @@ font-family:  Arimo;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
    padding:0px;
-    margin:0px;
+   margin:0px;
    width:100%;
    height:100%;
-   position: relative;
-text-align: center;
+  text-align: center;
 }
 </style>
