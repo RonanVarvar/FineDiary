@@ -66,7 +66,8 @@
         margin: 0px;
         height:100%;
         background: white;
-        padding-bottom: 40px;
+        padding-bottom: 100px;
+
     }
     li a:hover{
        color:black;

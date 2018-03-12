@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-	<div class="row">
+
       <transition name="fade">
         <router-view></router-view>
       </transition>
-   </div>
+
  </div>
 </template>
 
@@ -60,15 +60,14 @@ background: url('./assets/background.jpg') no-repeat center  fixed;
   background-position: right; /* Положение фона */
     padding: 0px;
     margin: 0px;
+
+
 }
 #app {
 font-family:  Arimo;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
-   padding:0px;
    margin:0px;
-   width:100%;
-   height:100%;
   text-align: center;
 }
 </style>

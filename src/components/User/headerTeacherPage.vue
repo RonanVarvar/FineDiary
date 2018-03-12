@@ -23,6 +23,7 @@
                 <img  src="./img/SharLogo.png">
             </div>
         </div>
+        <div style="clear: both"></div>
     </div>
 </template>
 
@@ -53,25 +54,22 @@
 <style>
     div.divHeader{
         background: rgb(0,212,125);
-        border-collapse: separate; /* Способ отображения границы */
-        border-spacing: 7px 0px; /* Расстояние между ячейками */
         text-align: left;
-        display: inline-block;
+        display: block;
         width: 100%;
-
+        height: 100%;
+        position: relative;
     }
     li a:hover, li:hover{
         color:black;
     }
-
     ul, li{
         padding: 0; margin: 0;
     }
     .divLogo{
-        vertical-align: middle;
-        display: inline-block;
-        margin-right:10%;
-        margin-left:40px;
+        float: left;
+        margin-top:22px;
+        margin-left: 22px;
         font-size: 22px;
     }
     .divLogo img, .divLogo span, .ulMenu, li.cell, .searchDiv, .LeftInfo, div.LeftInfo .inlineBlock{
@@ -93,8 +91,10 @@
     li.cell:hover{
         background: rgb(1,229,150);
     }
-
-
+    .ulMenu{
+        float: left;
+        margin-left: 100px;
+    }
     #menu{
         position: relative;
     }
@@ -125,10 +125,11 @@
         background: none;
         cursor: pointer;
     }
-
-
     .searchDiv{
-        margin-left: 20%;
+        float: right;
+        margin-right: 22px;
+        margin-top: 26px;
+        vertical-align: middle;
     }
 
     .SearchInput{
@@ -149,7 +150,9 @@
         line-height: 1.3;
         font-size: 19px;
     }
-
+    div.LeftInfo img{
+        vertical-align: middle;
+    }
     div.LeftInfo img:last-child{
         margin-left: 10px;
     }
@@ -159,25 +162,78 @@
 
 
 
-    @media (max-width: 700px) {/*при маленьком екране блок открытый не становится  position: absolute;*/
-        div.divHeader{
-            padding-bottom: 15px;
-        }
+
+
+
+    @media screen and (min-width:1001px) and (max-width:1500px){
         .divLogo{
-            width:100%;
-            padding-top: 10px;
+            margin-top: 15px;
+        }
+        .ulMenu{
             margin-left: 20px;
         }
-
-        .ulMenu{
-            margin-top: 20px;
-            margin-left: 15px;
-            width:50%;
-            border:none;
+        li.cell a{
+            padding:30px;
         }
+        .searchDiv{
+            margin-top: 15px;
+            vertical-align: middle;
+        }
+        .SearchInput{
+            padding: 10px;
+            width:160px;
+        }
+        .searchDiv .LeftInfo span{
+            vertical-align: top;
+            font-size: 17px;
+        }
+    }
+
+    @media screen and (min-width:761px) and (max-width:1000px){
+        .divLogo{
+            margin-top: 2px;
+            margin-left: 5px;
+        }
+        .divLogo span, li.cell a, .searchDiv .LeftInfo span{
+            font-size: 17px;
+        }
+        .ulMenu{
+            margin-left: 5px;
+        }
+        li.cell a{
+            padding:21px;
+        }
+        .searchDiv{
+            margin-top: 9px;
+            margin-right: 5px;
+        }
+        .SearchInput{
+            margin-right: 0px;
+            padding: 5px;
+            width:110px;
+        }
+    }
+
+    @media (max-width:760px){ /*при маленьком екране блок открытый не становится  position: absolute;*/
+        div.divHeader{
+            padding-bottom: 180px;
+        }
+
+        .divLogo span{
+           font-size: 17px;
+        }
+        .ulMenu{position: absolute;
+            font-size: 18px;
+            width:50%;
+            left: 10px;
+            top:120px;
+            float: none;
+            margin-left: 0px;
+        }
+
         ul.menuListOpen{
             position: static;
-            display: inline-block !important;/*что бы display:none; не срабатывал */
+            display: inline-block !important;/*что бы display:none; не срабатывал*/
             border-radius: 0px;
             border:none;
             width:100%;
@@ -204,6 +260,7 @@
         }
 
         li.cell a{
+            font-size: 18px;
             padding: 0px;
             color: rgb(255,255,255);
         }
@@ -218,134 +275,73 @@
 
         }
 
-        .MenuHeader{/*не отображать пункт меню */
+        .MenuHeader{/*не отображать пункт меню*/
             display: none !important;
         }
 
         /*меню высвечивающееся*/
-        /*правая часть меню с поиском и приветствием */
+        /*правая часть меню с поиском и приветствием*/
         .searchDiv{
+            text-align: right;
             width: 40%;
-            right: 5px;
-            position: absolute;
-            top:15px;
-            margin-left: 60%;
         }
-        .SearchInput{
+        .SearchInput{width: 150px;
             border-radius: 15px;
             display:inline-block;
-            width: 90%;
-            padding: 5px;
+            padding: 9px;
             margin-bottom: 10px;
+            margin-right: 0px;
 
         }
-        div.LeftInfo .inlineBlock{
+        div.LeftInfo {
             vertical-align: top;
-            display:inline-block;
+            display:block;
         }
 
-        span.inlineBlock{
+        div.LeftInfo span.inlineBlock{
             display: inline-block;
-            width: 40%;
+            font-size: 15px;
+            margin-bottom: 0px;
             text-align: left;
-            font-size: 14px;
-            margin-bottom: 10px;
+            padding-left: 0px;
         }
-
-        div.LeftInfo div{
-            display: inline-block;
-            width: 100%;
+        div.LeftInfo img:last-child{
+            margin-right: 10px;
         }
-
-        /*правая часть меню с поиском и приветствием */
-
-
-    }
-    @media screen and (min-width:320px) and (max-width:701px){
-        .divLogo span{
-            font-size: 16px;
-        }
-    }
-    @media screen and (min-width:701px) and (max-width:1000px){
-        .divLogo{
-            width:100%;
-            padding-top: 10px;
-            margin-bottom: 10px;
-            margin-left:20px;
-        }
-
-        #menu{
-            position: relative;
-            margin-left: 60px;
-        }
-        ul.menuListOpen{
-            margin-left: -25%;
-            left:0px;
-        }
-        li.cell {
-            padding: 1px;
-        }
-        li.cell a{
-            padding: 25px;
-        }
-        .searchDiv{
-            width: 40%;
-            right: 10px;
-            position: absolute;
-            top:15px;
-            margin-left: 60%;
-            text-align: right;
-        }
-        .SearchInput{
-            display: inline-block;
-            padding: 10px;
-            margin: 0px 0px 10px 0px;
-        }
+        /*правая часть меню с поиском и приветствием*/
     }
 
-    @media screen and (min-width:1001px) and (max-width:1700px){
+    @media (max-width:420px){
         div.divHeader{
-            display: flex;
-            padding-top: 10px;
-            padding-left: 10px;
+            padding-bottom: 5px;
         }
         .divLogo{
-            width:20%;
-            display: inline-block;
-            padding: 0px;
-            margin: 0px;
+            margin-left:5px;
+            margin-top:5px;
+            display: block;
+            margin-bottom: 20px;
         }
-        #menu{
-            width:50%;
-            position: relative;
-            display: flex;
-            padding: 0px;
+        .divLogo span{
             margin-left: 0px;
+            font-size: 15px;
         }
         .ulMenu{
-            padding: 1px;
-            margin: 0px;
-            display: flex;
+            display: block;
+            margin: 20px 0px 0px 0px;
+            width: 100%;
+            position: static;
         }
-        li.cell {
-            padding: 0px;
-            display: flex;
-        }
-        li.cell a{
-            padding: 25px;
-        }
-        .searchDiv{
-            display: inline-block;
-            text-align: right;
-            padding: 0px;
-            margin: 0px;
-            width:60%;
-        }
-        .SearchInput{
-            display: inline-block;
-            padding: 6px;
-            width:180px;
+        .searchDiv{text-align: left;
+            display: block;
+            width: 90%;
+            margin-left:5px;
         }
 
+        .searchDiv div.LeftInfo span{
+            margin: 0px 0px 5px 0px;
+            display: inline-block;
+            text-align: left;
+        }
     }
+
 </style>

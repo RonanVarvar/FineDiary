@@ -180,13 +180,14 @@
 div#journal div.content {
     font-size: 0;
     padding-top: 50px;
-    padding-bottom: 50px;
-    width: 100%;
+    padding-bottom: 70px;
     display: inline-block;
     background: white;
+    width: 100%;
+
 }
 
-table {
+table{
     background: white;
     vertical-align: top;
     border-spacing: 0px;
@@ -305,78 +306,17 @@ td.width200{
 
     /*ТАБЛИЦА С ДАННЫМИ */
 
-    @media (max-width: 600px) {
-        div#journal div.table .tableCell, div#journal div.table .tableCell a{
-            margin: 0px;
-            padding: 0px;
-        }
-        div#journal div.table img.placeRight {
-            position: static;
-            display: block;
-        }
-
-    }
-    /*@media (max-width: 700px) {
-        div#journal div.journaOpened {
-            width: 900px;
-        }
-
-        div#journal div.table {
-            width: 900px;
-        }
-
-        div#journal div.wrapperForTable { /*border:1px solid yellow;
+    @media (max-width: 700px) {
+        div#journal div.content{
+            width: 100%;
             overflow: auto;
         }
-    }
 
-    @media screen and (min-width: 701px) and (max-width: 900px) {
-        div#journal div.table .tableCell {
-            padding: 0px;
-            margin: 0px;
-        }
-
-        div#journal div.table span {
-            margin: 0px 4px 0px 4px;
-        }
-
-        div#journal div.table span.makeRelative.colorGreen img.placeRight {
-            right: -10px;
-        }
-    }
-
-    @media screen and (min-width: 400px) and (max-width: 1000px) {
-        div#journal div.journaOpened button.buttonCalendar {
-            display: block;
-            position: static;
-        }
-
-        div#journal div.journaOpened div.headerWithButtons div {
-            display: block;
-            text-align: left;
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
-
-        div#journal div.journaOpened div.headerWithButtons div button:nth-child(4) {
-            display: block;
-            padding: 0px;
-            margin-top: 20px;
+        div#journal div.table{
+            width: 700px;
         }
 
     }
 
-    @media screen and (min-width: 920px) {
-        div#journal div.content {
-            width: 100%;
-        }
-    }
-
-    @media screen and (min-width: 320px) and (max-width: 1207px) {
-        div#journal div.wrapperForTable { /*border:1px solid yellow;
-            margin-top: 20px;
-        }
-
-    }*/
 
 </style>
